@@ -48,7 +48,9 @@ Here, we define the coordinate systems for data points for each code. In general
 +--------+-----------+-------------+-------+--------+-----+---------------------------------+
 |FDEM    |EH3D       |             |   X   |    Y   | up  |                                 |
 +--------+-----------+-------------+-------+--------+-----+---------------------------------+
-|FDEM    |E3D        |octree       |   X   |    Y   | up  |                                 |
+|FDEM    |E3D        |octree v1    |   X   |    Y   | up  |                                 |
++--------+-----------+-------------+-------+--------+-----+---------------------------------+
+|FDEM    |E3D        |octree v2    |   X   |    Y   | up  |                                 |
 +--------+-----------+-------------+-------+--------+-----+---------------------------------+
 |TDEM    |EM1DTM     | 1.0         |   X   |   Y    |down | :ref:`details <sign_em1d_coord>`|
 +--------+-----------+-------------+-------+--------+-----+---------------------------------+
@@ -126,9 +128,13 @@ Here, we define the sign conventions for various data types and the :ref:`time-d
 |        |           |             | - Ex, Ey, Ez with z-axis pointing upwards                                                                                           |
 |        |           |             | - Jx, Jy, Jz with z-axis pointing upwards                                                                                           |
 +--------+-----------+-------------+-------------------------------------------------------------------------------------------------------------------------------------+
-|        |           |             | - Time-dependency is :math:`+i\omega t` (:ref:`details<sign_time_conv>`)                                                            |
-|FDEM    |E3D        |octree       |                                                                                                                                     |
-|        |           |             |                                                                                                                                     |
+|        |           |             | - Time-dependency is :math:`-i\omega t` (:ref:`details<sign_time_conv>`)                                                            |
+|FDEM    |E3D        |octree ver. 1| - Hx, Hy, Hz with Z +ve downwards (:ref:`details<sign_e3d_conv>`)                                                                   |
+|        |           |             | - Ex, Ey, Ez with Z +ve downwards                                                                                                   |
++--------+-----------+-------------+-------------------------------------------------------------------------------------------------------------------------------------+
+|        |           |             | - Time-dependency is :math:`-i\omega t` (:ref:`details<sign_time_conv>`)                                                            |
+|FDEM    |E3D        |octree ver. 2| - H: Dot product of :math:`\mathbf{H}` and the direction defined by the receiver's dipole moment (:ref:`details<sign_e3dv2_conv>`)  |
+|        |           |             | - Coordinate system for data is X = Easting, Y = Northing and Z +ve downward (left-handed)                                          |
 +--------+-----------+-------------+-------------------------------------------------------------------------------------------------------------------------------------+
 |        |           |             | - H: Dot product of :math:`\mathbf{H}` and the direction defined by the receiver's dipole moment (:ref:`details<sign_em1dtm_conv>`) |
 |TDEM    |EM1DTM     |1.0          | - dB/dt: Corresponding voltage induced in the receiver coil (:ref:`details<sign_em1dtm_conv>`)                                      |
@@ -253,6 +259,41 @@ EM1DFM data
 The EM1DFM code models data for a small loop transmitter with dipole moment in the X (Easting), Y (Northing) or Z (downward) direction, and receiver coils with dipole moments in the X (Easting), Y (Northing) or Z (downward) direction. Thus a Z oriented transmitter will have a primary field which points downwards. And positive Hz values indicate fields with vertical components pointing downward. In X and Y however, the primary field and observed field components are in the Easting and Northing directions, respectively. If working outside the GIFtools framework, it is important to realize that transmitters, receivers and data are defined in a left-handed coordinate system with Z +ve downward.
 
 In GIFtools, we define transmitters and receiver for the 1D codes in the X (Easting), Y (Northing) and Z (upward) directions. So long as the appropriate sign change is applied, the EM1DFM code can be used to model data for transmitters and receivers defined within GIFtools. Therefore, the appropriate sign change is automatically applied to EM1DFM data when loaded into/exported from GIFtools.
+
+.. _sign_e3d_conv:
+
+E3D ver 1 data
+~~~~~~~~~~~~~~
+
+E3D version 1 represents the electric and magnetic fields in a left-handed coordinate system where X is Easting, Y is Northing and Z is +ve downwards. This has two consequences:
+
+	1) Positive Hz or Ez values indicate fields with vertical components pointing downward. In X and Y however, observed field components are in the Easting and Northing directions, respectively.
+	2) The user must define inductive sources in the clockwise direction (left-hand rule). For example, a horizontal loop should be defined clockwise in order for its dipole moment to be defined in the upward direction.
+
+
+
+.. _sign_e3dv2_conv:
+
+E3D ver 2 data
+~~~~~~~~~~~~~~
+
+E3D version 2 represents magnetic field data in a **left-handed** coordinate system where X is Easting, Y is Northing and Z is +ve downwards. Thus the user must define inductive sources and receivers in the clockwise direction (left-hand rule); for example, a horizontal loop should be defined clockwise in order for its dipole moment to be defined in the upward direction.
+
+For a given model, E3D version 2 computes the data by integrating the electric field (:math:`\mathbf{E}`) over each receiver loop to obtain the induced EMF, then uses the dipole moment of the receiver and Faraday's law to represent the EMF in the coil as magnetic field value. Thus:
+
+.. math::
+	d = \frac{1}{i\omega \mu A} \, \oint_C \mathbf{E} \cdot d \mathbf{l}
+
+
+If the receive loop is sufficiently small, the data are just the dot product of the total magnetic field :math:`\mathbf{H}` with the direction defining the receiver's dipole moment:
+
+.. math::
+	d = \mathbf{H} \cdot \frac{\mathbf{m}}{| \mathbf{m} |}
+
+We can see that in order to model the total field correctly, we must:
+
+	1) Define the transmitter and receiver loops according to the left-handed coordinate system
+	2) Convert any raw voltage data to a measurement of the total magnetic field
 
 
 .. _sign_em1dtm_conv:
@@ -413,8 +454,11 @@ Here, we define the physical property and data units used by each code.
 |FDEM    |EH3D       |             |- :math:`\kappa = SI` (background only)| - H: A/m                                                             |
 |        |           |             |                                       | - J: A/m :math:`\! ^2`                                               |
 +--------+-----------+-------------+---------------------------------------+----------------------------------------------------------------------+
-|        |           |             |- :math:`\sigma = S/m`                 | - E: V/m                                                             |
-|FDEM    |E3D        |octree       |- :math:`\kappa = SI` (background only)| - H: A/m                                                             |
+|        |           |             |:math:`\sigma = S/m`                   | - E: V/m                                                             |
+|FDEM    |E3D        |octree ver. 1|                                       | - H: A/m                                                             |
++--------+-----------+-------------+---------------------------------------+----------------------------------------------------------------------+
+|        |           |             |:math:`\sigma = S/m`                   | - H: A/m                                                             |
+|FDEM    |E3D        |octree ver. 2|                                       |                                                                      |
 +--------+-----------+-------------+---------------------------------------+----------------------------------------------------------------------+
 |TDEM    |EM1DTM     |1.0          |:math:`\sigma = S/m`                   | - B: nT, :math:`\mu\!` T or nT                                       |
 |        |           |             |                                       | - dB/dt: :math:`\mu\!` V, mV or V (:ref:`details<sign_em1dtm_units>`)|
@@ -460,6 +504,19 @@ IP data units
 ~~~~~~~~~~~~~
 
 Generally, IP data are represented by the measured off-time voltage (:math:`\Delta V (t)`) normalized by the transmitter current (:math:`I`); which would be in units for V/A. In this case, the user is forward modeling with and inverting for the intrinsic chargeability (:math:`\eta \in [0,1]`). If the user wishes to implement the linear model approximation, then other definitions of intrinsic chargeability (mV/V) or integrated chargeability (ms) can be used to define the chargeability. However, the units for the resulting IP data would no longer be V/A in this case.
+
+
+.. _sign_e3dv2_units:
+
+E3D ver 2 data units
+~~~~~~~~~~~~~~~~~~~~
+
+As discussed in the :ref:`data convention section <sign_e3dv2_conv>`, if the receiver loop is sufficiently small, the data are just the dot product of the total field :math:`\mathbf{H}` with the direction defining the receiver's dipole moment:
+
+.. math::
+	d = \mathbf{H} \cdot \frac{\mathbf{m}}{| \mathbf{m} |}
+
+Therefore, the units used to represent the data are H/m.
 
 .. _sign_em1dtm_units:
 
