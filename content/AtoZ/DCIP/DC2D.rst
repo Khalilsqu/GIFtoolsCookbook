@@ -29,8 +29,11 @@ Extract 2D data objects
 In the previous :ref:`simulation section <AtoZdcip_Forward>`, we have
 generated a ``DC3Ddata`` object, which we first want to invert in 2D:
 
-- :ref:`Assign simple uncertainties <objectAssignUncert>`: floor=:math:`1e-4`
+- :ref:`Assign simple uncertainties <objectAssignUncert>`
+    - % = 0
+    - floor = :math:`1e-4`
 - :ref:`Set the data/uncertainties <objectSetioHeaders>`
+- :ref:`Copy the LineID from survey <objectCombineData>`
 - :ref:`Seperate the survey lines <objectdcip3Dto2D_lineID>`
 	- Export the 2D topography at 20 m resolution.
 

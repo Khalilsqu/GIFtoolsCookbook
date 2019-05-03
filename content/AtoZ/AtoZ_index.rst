@@ -27,9 +27,10 @@ Tutorials are organized by geophysical method:
         EM1DFM: 1D and laterally constrained 3D inversion <em1dfm/index>
         EM1DTM: Laterally constrained 3D inversion using SimPEG <em1dtm/index>
         DCIP: Simulate and Invert in 2D and 3D <DCIP/index>
-        Frequency-EM: Inverting with tiled codes <FEM/index>
-        Time-EM: Inverting in 1D and 3D <TEM/index>
         MT/ZTEM: Dealing with natural source EM <NS/index>
+
+.. Frequency-EM: Inverting with tiled codes <FEM/index>
+.. Time-EM: Inverting in 1D and 3D <TEM/index>
 
 However, much of the functionality provided within GIFtools is applicable to
 multiple methods (e.g. adding geological constraints to inversions).
