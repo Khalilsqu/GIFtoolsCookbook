@@ -40,7 +40,7 @@ Use the :ref:`DCIP Survey Designer<createSurveyDCIP>`
 +------------------------+-----------------------+-----------------------+
 | Survey Type            | DC                    | DC                    |
 +------------------------+-----------------------+-----------------------+
-| Transmitters/Receivers |   pole-dipole         | dipole-dipole         |
+| Transmitters/Receivers |   pole-dipole         |   pole-dipole         |
 +------------------------+-----------------------+-----------------------+
 | IP Type                |Apparent Chargeability | Apparent Chargeability|
 +------------------------+-----------------------+-----------------------+
@@ -77,7 +77,6 @@ Merge the surveys
     - **Data Manipulation** |rarr| **Add Data** |rarr| **Merge other DCIP3D data**
     - Rename the combine object ``DCSurveyFull``
 
-- Repeat the same process for the
 
 
 .. _AtoZdcip_Forward:
@@ -95,7 +94,6 @@ Forward model DC data
 - :ref:`Run the forward simulation <fwdRun>`
 - After completion, :ref:`Load the predicted data <fwdLoadResults>`
 
-
 Forward model IP data
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -109,5 +107,4 @@ Forward model IP data
     - Select ``Surface Data Format``
 - :ref:`Run the forward simulation <fwdRun>`
 - After completion, :ref:`Load the predicted data <fwdLoadResults>`
-
 
