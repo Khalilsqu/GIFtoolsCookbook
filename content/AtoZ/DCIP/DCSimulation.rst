@@ -31,33 +31,37 @@ Create Overlapping surveys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to compare the resolving capabilities of different survey
-configurations. Using the :ref:`DCIP Survey Designer <createSurveyDCIP>`, we
-generate two survey blocks with the following parameters:
+configurations, we will generate two sets of line data with the following specifications:
 
-+-------------------+-----------------------+-----------------------+
-|                   | Block 1               | Block 2               |
-+-------------------+-----------------------+-----------------------+
-| Survey Type       |   pole-dipole         | dipole-dipole         |
-+-------------------+-----------------------+-----------------------+
-| Dimension         |   3D                  | 3D                    |
-+-------------------+-----------------------+-----------------------+
-| Topography        | TKCtopo  (apply topo) | TKCtopo  (apply topo) |
-+-------------------+-----------------------+-----------------------+
-| Centroid          | 557250 E, 7134000 N   | 557400 E, 7133600 N   |
-+-------------------+-----------------------+-----------------------+
-| Bearing           | 45d                   | 90d                   |
-+-------------------+-----------------------+-----------------------+
-| Line Length       | 1500                  | 1500                  |
-+-------------------+-----------------------+-----------------------+
-| Line Spacing      | 300                   | 100                   |
-+-------------------+-----------------------+-----------------------+
-| Nb. lines         | 5                     | 5                     |
-+-------------------+-----------------------+-----------------------+
-| Electrode Spacing | 60                    | 60                    |
-+-------------------+-----------------------+-----------------------+
-| Nb. Receivers     | 20                    | 20                    |
-+-------------------+-----------------------+-----------------------+
+Use the :ref:`DCIP Survey Designer<createSurveyDCIP>`
 
++------------------------+-----------------------+-----------------------+
+|                        | Block 1               | Block 2               |
++------------------------+-----------------------+-----------------------+
+| Survey Type            | DC                    | DC                    |
++------------------------+-----------------------+-----------------------+
+| Transmitters/Receivers |   pole-dipole         |   pole-dipole         |
++------------------------+-----------------------+-----------------------+
+| IP Type                |Apparent Chargeability | Apparent Chargeability|
++------------------------+-----------------------+-----------------------+
+| Dimension              |   3D                  | 3D                    |
++------------------------+-----------------------+-----------------------+
+| Centroid               | 557250 E, 7134000 N   | 557400 E, 7133600 N   |
++------------------------+-----------------------+-----------------------+
+| Bearing                | :math:`45^\circ`      | :math:`90^\circ`      |
++------------------------+-----------------------+-----------------------+
+| Line Length   (m)      | 1500                  | 1500                  |
++------------------------+-----------------------+-----------------------+
+| Line Spacing  (m)      | 300                   | 100                   |
++------------------------+-----------------------+-----------------------+
+| Nb. lines              | 5                     | 5                     |
++------------------------+-----------------------+-----------------------+
+| Electrode Spacing  (m) | 60                    | 60                    |
++------------------------+-----------------------+-----------------------+
+| Nb. Receivers          | 20                    | 20                    |
++------------------------+-----------------------+-----------------------+
+
+.. note:: The survey do not contain elevation information. We will let the code set the vertical position based on the discretized topography.
 
 Merge the surveys
 ^^^^^^^^^^^^^^^^^
@@ -74,12 +78,27 @@ Merge the surveys
     - Rename the combine object ``DCSurveyFull``
 
 
+
 .. _AtoZdcip_Forward:
 
-Forward model data
-^^^^^^^^^^^^^^^^^^
+Forward model DC data
+^^^^^^^^^^^^^^^^^^^^^
 
 - :ref:`Create a DC Forward <createDCIPFwd>` object
+- :ref:`Edit input options <fwdEditOptions_dcip3d>`
+    - Set ``Locations`` to ``DCSurveyFull``
+    - Set ``Topography`` to ``TOPOdata`` and select ``TKCtopo``
+    - Set ``Conductivity`` to ``TKC_condModel``
+- :ref:`Write files <fwdWriteAll>`
+    - Select ``Surface Data Format``
+- :ref:`Run the forward simulation <fwdRun>`
+- After completion, :ref:`Load the predicted data <fwdLoadResults>`
+
+Forward model IP data
+^^^^^^^^^^^^^^^^^^^^^
+
+- :ref:`Convert the DC3Ddata to an IP3Ddata object <objectdc3Dtoip3D>` object
+- :ref:`Create a IP Forward <createDCIPFwd>` object
 - :ref:`Edit input options <fwdEditOptions_dcip3d>`
     - Set ``Locations`` to ``DCSurveyFull``
     - Set ``Topography`` to ``TOPOdata`` and select ``TKCtopo``

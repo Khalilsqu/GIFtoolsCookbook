@@ -9,7 +9,7 @@ Once the equivalent-source program has run and the results loaded, GIFtools does
 
 **[Equivalent source class]** |rarr| **Copy options**
 
-.. figure:: ../../../images/esrcSimpleMenu.png
+.. figure:: ../../../../images/esrcSimpleMenu.png
     :align: center
     :width: 400
 

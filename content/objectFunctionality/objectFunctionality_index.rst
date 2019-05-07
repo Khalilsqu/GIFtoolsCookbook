@@ -33,7 +33,7 @@ Here, we describe the specific set of actions (or methods) which can be applied 
     workflow/index
     forward/index
     inversion/index
-    esProcessing/index
+    processing/index
     fortran/index
     survey/index
     model_builder/index

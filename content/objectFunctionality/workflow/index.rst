@@ -12,6 +12,7 @@ as inversions, and guide the user through the decision process.
     Inversion
     BatchInversion
     ModelSpace
+    DOI
 
 
 

@@ -9,7 +9,7 @@ Prior to running the equivalent-source program, the user must :ref:`write <esrcW
 
 **[Equivalent-source class]** |rarr| **Run** |rarr| **All**
 
-.. figure:: ../../../images/esrcRunMenu.png
+.. figure:: ../../../../images/esrcRunMenu.png
     :align: center
     :width: 400
 

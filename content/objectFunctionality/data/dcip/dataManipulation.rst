@@ -90,6 +90,17 @@ For 3D IP data, use the menu:
 
 
 
+.. _objectdc3Dtoip3D:
+
+Convert DCdata to IPdata
+------------------------
+
+It is possible to convert directly a `DC3Ddata` to `IP3Ddata` and vice versa to preserve the survey configurations.
+
+**Data manipulation** |rarr| **Convert data type** |rarr| **To DC[IP]3D data set**
+
+
+
 VTK viewer
 ^^^^^^^^^^
 

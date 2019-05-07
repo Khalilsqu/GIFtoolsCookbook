@@ -9,7 +9,7 @@ To change the options of the equivalent source, such as the mesh, data item, top
 
 **[Equivalent source class]** |rarr| **Edit options**
 
-.. figure:: ../../../images/esrcSimpleMenu.png
+.. figure:: ../../../../images/esrcSimpleMenu.png
     :align: center
     :width: 400
 

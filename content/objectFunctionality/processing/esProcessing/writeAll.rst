@@ -9,7 +9,7 @@ Prior to running the equivalent-source program, the user must write the appropri
 
 **[Equivalent-source class]** |rarr| **Write All**
 
-.. figure:: ../../../images/esrcWriteMenu.png
+.. figure:: ../../../../images/esrcWriteMenu.png
     :align: center
     :width: 400
 
