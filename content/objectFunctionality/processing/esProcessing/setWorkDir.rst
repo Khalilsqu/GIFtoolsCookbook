@@ -9,7 +9,7 @@ The working directory tells GIFtools where to output files (and run the program)
 
 **[Equivalent-source class]** |rarr| **Set working directory**
 
-.. figure:: ../../../images/esrcSimpleMenu.png
+.. figure:: ../../../../images/esrcSimpleMenu.png
     :align: center
     :width: 400
 

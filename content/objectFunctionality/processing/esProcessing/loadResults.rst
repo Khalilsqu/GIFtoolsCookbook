@@ -11,7 +11,7 @@ Once the equivalent source has run, the user may load either all or a selection 
 
 - Load selected results:   **[Equivalent-source class]** |rarr| **Load results** |rarr| **Selected results**
 
-.. figure:: ../../../images/esrcLoadMenu.png
+.. figure:: ../../../../images/esrcLoadMenu.png
     :align: center
     :width: 400
 
