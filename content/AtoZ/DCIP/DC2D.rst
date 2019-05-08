@@ -54,7 +54,7 @@ conductivity values by running a series of 2D inversions.
     - Set :math:`\alpha_s=0.0025, \alpha_x=\alpha_z=1`
     - Select data from `Line 7` (directly above the conductive kimberlite)
 - :ref:`Create a Model Space <objectFunctionalityWorkflowModelSpace>` object
-- :ref:`Edit the Model Space inversion options <objectFunctionalityWorkflowModelSpaceEdit>` and set ``mref`` over a range :math:`[1e-5,\;1e-2,\;4] in log space`
+- :ref:`Edit the Model Space inversion options <objectFunctionalityWorkflowModelSpaceEdit>` and set ``mref`` over a range :math:`[1e-5,\;5e-3,\;6] in log space`
 - :ref:`Write All and Run <objectFunctionalityWorkflowModelSpaceRun>`
 - Upon completion, :ref:`Load the results <objectFunctionalityWorkflowModelSpaceLoad>` `First to target` and :ref:`Extract model section <objectMeshExtractSections>`
 
