@@ -52,6 +52,9 @@ Basic
 
 		- For DC inversion, the data are the observed voltage, normalized by the transmitter current (i.e. :math:`\Delta V/ \! I` ).
 		- For IP inversion, the data are the apparent intrinsic chargeabilities where :math:`\eta_a \in [0,1]`.
+		- Data format:
+			- **Surface Data Format (recommended)**: Use this data format if the electrodes are at the surface. The Z-values will be excluded from the output data file and the forward modeling code will take care of projecting them at the surface. This avoid the risk of having electrodes in the air or underground.
+			- **General Data Format**: Use this option if any electrode is underground. The Z-values are specified in the output data file.
 
 	- **Topography:**
 
@@ -124,8 +127,13 @@ Advanced (Parameter 2)
 	- **Value:** a constant reference model is used
 	- **Object:** the user specifies a model object as the reference model
 
-**Weighting functions:** Here, the user may choose not to include additional model weights (**none**) or include face/model weights using a weights object
-
+**Weighting functions:** Here, the user may choose not to include additional model weights (**none**) or include face/model weights using a weights object or sensitivity-based weighting. If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion.
+	- **no weighting**: no weight is applied
+	- **Sensitivity weighting**: If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion.
+		- On cells center: the sensitivity weights are applied to the smallness term
+		- On faces: the sensitivity weights are applied on the gradient terms.
+		- threshold: apply a threshold to the sensitivity weights
+	- **Choose weighting GIFmodel**: select a GIFmodel to use as weights
 
 **Active cells:** If all cells are updated during the inversion, set as **null**. If an active cells model is supplied, only the cells which are set as active will be updated during the inversion. The values of the remaining cells are determined by the starting model.
 
