@@ -166,6 +166,11 @@ values from :math:`\delta` is a user-defined threhold parameter ([DEFAULT=1e-2])
 DCIP3D
 ======
 
+.. figure:: ../images/dc3d.png
+    :align: center
+    :width: 700
+
+    Basic (left), model and bounds (right) tabs.
 
 Functionality specific to the ``DCIPinversion`` object
 
@@ -183,6 +188,10 @@ Set for Inversion
 DCIP Octree
 ===========
 
+.. figure:: ../images/dcipoctree.png
+    :align: center
+    :width: 700
 
+    Basic (left), model options (middle) and advanced parameters  (right) tabs.
 
 
