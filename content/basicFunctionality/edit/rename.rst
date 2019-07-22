@@ -5,6 +5,8 @@
 Rename
 ======
 
+Rename objects within GIFtools:
 
+**Edit** |rarr| **Rename**
 
 
