@@ -17,7 +17,7 @@ Prior to running the inversion, the user must :ref:`write <invWriteAll>` the inv
 Run an inversion with a sensitivity prerequisite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For those inversions that require sensitivity matrices (and weighting), there are two ways of running the inversion. The first (and easiest) is use the **Run** |rarr| **All** menu. GIFtools will create a batch file and run all the necessary executables. 
+For those inversions that require sensitivity matrices (and weighting), there are two ways of running the inversion. The first (and easiest) is use the **Run** |rarr| **All** menu. GIFtools will create a batch file and run all the necessary executables.
 
 
 .. figure:: ../../../images/magInvMenu.png
@@ -30,3 +30,7 @@ For those inversions that require sensitivity matrices (and weighting), there ar
 **NOTE 2:** GIFtools gives the user the ability to run only the sensitivity and weighting if desired (see above figure). In those cases, the name of the input file will be required (and thus the write statement should have been used).
 
 
+Run a DCIP inversion with a sensitivity-weighting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For ``DCINV2D`` and ``DCINV3D``, there is an option to use sensitivity-weighting. If this option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weights and launch the full inversion.

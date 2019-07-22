@@ -139,8 +139,17 @@ In some cases, the elevations of electrodes are not given or have not been set (
     :width: 400
 
 
+.. _objectDCIPRemoveNegativeData:
 
+Remove Negative data value
+--------------------------
 
+In some cases, apparent resistivities can appear negative due to an issue in the measurements. This option allows the user to remove all data points with negative values in a specific column.
 
+**Data manipulation** |rarr| **Remove data** |rarr| **Negative data**
+
+.. figure:: ../../../../images/dcipRemoveDataMenu.png
+    :align: center
+    :width: 400
 
 
