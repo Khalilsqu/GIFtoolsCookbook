@@ -11,6 +11,7 @@ Properties allows the user to manage certain aspects of the GIFtools program and
   - :ref:`Set the start-up directory for GIFtools <projsetStartDir>`
   - :ref:`Set the number of threads to run an inversion <setOMPthreads>`
   - :ref:`Project auto-save functionality <projAutoSave>`
+  - :ref:`HDF5 Options <projHDF5opts>`
 
 **NOTE:** Setting the working directory at the start of a new project is strongly advised, as it will make files relevant to the project easy to find. Although the auto-save time is set to a default value (5 min), you may wish to change it when starting a new project
 
@@ -27,7 +28,7 @@ The project's working directory tells GIFtools where to output files general fil
 
 .. figure:: ../../../images/projectPropMenu.png
     :align: center
-    :width: 400
+    :scale: 50%
 
 **NOTE:** The shortcut for the functionality is ``control + shift + d``.
 
@@ -42,7 +43,7 @@ By default, GIFtools starts with the working directory where the executable is l
 
 .. figure:: ../../../images/projectMenu.png
     :align: center
-    :width: 400
+    :scale: 50%
 
 **NOTE:** The shortcut for the functionality is ``control + alt + d``.
 
@@ -58,7 +59,7 @@ GIF inversion programs use OpenMP to parallelize matrix-vector multiplication an
 
 .. figure:: ../../../images/projectPropMenu.png
     :align: center
-    :width: 400
+    :scale: 50%
 
 **NOTE 1:** The shortcut for the functionality is ``control + shift + d``.
 
@@ -75,7 +76,7 @@ To set the maximum number of OpenMP threads, an environment variable will need t
 
 .. figure:: ../../../images/openmpThreads1.png
    :align: center
- 
+
 
 2. Click on **Advanced System Settings** to get the the window below.
 
@@ -101,7 +102,7 @@ To set the maximum number of OpenMP threads, an environment variable will need t
 
 .. figure:: ../../../images/openmpThreads4.png
    :align: center
-   :width: 400
+   :scale: 50%
 
 
 
@@ -116,12 +117,21 @@ GIFtools will auto-save a *copy* of the project. The feature is helpful in case 
 
 .. figure:: ../../../images/projectPropMenu.png
     :align: center
-    :width: 400
+    :scale: 50%
 
 **NOTE 1:** The shortcut for saving a project is ``control + shift + t``.
 
 **NOTE 2:** The counter for auto save automatically re-sets after a project has been saved. The user can see the last time an auto save occurred in the information panel by clicking on the project in the tree.
 
 
+.. _projHDF5opts:
+
+HDF5 file options
+-----------------
+
+GIFtools projects are stored in compressed HDF5 file format. Two basics options are available to the user
+
+- **Change compression**: Allow to set the level of compression used by HDF5 [default 8]
+- **Select project H5 file**: Option to pull data from a specific file *H5* file.
 
 
