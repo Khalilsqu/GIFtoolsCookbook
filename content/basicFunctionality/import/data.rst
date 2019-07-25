@@ -299,11 +299,61 @@ DC/IP 3D data can be imported via:
 Import FEM data
 ---------------
 
-To import Frequency-domain ElectroMagnetic (FEM) data, use the main project menu: **Import** |rarr| **Data** |rarr| **Frequency-domain EM**
+To import Frequency-domain ElectroMagnetic (FEM) data, use the main project
+menu:
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM**
 
 .. figure:: ../../../images/importFEMdata.png
     :align: center
-    :width: 400
+    :scale: 60%
+
+There are three types of FEM data that can be loaded from files:
+
+EM1D format
+^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+
+Used for the :ref:`EM1DFM inversion <invEditOptions_em1dfm>` and forward modeling codes. The data position is set relative to the transmitter as specified by the `EM1DFM file format <https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_
+The following parameters are set for the user:
+
+    - **Receiver:** The dipole moment is set in units :math:`Am^2`
+    - **Normal angle from vertical:** Can be defined as a constant value in degrees (0 implies vertical dipole moment) or it can be specified by a data column
+    - **Azimuth angle from North:** Clockwise angle in degrees for the dipole moment. Can be set as a constant value or from a data column. Can be set relative to North or relative to the along-line bearing
+    - **Bearing:** Bearing sets azimuth angle for the survey in-line direction. If this angle does not exist in a data column, it can be calculate automatically
+    - **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
+    - **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
+    - **Vertical offset:** The vertical location of the receivers relative to the surface
+
+E3D v1 format
+^^^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+
+Used for the previous `E3D_v1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
+Only the transmitter geometry is defined. The receivers are defined as points measuring the fields (E, H) along the Cartesian axes.
+The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object.
+
+E3D v2 format
+^^^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+
+Used for the latest `E3D_v2 inversion code <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
+The receivers and transmitters are defined by their respective input files.
+
+    - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
+    - `Frequency file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/freqFile.html#frequencies-file>`_
+    - `Receiver file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
+    - `Transmitter file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
+
+
+
+.. figure:: ../../../images/importFEM_E3Dv2.png
+    :align: center
+    :scale: 60%
+
 
 
 GIF formatted data
@@ -483,7 +533,7 @@ Once selected, the user must do the following:
     - GIFtools assumes that impedance tensor data have column names *ZXXR, ZXXI, ZXYR, ZXYI, ZYXR, ZYXI, ZYYR* and *ZYYI* and the apparent resistivities have column names *RHOXX, PHSXX, RHOXY, RHOXY, RHOYX, RHOYX, RHOYY* and *RHOYY*.
     - GIFtools assumes the impedance data are in units mV/km/nT and will converted these data to V/A as required by GIF inversion programs.
     - If impedance data are being imported, GIFtools will import all other data columns but will *NOT* modify them in any way. Thus if ZTEM or other data exist in the EDI files, it is up to the user to apply the appropriate corrections upon loading.
-    
+
 
 .. _importNSEMData_ascii:
 

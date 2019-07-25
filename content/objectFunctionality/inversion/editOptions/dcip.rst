@@ -127,6 +127,9 @@ Advanced (Parameter 2)
 	- **Value:** a constant reference model is used
 	- **Object:** the user specifies a model object as the reference model
 
+
+.. _invDCIP3DCreateSensWeights:
+
 **Weighting functions:** Here, the user may choose not to include additional model weights (**none**) or include face/model weights using a weights object or sensitivity-based weighting. (see section :ref:`Import sensitivity as weights <importSensWeights>`).
 	- **no weighting**: no weight is applied
 	- **Sensitivity weighting**: If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion.
