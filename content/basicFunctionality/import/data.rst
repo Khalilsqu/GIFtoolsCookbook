@@ -321,13 +321,20 @@ relative to the transmitter as specified by the `EM1DFM file format
 <https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
 The following parameters are set for the user:
 
-    - **Transmitters:** Dipole transmitter with moment specified and orientation specified
-    - **Receiver:** The dipole moment is set in units :math:`Am^2`
-    - **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
-    - **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
-    - **Vertical offset:** The vertical location of the receivers relative to the surface
+    - **Transmitters:**
+        - **Dipole moment:** Set by argument
+        - **Orientation** Set by argument
+        - **Along-line offset (m) =** 0
+        - **Cross-line offset (m) =** 0
+        - **Vertical offset (m):** Relative to topography
 
-.. note:: The position of the data is set by the "sounding" location. Only relative offsets between the transmitters and receivers are available in the EM1DFM format. Data locations have been assigned to the transmitter location upon import for consistency.
+    - **Receiver:**
+        - **Dipole moment:** Set by argument
+        - **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
+        - **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
+        - **Vertical offset:** Relative to topography
+
+.. note:: The position of the data is set by the "sounding" location. Only the relative offsets between the transmitters and receivers are available in the EM1DFM format. Data locations have been assigned to the transmitter locations upon import for consistency.
 
 
 E3Dv1 format
@@ -337,6 +344,8 @@ E3Dv1 format
 
 Creates a :ref:`FEMdata <objectEMdtype_FEMdata>` used for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
 Only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
+
+.. note:: The :ref:`FEMdata <objectEMdtype_FEMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary orientation, consider making use of the :ref:`FEMsounding <objectEMdtype_FEMsounding>` class.
 
 
 E3Dv2 format
@@ -356,6 +365,7 @@ The receivers and transmitters are defined by their respective input files.
     - `Receiver file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
     - `Transmitter file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
 
+.. note:: Both the transmitters and receivers geometry are defined in 3D. The relative offsets can be calculated using the :ref:`Calculate Transmitter/Receiver separation <calculateTxRxSeperation>` function.
 
 XYZ and CSV data
 ^^^^^^^^^^^^^^^^

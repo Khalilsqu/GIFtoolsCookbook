@@ -13,7 +13,7 @@ Extract data based on times or frequencies
 To extract all the data associated with a certain time(s) or frequency(ies), click on the data item of interest and use the menu:
 
 - TEM data: **Data manipulation** |rarr| **Time-based extraction of data**
- 
+
 - FEM data: **Data manipulation** |rarr| **Frequency-based extraction of data**
 
 
@@ -33,7 +33,7 @@ View and/or edit the times or frequencies of a data set
 To view (with the option to edit) the times or frequencies within a data set, click on the data item of interest and use the menu:
 
 - TEM data: **Data manipulation** |rarr| **Change or view times**
- 
+
 - FEM data: **Data manipulation** |rarr| **Change or view frequencies**
 
 
@@ -108,4 +108,11 @@ The options for defining the units of the time column are as follows:
     - **micro-seconds**
     - **milli-seconds**
     - **seconds**
+
+.. _calculateTxRxSeperation:
+
+Calculate Transmitter-Receiver seperation
+-----------------------------------------
+
+This function computes the in-line, cross-line and vertical seperation between the transmitter and receiver for each datum.
 
