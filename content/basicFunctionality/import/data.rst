@@ -299,7 +299,7 @@ DC/IP 3D data can be imported via:
 Import FEM data
 ---------------
 
-To import Frequency-domain ElectroMagnetic (FEM) data, use the main project
+To import Frequency-domain electromagnetic (FEM) data, use the main project
 menu:
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM**
@@ -315,32 +315,40 @@ EM1D format
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
 
-Used for the :ref:`EM1DFM inversion <invEditOptions_em1dfm>` and forward modeling codes. The data position is set relative to the transmitter as specified by the `EM1DFM file format <https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_
+Loads a :ref:`FEM1Dsounding <objectEMdtype_FEM1Dsounding>` data object needed to the :ref:`EM1DFM inversion
+<invEditOptions_em1dfm>` and forward modeling codes. The data position is set
+relative to the transmitter as specified by the `EM1DFM file format
+<https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
 The following parameters are set for the user:
 
+    - **Transmitters:** Dipole transmitter with moment specified and orientation specified
     - **Receiver:** The dipole moment is set in units :math:`Am^2`
-    - **Normal angle from vertical:** Can be defined as a constant value in degrees (0 implies vertical dipole moment) or it can be specified by a data column
-    - **Azimuth angle from North:** Clockwise angle in degrees for the dipole moment. Can be set as a constant value or from a data column. Can be set relative to North or relative to the along-line bearing
-    - **Bearing:** Bearing sets azimuth angle for the survey in-line direction. If this angle does not exist in a data column, it can be calculate automatically
     - **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
     - **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
     - **Vertical offset:** The vertical location of the receivers relative to the surface
 
-E3D v1 format
-^^^^^^^^^^^^^
+.. note:: The position of the data is set by the "sounding" location. Only relative offsets between the transmitters and receivers are available in the EM1DFM format. Data locations have been assigned to the transmitter location upon import for consistency.
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
 
-Used for the previous `E3D_v1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
-Only the transmitter geometry is defined. The receivers are defined as points measuring the fields (E, H) along the Cartesian axes.
-The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object.
+E3Dv1 format
+^^^^^^^^^^^^
 
-E3D v2 format
-^^^^^^^^^^^^^
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D format**
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+Creates a :ref:`FEMdata <objectEMdtype_FEMdata>` used for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
+Only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
 
-Used for the latest `E3D_v2 inversion code <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
+
+E3Dv2 format
+^^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3Dv2 format**
+
+.. figure:: ../../../images/importFEM_E3Dv2.png
+    :align: center
+    :scale: 60%
+
+Loads a :ref:`FEM3Dsounding <objectEMdtype_FEM3Dsounding>` data object used for the latest `E3Dv2 inversion code <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
 The receivers and transmitters are defined by their respective input files.
 
     - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
@@ -349,28 +357,19 @@ The receivers and transmitters are defined by their respective input files.
     - `Transmitter file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
 
 
-
-.. figure:: ../../../images/importFEM_E3Dv2.png
-    :align: center
-    :scale: 60%
-
-
-
-GIF formatted data
-^^^^^^^^^^^^^^^^^^
-
-GIF formatted FEM data contains all necessary transmitter, receiver and frequency information. As a result, no further steps are required when loading GIF formatted data into GIFtools.
-
-
 XYZ and CSV data
 ^^^^^^^^^^^^^^^^
 
-These data types do not contain transmitter, receiver and frequency information, only the raw data. As a result, an additional window will pop up when loading FEM data in these formats. The user will also be required to set transmitter (**link**) and receiver (**link**) information once the data are loaded.
-
+These data types do not contain transmitter, receiver and frequency
+information, only the raw data. As a result, an additional window will pop up
+when loading FEM data in these formats.
 
 .. figure:: ../../../images/importFEM_other.png
     :align: center
     :width: 700
+
+
+.. note:: It is recommended to load the raw data as `FEM3Dsounding` object such that both transmitters and receivers can be defined at every location using :ref:`Create offset Tx/Rx <objectEMaddTx>`.
 
 
 **Step 1: assign spatial data, specify frequencies and number of data type**

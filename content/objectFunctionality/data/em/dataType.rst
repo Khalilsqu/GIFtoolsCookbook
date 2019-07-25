@@ -2,42 +2,24 @@
 
 .. include:: <isonum.txt>
 
-EM Data Menu
-============
+FEM Data
+========
+
+There are two main types of EM data that can be created in GIFtools:
+
+ - :ref:`EMdata <objectEMdtype_FEMdata>`: Used by the original `E3Dv1 inversion <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_
+ - :ref:`EMsounding <objectEMdtype_FEMsounding>`: Used by the `EM1DFM <https://em1dfm.readthedocs.io/en/latest/#em1dfm-package>`_ and the latest `E3Dv2 inversion <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_
 
 
-
-EMsounding
-^^^^^^^^^^
-
-For FEM and TEM soundings (for use in the 1D codes), the receiver locations are set **relative to the transmitter locations**. The following parameters are set:
-
-.. _objectEMdtype_EM1Dsounding:
-
-1Dsounding
-----------
-
-	- **Receiver:** The dipole moment is set in units :math:`Am^2`
-	- **Normal angle from vertical:** Can be defined as a constant value in degrees (0 implies vertical dipole moment) or it can be specified by a data column
-	- **Azimuth angle from North:** Clockwise angle in degrees for the dipole moment. Can be set as a constant value or from a data column. Can be set relative to North or relative to the along-line bearing
-	- **Bearing:** Bearing sets azimuth angle for the survey in-line direction. If this angle does not exist in a data column, it can be calculate automatically
-	- **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
-	- **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
-	- **Vertical offset:** The vertical location of the receivers relative to the surface
-
-
-.. _objectEMdtype_EM3Dsounding:
-
-3Dsounding
-----------
-
-
-
-.. _objectEMdtype_EMdata:
+.. _objectEMdtype_FEMdata:
 
 EMdata
 ^^^^^^
 
+in the original `E3Dv1 inversion
+<https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_
+code, only the transmitters geometry needs to be defined. Receivers are
+assumed to be point measurements of the fields (E, H) along the Cartesian directions.
 
 
 .. _objectEMaddTx:
@@ -60,6 +42,28 @@ Select the object and the menu **"data type menu"** |rarr| **Add transmitters**
 .. important:: Make sure you have :ref:`set i/o headers<objectSetioHeaders>` for the xyz-data locations. This functionality computes the transmitter locations based on the i/o headers.
 
 
+
+.. _objectEMremoveTx:
+
+Remove Transmitters
+-------------------
+
+This functionality allows the user to remove transmitter information from the data object.
+
+Select the object and the menu **"data type menu"** |rarr| **Remove transmitters**
+
+
+
+
+.. _objectEMdtype_FEMsounding:
+
+EMsounding
+^^^^^^^^^^
+
+For FEM and TEM soundings (for use in the 1D codes), the receiver locations are set **relative to the transmitter locations**. The following parameters are set:
+
+
+
 .. _objectEMaddRx:
 
 Add Receivers
@@ -79,15 +83,24 @@ Select the object and the menu **"data type menu"** |rarr| **Add receivers**
     An example of the fields for airborne FEM circular loop receivers
 
 
+.. _objectEMdtype_FEM1Dsounding:
 
-.. _objectEMremoveTx:
+1Dsounding
+----------
 
-Remove Transmitters
--------------------
+	- **Receiver:** The dipole moment is set in units :math:`Am^2`
+	- **Normal angle from vertical:** Can be defined as a constant value in degrees (0 implies vertical dipole moment) or it can be specified by a data column
+	- **Azimuth angle from North:** Clockwise angle in degrees for the dipole moment. Can be set as a constant value or from a data column. Can be set relative to North or relative to the along-line bearing
+	- **Bearing:** Bearing sets azimuth angle for the survey in-line direction. If this angle does not exist in a data column, it can be calculate automatically
+	- **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
+	- **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
+	- **Vertical offset:** The vertical location of the receivers relative to the surface
 
-This functionality allows the user to remove transmitter information from the data object.
 
-Select the object and the menu **"data type menu"** |rarr| **Remove transmitters**
+.. _objectEMdtype_FEM3Dsounding:
+
+3Dsounding
+----------
 
 
 
