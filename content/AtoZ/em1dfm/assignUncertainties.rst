@@ -58,7 +58,7 @@ In addition to raw geophysical data, you may have access to topographical inform
 Add Transmitter, Receiver and Elevation Information
 ---------------------------------------------------
 
-.. figure:: ./../../../images/AtoZ_fem1d/create_FEM_Tx_Rx.png
+.. figure:: ./../../../images/object/data/em/create_FEM_Tx_Rx.png
     :align: right
     :scale: 50%
 

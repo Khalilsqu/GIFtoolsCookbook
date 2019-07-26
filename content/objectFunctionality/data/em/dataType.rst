@@ -2,8 +2,8 @@
 
 .. include:: <isonum.txt>
 
-FEM Data
-========
+FEM Data Objects
+================
 
 There are two main types of EM data that can be created in GIFtools:
 
@@ -13,13 +13,17 @@ There are two main types of EM data that can be created in GIFtools:
 
 .. _objectEMdtype_FEMdata:
 
-EMdata
-^^^^^^
+FEMdata
+^^^^^^^
 
 in the original `E3Dv1 inversion
 <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_
 code, only the transmitters geometry needs to be defined. Receivers are
 assumed to be point measurements of the fields (E, H) along the Cartesian directions.
+
+.. figure:: ../../../../images/object/data/em/EMdata.png
+    :align: center
+    :scale: 75%
 
 
 .. _objectEMaddTx:
@@ -27,7 +31,8 @@ assumed to be point measurements of the fields (E, H) along the Cartesian direct
 Add Transmitters
 ----------------
 
-GIF formatted FEM (link) and TEM (link) contain all necessary information pertaining to the transmitters and receivers. However, XYZ formatted FEM and TEM data do not (links). Here, the user may specify the transmitter locations and properties based on the data locations for XYZ and CSV formatted data.
+Here, the user may specify the transmitter locations
+and properties based on the data locations.
 
 Select the object and the menu **"data type menu"** |rarr| **Add transmitters**
 
@@ -36,7 +41,10 @@ Select the object and the menu **"data type menu"** |rarr| **Add transmitters**
     :align: center
     :width: 400
 
-    An example of the fields for airborne FEM circular loop transmitters
+
+.. figure:: ../../../../images/object/data/em/PitchRollYaw.png
+    :align: center
+    :scale: 100%
 
 
 .. important:: Make sure you have :ref:`set i/o headers<objectSetioHeaders>` for the xyz-data locations. This functionality computes the transmitter locations based on the i/o headers.
@@ -62,6 +70,9 @@ EMsounding
 
 For FEM and TEM soundings (for use in the 1D codes), the receiver locations are set **relative to the transmitter locations**. The following parameters are set:
 
+.. figure:: ../../../../images/object/data/em/create_FEM_Tx_Rx.png
+    :align: center
+    :scale: 75%
 
 
 .. _objectEMaddRx:
@@ -69,18 +80,7 @@ For FEM and TEM soundings (for use in the 1D codes), the receiver locations are 
 Add Receivers
 -------------
 
-GIF formatted FEM (link) and TEM (link) contain all necessary information pertaining to the transmitters and receivers. However, XYZ formatted FEM and TEM data do not (links). Here, the user may specify the receiver locations and properties based on the data locations for XYZ and CSV formatted data.
-
-Select the object and the menu **"data type menu"** |rarr| **Add receivers**
-
-**Requirement:** Transmitters must be set
-
-
-.. figure:: ../../../../images/object/data/em/addReceivers.png
-    :align: center
-    :width: 400
-
-    An example of the fields for airborne FEM circular loop receivers
+See the :ref:`Add Transmitter <objectEMaddTx>` function.
 
 
 .. _objectEMdtype_FEM1Dsounding:
@@ -102,6 +102,9 @@ Select the object and the menu **"data type menu"** |rarr| **Add receivers**
 3Dsounding
 ----------
 
+.. figure:: ../../../../images/object/data/em/EM3DSoundingOffsets.png
+    :align: center
+    :scale: 75%
 
 
 
