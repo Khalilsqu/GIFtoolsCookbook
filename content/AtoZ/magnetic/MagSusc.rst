@@ -152,7 +152,7 @@ Step by step
 
 - **Step 5: De-trend and re-run**
     - Using the Mag data object, :ref:`compute the first-order polynomial trend<objectPolyTrend>`
-    - Using the :ref:`column calculator <objectColumnCalculator>`, remove the polynomial trend from your data
+    - Using the :ref:`Calculator <objectCalculator>`, remove the polynomial trend from your data
     - :ref:`Set the IO header <objectSetioHeaders>` for data column to be the detrended data
     - To create an inversion object with the same parameters as a previous one, use :ref:`create a new inversion copy <invCopyOptions>`
     - :ref:`Write all files <invWriteAll>` to inversion directory

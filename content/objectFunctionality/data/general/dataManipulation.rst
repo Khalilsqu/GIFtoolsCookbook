@@ -105,7 +105,7 @@ Any data column may have a polynomial trend calculated. For access to this featu
     :align: center
     :width: 400
 
-**NOTE 1:** For removal of the trend, see the :ref:`Column calculator <objectColumnCalculator>` for how to subtract one column from another within a data object.
+**NOTE 1:** For removal of the trend, see the :ref:`Calculator <objectCalculator>` for how to subtract one column from another within a data object.
 
 **NOTE 2:** The calculation of a polynomial trend can be accessed in the :ref:`data viewer <viewData>`. Data first need to be selected via the **View** |rarr| **Edit** |rarr| **Data selection** tab of the viwer control dialog. Then select its neighbouring tab: **View** |rarr| **Edit** |rarr| **Regional fit**. A new data column name is manditory as well as the degree of polynomial.
 
@@ -115,37 +115,38 @@ Any data column may have a polynomial trend calculated. For access to this featu
 
 
 
-.. _objectConstantCalculator:
+.. _objectCalculator:
 
 Apply a simple math operation to data
 -------------------------------------
 
-This functionality is used to apply basic math operations to a column of data. To access this functionality, click on the data item of interest and use the menu:
+This functionality is used to apply basic math operations to a column of data.
+To access this functionality, click on the data item of interest and use the
+menu:
 
-**Data manipulation** |rarr| **Calculate** |rarr| **Constant calculator**
+**Data manipulation** |rarr| **Calculate**
 
 Actions can be performed through the following pop-up window:
 
-.. figure:: ../../../../images/dataCalculate.png
-    :align: center
-    :width: 375
+    .. figure:: ../../../../images/dataCalculate.png
+        :align: center
+        :scale: 100%
 
-**Step 1:** Choose a 'Property' (data column) from the drop-down menu
 
-**Step 2:** Enter a number into the field for 'Value'
-
-**Step 3:** For :math:`x` (selected column), :math:`c` (Value) and :math:`y` (new column), choose from the following set of mathematical operations.
-
-	- *Addition:* adds 'Value' to the selected column; e.g. :math:`y = x + c`
-	- *Subtraction:* subtracts 'Value' from the selected column; e.g. :math:`y = x - c`
-	- *Multiplication:* multiplies the selected column by 'Value'; e.g. :math:`y = x \times c`
-	- *Division:* divides the selected column by 'Value'; e.g. :math:`y = x / c`
-	- *Exponent:* computes each entry in the selected column to the power of 'Value'; e.g. :math:`y = x^c`
-	- *Min:* returns the smaller of the two values when comparing 'Value' to each entry in the selected column; e.g. :math:`y = \textrm{min}(x,c)`
-	- *Max:* returns the larger of the two values when comparing 'Value' to each entry in the selected column; e.g. :math:`y = \textrm{max}(x,c)`
-
+**Step 1:** For :math:`x` (selected column), :math:`c` (Value) and :math:`y` (new column), choose from the following set of mathematical operations.
+    - *Addition:* adds 'Value' to the selected column; e.g. :math:`y = x + c`
+    - *Subtraction:* subtracts 'Value' from the selected column; e.g. :math:`y = x - c`
+    - *Multiplication:* multiplies the selected column by 'Value'; e.g. :math:`y = x \times c`
+    - *Division:* divides the selected column by 'Value'; e.g. :math:`y = x / c`
+    - *Exponent:* computes each entry in the selected column to the power of 'Value'; e.g. :math:`y = x^c`
+    - *Min:* returns the smaller of the two values when comparing 'Value' to each entry in the selected column; e.g. :math:`y = \textrm{min}(x,c)`
+    - *Max:* returns the larger of the two values when comparing 'Value' to each entry in the selected column; e.g. :math:`y = \textrm{max}(x,c)`
+**Step 2: Set :math:`x`** Choose a 'Property' (data column) from the drop-down menu
+    - OPTIONAL: For :ref:`EMdata <objectEMdtype_FEMdata>` objects, operations can be applied on a single frequency or time channel.
+**Step 3: Set :math:`c`**
+    - OPTION 1: Chose a column from the object
+    - OPTION 2: Enter a number into the field for 'Value'
 **Step 4:** Determine if new column is created
-
 	- *Create is not selected:* The new column of data will replace the selected column of data
 	- *Create is selected:* A new column is created for the calculated data and a name must be provided
 
@@ -155,42 +156,42 @@ Actions can be performed through the following pop-up window:
 .. note:: Spatial (X,Y) :ref:`i/o Headers <objectSetioHeaders>` are not shown within the calculator. To apply the constant calculator to the x- or y-coordinates, remove them from the i/o header.
 
 
-.. _objectColumnCalculator:
+.. .. _objectColumnCalculator:
 
-Apply a column-to-column math operation to data
------------------------------------------------
+.. Apply a column-to-column math operation to data
+.. -----------------------------------------------
 
-This functionality allows the user to perform basic math operations using two data columns. To access this functionality, click on the data item of interest and use the menu:
+.. This functionality allows the user to perform basic math operations using two data columns. To access this functionality, click on the data item of interest and use the menu:
 
-**Data manipulation** |rarr| **Calculate** |rarr| **Column calculator**
+.. **Data manipulation** |rarr| **Calculate** |rarr| **Column calculator**
 
-Actions can be performed through the following pop-up window:
+.. Actions can be performed through the following pop-up window:
 
-.. figure:: ../../../../images/columnCalculate.png
-    :align: center
-    :width: 500
+.. .. figure:: ../../../../images/columnCalculate.png
+..     :align: center
+..     :width: 500
 
-**Step 1:** From the drop down menus, choose data columns for 'Column 1' and 'Column 2'
+.. **Step 1:** From the drop down menus, choose data columns for 'Column 1' and 'Column 2'
 
-**Step 2:** For :math:`x_1` (Column 1), :math:`x_2` (Column 2) and :math:`y` (new column), choose from the following set of mathematical operations.
+.. **Step 2:** For :math:`x_1` (Column 1), :math:`x_2` (Column 2) and :math:`y` (new column), choose from the following set of mathematical operations.
 
-	- *Addition:* adds column 2 to column 1; e.g. :math:`y = x_1 + x_2`
-	- *Subtraction:* subtracts column 2 from column 1; e.g. :math:`y = x_1 - x_2`
-	- *Multiplication:* multiplies column 1 and column 2; e.g. :math:`y = x_1 \times x_2`
-	- *Division:* divides column 1 by column 2; e.g. :math:`y = x_1 / x_2`
-	- *Exponent:* computes column 1 to the power of column 2; e.g. :math:`y = x_1^{x_2}`
-	- *Min:* returns the smaller of the two values when comparing column 1 to column 2; e.g. :math:`y = \textrm{min}(x_1,x_2)`
-	- *Max:* returns the larger of the two values when comparing column 1 to column 2; e.g. :math:`y = \textrm{max}(x_1,x_2)`
+.. 	- *Addition:* adds column 2 to column 1; e.g. :math:`y = x_1 + x_2`
+.. 	- *Subtraction:* subtracts column 2 from column 1; e.g. :math:`y = x_1 - x_2`
+.. 	- *Multiplication:* multiplies column 1 and column 2; e.g. :math:`y = x_1 \times x_2`
+.. 	- *Division:* divides column 1 by column 2; e.g. :math:`y = x_1 / x_2`
+.. 	- *Exponent:* computes column 1 to the power of column 2; e.g. :math:`y = x_1^{x_2}`
+.. 	- *Min:* returns the smaller of the two values when comparing column 1 to column 2; e.g. :math:`y = \textrm{min}(x_1,x_2)`
+.. 	- *Max:* returns the larger of the two values when comparing column 1 to column 2; e.g. :math:`y = \textrm{max}(x_1,x_2)`
 
-**Step 3:** Determine if new column is created
+.. **Step 3:** Determine if new column is created
 
-	- *New column is not selected:* The new column of data will replace 'Column 1'
-	- *New column is selected:* A new column is created for the calculated data and a name must be provided
+.. 	- *New column is not selected:* The new column of data will replace 'Column 1'
+.. 	- *New column is selected:* A new column is created for the calculated data and a name must be provided
 
-**Step 4:** Apply operation to only certain times/frequencies. This is good if you want to replace values in a column but only for certain times/frequencies.
+.. **Step 4:** Apply operation to only certain times/frequencies. This is good if you want to replace values in a column but only for certain times/frequencies.
 
 
-.. note:: Spatial (X,Y) :ref:`i/o Headers <objectSetioHeaders>` are not shown within the calculator. To apply the constant calculator to the x- or y-coordinates, remove them from the i/o header.
+.. .. note:: Spatial (X,Y) :ref:`i/o Headers <objectSetioHeaders>` are not shown within the calculator. To apply the constant calculator to the x- or y-coordinates, remove them from the i/o header.
 
 
 

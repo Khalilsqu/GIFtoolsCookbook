@@ -71,7 +71,7 @@ Merge the surveys
     :figwidth: 50%
 
 - Since we are creating two separate surveys, the ``lineID`` assigned to Block 1 and 2 will be repeated. We will add a constant to the line ID so that they are all unique identifiers.
-    - :ref:`Add constant value <objectConstantCalculator>` to Block 2 ``lineID`` property (+ 5)
+    - :ref:`Add constant value <objectCalculator>` to Block 2 ``lineID`` property (+ 5)
 
 - Select Block 1 and :ref:`combine block 2 <objectCombineData>` to form one large survey.
     - **Data Manipulation** |rarr| **Add Data** |rarr| **Merge other DCIP3D data**

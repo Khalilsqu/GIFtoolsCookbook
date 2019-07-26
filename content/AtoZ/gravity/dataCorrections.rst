@@ -89,11 +89,11 @@ mGal is given by:
 .. math::
     \Delta g_{fa} = 0.3086 \times Elevation(m)
 
-To apply these corrections to the raw data, carry out the following steps:
+To apply these corrections to the raw data, carry out the following steps using the :ref:`constant calculator <objectCalculator>`:
 
-    - With the latitude correction provided (982217.559014 mGal), use the :ref:`constant calculator <objectConstantCalculator>` to remove this value from the raw data and create a new column. **Carry all decimal places!**
-    - Using the :ref:`constant calculator <objectConstantCalculator>`, compute the free-air correction that must be added to each survey location.
-    - Using the :ref:`column calculator <objectColumnCalculator>`, apply the free-air correction.
+    - With the latitude correction provided (982217.559014 mGal) remove this value from the raw data and create a new column. **Carry all decimal places!**
+    - Compute the free-air correction that must be added to each survey location.
+    - Apply the free-air correction.
 
 .. tip:: To keep track of data columns, remember to :ref:`edit data headers <objectDataHeaders>`.
 

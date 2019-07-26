@@ -30,7 +30,7 @@ Import Files
 	- Ensure that :ref:`IO headers are set <objectSetioHeaders>` for all impedance data.
 
 
-.. note:: In this case, MT data are in a widely used coordinate system which matches that of the GIF codes. If a non-standard coordinate system is being used in the EDI files, it is imperative the user transform the data to GIF within GIFtools before inverting. This can be done by :ref:`changing data headers <objectDataHeaders>`, :ref:`multiplying certain columns by -1 <objectConstantCalculator>` and/or :ref:`re-setting io Headers <objectSetioHeaders>`.
+.. note:: In this case, MT data are in a widely used coordinate system which matches that of the GIF codes. If a non-standard coordinate system is being used in the EDI files, it is imperative the user transform the data to GIF within GIFtools before inverting. This can be done by :ref:`changing data headers <objectDataHeaders>`, :ref:`multiplying certain columns by -1 <objectCalculator>` and/or :ref:`re-setting io Headers <objectSetioHeaders>`.
 
 
 Interpreting the data
