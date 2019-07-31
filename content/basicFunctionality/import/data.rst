@@ -296,8 +296,8 @@ DC/IP 3D data can be imported via:
 
 .. _importFemData:
 
-Import FEM data
----------------
+Import GIF FEM data
+-------------------
 
 To import Frequency-domain electromagnetic (FEM) data, use the main project
 menu:
@@ -310,15 +310,23 @@ menu:
 
 There are three types of FEM data that can be loaded from files:
 
-EM1D format
-^^^^^^^^^^^
+    - :ref:`EM1DFM format <importEM1DFMdata>`
+    - :ref:`E3Dv1 format <importE3Dv1data>`
+    - :ref:`E3Dv2 format <importE3Dv1data>`
+
+
+.. _importEM1DFMdata:
+
+EM1DFM format
+^^^^^^^^^^^^^
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
 
-Loads a :ref:`FEM1Dsounding <objectEMdtype_FEM1Dsounding>` data object needed to the :ref:`EM1DFM inversion
+Loads a data file for the :ref:`EM1DFM inversion
 <invEditOptions_em1dfm>` and forward modeling codes. The data position is set
 relative to the transmitter as specified by the `EM1DFM file format
-<https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
+<https://em1dfm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
+The function returns a :ref:`FEM1Dsounding <objectEMdtype_FEM1Dsounding>` object.
 The following parameters are set for the user:
 
     - **Transmitters:**
@@ -337,16 +345,20 @@ The following parameters are set for the user:
 .. note:: The position of the data is set by the "sounding" location. Only the relative offsets between the transmitters and receivers are available in the EM1DFM format. Data locations have been assigned to the transmitter locations upon import for consistency.
 
 
+.. _importE3Dv1data:
+
 E3Dv1 format
 ^^^^^^^^^^^^
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D format**
 
-Creates a :ref:`FEMdata <objectEMdtype_FEMdata>` used for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
-Only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
+Loads data files formated for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
+The function returns a :ref:`FEMdata <objectEMdtype_FEMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
 
 .. note:: The :ref:`FEMdata <objectEMdtype_FEMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary orientation, consider making use of the :ref:`FEMsounding <objectEMdtype_FEMsounding>` class.
 
+
+.. _importE3Dv2data:
 
 E3Dv2 format
 ^^^^^^^^^^^^
@@ -357,7 +369,9 @@ E3Dv2 format
     :align: center
     :scale: 60%
 
-Loads a :ref:`FEM3Dsounding <objectEMdtype_FEM3Dsounding>` data object used for the latest `E3Dv2 inversion code <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
+Loads data used by the latest `E3Dv2 inversion code
+<https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
+The function returns a :ref:`FEM3Dsounding <objectEMdtype_FEM3Dsounding>` object.
 The receivers and transmitters are defined by their respective input files.
 
     - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
@@ -367,24 +381,117 @@ The receivers and transmitters are defined by their respective input files.
 
 .. note:: Both the transmitters and receivers geometry are defined in 3D. The relative offsets can be calculated using the :ref:`Calculate Transmitter/Receiver separation <calculateTxRxSeperation>` function.
 
-XYZ and CSV data
-^^^^^^^^^^^^^^^^
 
-These data types do not contain transmitter, receiver and frequency
-information, only the raw data. As a result, an additional window will pop up
-when loading FEM data in these formats.
+.. _importTemData:
+
+Import GIF TEM data
+-------------------
+
+To import Time-domain ElectroMagnetic (TEM) data, use the main project menu:
+
+**Import** |rarr| **Data** |rarr| **Time-domain EM**
+
+.. figure:: ../../../images/importTEMdata/importTEMdata.png
+    :align: center
+    :scale: 75%
+
+
+There are three types of FEM data that can be loaded from files:
+
+    - :ref:`EM1DTM format <importEM1DTMdata>`
+    - :ref:`H3DTD | TDoctree v1 format <importTDoctreeV1data>`
+    - :ref:`TDoctree v2 format <importTDoctreeV2data>`
+
+
+.. _importEM1DTMdata:
+
+EM1DTM format
+^^^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+
+Loads a data file for the :ref:`EM1DTM inversion
+<invEditOptions_em1dtm>` and forward modeling codes. The data position is set
+relative to the transmitter as specified by the `EM1DTM file format
+<https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
+The function returns a :ref:`TEM1Dsounding <objectEMdtype_TEM1Dsounding>` object.
+The following parameters are set for the user:
+
+    - **Transmitters:**
+        - **Dipole moment:** Set by argument
+        - **Orientation** Set by argument
+        - **Along-line offset (m) =** 0
+        - **Cross-line offset (m) =** 0
+        - **Vertical offset (m):** Relative to topography
+
+    - **Receiver:**
+        - **Dipole moment:** Set by argument
+        - **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
+        - **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
+        - **Vertical offset:** Relative to topography
+
+.. note:: The position of the data is set by the "sounding" location. Only the relative offsets between the transmitters and receivers are available in the EM1DFM format. Data locations have been assigned to the transmitter locations upon import for consistency.
+
+
+.. _importTDoctreeV1data:
+
+H3DTD | TDoctree v1 format
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF H3DTD | TDoctree v1 format**
+
+Loads data files formated for the original `H3DTD data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
+The function returns a :ref:`TEMdata <objectEMdtype_TEMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
+
+.. note:: The :ref:`TEMdata <objectEMdtype_TEMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary orientation, consider making use of the :ref:`FEMsounding <objectEMdtype_FEMsounding>` class.
+
+
+.. _importTDoctreeV2data:
+
+TDoctree v2 format
+^^^^^^^^^^^^^^^^^^
+
+**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF TDoctree v2 format**
+
+.. figure:: ../../../images/importFEM_E3Dv2.png
+    :align: center
+    :scale: 60%
+
+Loads data used by the latest `TDoctree v2 inversion code
+<https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
+The function returns a :ref:`TEM3Dsounding <objectEMdtype_TEM3Dsounding>` object.
+The receivers and transmitters are defined by their respective input files.
+
+    - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
+    - `Frequency file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/freqFile.html#frequencies-file>`_
+    - `Receiver file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
+    - `Transmitter file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
+
+.. note:: Both the transmitters and receivers geometry are defined in 3D. The relative offsets can be calculated using the :ref:`Calculate Transmitter/Receiver separation <calculateTxRxSeperation>` function.
+
+
+.. _importXYZemData:
+
+Import XYZ EM data
+^^^^^^^^^^^^^^^^^^
+
+Both FEM and TEM data can loaded from a general column file that contains position and multiple data channels.
 
 .. figure:: ../../../images/importFEM_other.png
     :align: center
     :width: 700
 
 
-.. note:: It is recommended to load the raw data as `FEM3Dsounding` object such that both transmitters and receivers can be defined at every location using :ref:`Create offset Tx/Rx <objectEMaddTx>`.
+.. note:: It is recommended to load the raw data as :ref:`FEM3Dsounding <objectEMdtype_FEM3Dsounding>` or :ref:`TEM3Dsounding <objectEMdtype_TEM3Dsounding>` object such that both transmitters and receivers can be defined at every location using :ref:`Create offset Tx/Rx <objectEMaddTx>`.
+
+**NOTE**: For detailed instructions on how to import TEM data from a csv or xyz file, follow the instructions in :ref:`this recipe <importVTEMdata>`.
+
+**NOTE**: XYZ and CSV file formats do not include transmitters, which will need to be imported separately.
 
 
-**Step 1: assign spatial data, specify frequencies and number of data type**
+**Step 1: assign spatial data, specify frequencies/times and number of data type**
 
-Click this button to specify the Easting, Northing and Elevation columns. The user will also specify the frequencies contained within the data and the number of data groups. If the data contain both real and imaginary components of the response at three different frequencies, then there are 3 frequencies and 2 data groups resulting in 6 total data columns.
+Click this button to specify the Easting, Northing and Elevation columns. The user will also specify the frequencies/times contained within the data and the number of data groups. If the data contain both real and imaginary components of the response at three different frequencies, then there are 3 frequencies and 2 data groups resulting in 6 total data columns.
 
 **Step 2: specify data types**
 
@@ -394,41 +501,6 @@ Select which data type you would like to specify from the drop-down menu and cli
 
 This step is used to define any remaining data columns. This might include orientation information for the transmitters and receivers, etc...
 
-
-**File formats:**
-
-FEM data can be imported in from three main file types:
-
-    - :ref:`GIF format <femfile>`
-    - :ref:`XYZ format <XYZfile>`
-    - :ref:`CSV format <CSVfile>`
-
-
-**NOTE**: XYZ and CSV file formats do not include transmitters, which will need to be imported separately.
-
-.. _importTemData:
-
-Import TEM data
----------------
-
-To import Time-domain ElectroMagnetic (FEM) data, use the main project menu: **Import** |rarr| **Data** |rarr| **Time-domain EM**
-
-.. figure:: ../../../images/importTEMdata.png
-    :align: center
-    :width: 400
-
-
-**File formats:**
-
-FEM data can be imported in from three main file types:
-
-    - :ref:`GIF format <temfile>`
-    - :ref:`XYZ format <XYZfile>`
-    - :ref:`CSV format <CSVfile>`
-
-**NOTE**: For detailed instructions on how to import TEM data from a csv or xyz file, follow the instructions in :ref:`this recipe <importVTEMdata>`.
-
-**NOTE**: XYZ and CSV file formats do not include transmitters, which will need to be imported separately.
 
 
 .. _importNSEMData:
