@@ -8,7 +8,7 @@ EM Data Classes
 There are two main types of EM data that can be created in GIFtools.
 
 
-.. _objectEMdtype_FEMdata:
+.. _objectEMdtype_EMdata:
 
 EMdata
 ^^^^^^
@@ -34,7 +34,7 @@ the Cartesian directions. Transmitters can be defined as
     :scale: 75%
 
 
-.. _objectEMdtype_FEMsounding:
+.. _objectEMdtype_EM1Dsounding:
 
 EMsounding
 ^^^^^^^^^^
@@ -59,7 +59,7 @@ For `EM1Dsounding` objects, the position of the receiver is set **relative to th
     :scale: 75%
 
 
-.. _objectEMdtype_FEM3Dsounding:
+.. _objectEMdtype_EM3Dsounding:
 
 3Dsounding
 ----------

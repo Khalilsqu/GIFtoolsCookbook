@@ -299,7 +299,7 @@ DC/IP 3D data can be imported via:
 Import GIF FEM data
 -------------------
 
-To import Frequency-domain electromagnetic (FEM) data, use the main project
+To import frequency-domain electromagnetic (FEM) data, use the main project
 menu:
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM**
@@ -326,7 +326,7 @@ Loads a data file for the :ref:`EM1DFM inversion
 <invEditOptions_em1dfm>` and forward modeling codes. The data position is set
 relative to the transmitter as specified by the `EM1DFM file format
 <https://em1dfm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
-The function returns a :ref:`FEM1Dsounding <objectEMdtype_FEM1Dsounding>` object.
+The function returns a :ref:`FEM1Dsounding <objectEMdtype_EM1Dsounding>` object.
 The following parameters are set for the user:
 
     - **Transmitters:**
@@ -353,9 +353,9 @@ E3Dv1 format
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D format**
 
 Loads data files formated for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
-The function returns a :ref:`FEMdata <objectEMdtype_FEMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
+The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
 
-.. note:: The :ref:`FEMdata <objectEMdtype_FEMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary orientation, consider making use of the :ref:`FEMsounding <objectEMdtype_FEMsounding>` class.
+.. note:: The :ref:`FEMdata <objectEMdtype_EMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary orientation, consider making use of the :ref:`FEMsounding <objectEMdtype_FEMsounding>` class.
 
 
 .. _importE3Dv2data:
@@ -387,7 +387,7 @@ The receivers and transmitters are defined by their respective input files.
 Import GIF TEM data
 -------------------
 
-To import Time-domain ElectroMagnetic (TEM) data, use the main project menu:
+To import time-domain electromagnetic (TEM) data, use the main project menu:
 
 **Import** |rarr| **Data** |rarr| **Time-domain EM**
 
@@ -396,7 +396,7 @@ To import Time-domain ElectroMagnetic (TEM) data, use the main project menu:
     :scale: 75%
 
 
-There are three types of FEM data that can be loaded from files:
+There are three types of TEM data that can be loaded from files:
 
     - :ref:`EM1DTM format <importEM1DTMdata>`
     - :ref:`H3DTD | TDoctree v1 format <importTDoctreeV1data>`
@@ -414,7 +414,7 @@ Loads a data file for the :ref:`EM1DTM inversion
 <invEditOptions_em1dtm>` and forward modeling codes. The data position is set
 relative to the transmitter as specified by the `EM1DTM file format
 <https://em1dtm.readthedocs.io/en/latest/content/files/supporting.html#observation-file>`_.
-The function returns a :ref:`TEM1Dsounding <objectEMdtype_TEM1Dsounding>` object.
+The function returns a :ref:`TEM1Dsounding <objectEMdtype_EM1Dsounding>` object.
 The following parameters are set for the user:
 
     - **Transmitters:**
