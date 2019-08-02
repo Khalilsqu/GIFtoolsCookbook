@@ -187,7 +187,7 @@ Remove the Background Gravity
 To remove the background gravity from your data:
 
     - Use :ref:`add data from another GRAVdata object <objectCombineData>` to add the background gravity to the gravity data object where you are doing your processing
-    - Use the :ref:`column calculator <objectColumnCalculator>` to subtract the background data; which should result in just the gravity anomaly remaining
+    - Use the :ref:`Calculator <objectCalculator>` to subtract the background data; which should result in just the gravity anomaly remaining
 
 .. figure:: images/ProcessingFinal.png
     :align: center

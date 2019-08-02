@@ -17,7 +17,7 @@ Data class used for:
 
 -  `E3Dv1 <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_,
 - ``H3DTD``
-- ``TDoctree_v1``
+- `TDoctree v1 <https://tdoctree.readthedocs.io/en/tdoctree_ver1/>`_
 
 The receivers are assumed to be point measurements of the fields (E, H) along
 the Cartesian directions. Transmitters can be defined as
@@ -42,11 +42,13 @@ EMsounding
 Both the transmitter and receiver locations are required and used in the forward and inverse problems. This is the most general format that allows to store raw data collected along line.
 
 
-1Dsounding
-----------
+EM1Dsounding
+------------
 
-- `EM1DFM <https://em1dfm.readthedocs.io/en/latest/#em1dfm-package>`_,
-- `EM1DTM <https://em1dtm.readthedocs.io/en/latest/#em1dtm-package>`_
+Data class used for:
+
+- `EM1DFM inversion <https://em1dfm.readthedocs.io/en/latest/#em1dfm-package>`_,
+- `EM1DTM inversion <https://em1dtm.readthedocs.io/en/latest/#em1dtm-package>`_
 
 For `EM1Dsounding` objects, the position of the receiver is set **relative to the transmitter locations**. The following parameters are required:
 
@@ -61,13 +63,13 @@ For `EM1Dsounding` objects, the position of the receiver is set **relative to th
 
 .. _objectEMdtype_EM3Dsounding:
 
-3Dsounding
-----------
+EM3Dsounding
+------------
 
 This data class is use for:
 
 - `E3Dv2 tiled <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_
-- ``TDoctreev2 tiled``
+- `TDoctree v2 <https://tdoctree.readthedocs.io/en/tdoctree_ver2/>`_
 
 For `EM3Dsounding` objects, information about the position and orientation of the system are stored directly by the transmitter and receiver objects.
 
