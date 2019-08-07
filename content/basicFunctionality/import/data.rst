@@ -5,20 +5,30 @@
 Import Data
 ===========
 
-Under **Import** |rarr| **Data**, the user can import various types of geophysical, geological and geographical data from a multitude of file formats. In GIFtools, this results in the creation of a 'data object'. Once created, GIFtools will allow the user to carry out a set of object-dependent actions (or methods) involving the data object. The methods applicable to each data object are presented on the :ref:`object-dependent functionality <objectFunctionalityData>` page. The following data types can be imported into GIFtools:
+GIFtools allows the user to import various types of
+geophysical, geological and geographical data from a multitude of file
+formats. The following data types can be imported into
+GIFtools under: **Import** |rarr| **Data**
 
-    - :ref:`Magnetics Data <importMagData>`
-    - :ref:`Gravity Data <importGravData>`
-    - :ref:`Gravity Gradiometry Data <importGGData>`
-    - :ref:`Topography <importTopo>`
-    - :ref:`Surface <importSurface>`
-    - :ref:`Borehole Data <importBoreholeData>`
-    - :ref:`Miscellaneous Property data <importProp>`
-    - :ref:`2D DCIP Data <importDCIP2Ddata>`
-    - :ref:`3D DCIP Data <importDCIP3Ddata>`
-    - :ref:`Frequency-Domain EM Data <importFemData>`
-    - :ref:`Time-Domain EM Data <importTemData>`
-    - :ref:`Natural Source EM Data (MT and ZTEM) <importNSEMData>`
+.. figure:: ../../../images/importData.png
+    :align: left
+    :width: 300
+
+- :ref:`Magnetics Data <importMagData>`
+- :ref:`Gravity Data <importGravData>`
+- :ref:`Gravity Gradiometry Data <importGGData>`
+- :ref:`Topography <importTopo>`
+- :ref:`Surface <importSurface>`
+- :ref:`Borehole Data <importBoreholeData>`
+- :ref:`Miscellaneous Property data <importProp>`
+- :ref:`DC/IP Data <importDCIPdata>`
+- :ref:`Frequency-Domain EM Data <importFemData>`
+- :ref:`Time-Domain EM Data <importTemData>`
+- :ref:`Natural Source EM Data (MT and ZTEM) <importNSEMData>`
+
+:ref:`Object-dependent functionalities <objectFunctionality_index>` (or
+methods) can be accessed by clicking on the object after the import process is
+complete.
 
 .. _importMagData:
 
@@ -244,6 +254,8 @@ Property data is imported via the following file formats:
     - :ref:`CSV <XYZfile>`
 
 
+.. _importDCIPdata:
+
 Import DC/IP data
 -----------------
 
@@ -331,14 +343,14 @@ The following parameters are set for the user:
 
 
     - **Transmitters:**
-        - **Dipole moment:** Set by argument
-        - **Orientation** Set by argument
+        - **Dipole moment:** `mom_t <https://em1dfm.readthedocs.io/en/latest/content/files/supporting.html#obsg>`_
+        - **Orientation** `ot_a <https://em1dfm.readthedocs.io/en/latest/content/files/supporting.html#obsi>`_
         - **Along-line offset (m) =** 0
         - **Cross-line offset (m) =** 0
         - **Vertical offset (m):** Relative to topography
 
     - **Receiver:**
-        - **Dipole moment:** Set by argument
+        - **Dipole moment:** `mom_r <https://em1dfm.readthedocs.io/en/latest/content/files/supporting.html#obsk>`_
         - **Along-line offset:** The along-line position of receivers, **relative to transmitter locations**
         - **Cross-line offset:** The cross-line position of receivers, **relative to transmitter locations**
         - **Vertical offset:** Relative to topography
