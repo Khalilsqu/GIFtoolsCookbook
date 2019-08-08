@@ -5,6 +5,7 @@ DC/IP 3D Observations file
 
 This file contains the observed measurements and the associated electrode locations. Both potential data and apparent chargeability data are stored in the same format. This will be the format of all the data files that are output from and to DCIP3D. For convenience, there are two slightly different file formats: the :ref:`general3DFormat` and :ref:`surface3DFormat` formats. The two data formats cannot be mixed in one file. Both formats are consistent the two-dimensional version of the code () except for the addition of a :math:`y` location. Any comments for either format are given in the beginning and denoted by ``!`` prior to the comment.
 
+**NOTE**: The output of the forward modelling programs ``DCIP3DF`` ``DCIPoctreeFwd`` does not quite have the correct format to be considered an observation file since the final column which is supposed to contain standard deviations for the error is instead replaced with computed apparent conductivities/chargeabilities.
 
 .. _general3DFormat:
 
