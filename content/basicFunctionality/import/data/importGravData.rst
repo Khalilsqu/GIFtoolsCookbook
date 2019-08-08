@@ -6,7 +6,7 @@ Import gravity data
 Gravity data can be imported in from three main file types:
 Use the main project menu: **Import** |rarr| **Data** |rarr| **Gravity**
 
-.. figure:: ../../../images/loadGravGen.png
+.. figure:: ../../../../images/loadGravGen.png
     :align: left
     :width: 300
 

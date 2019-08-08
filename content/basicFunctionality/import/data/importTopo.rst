@@ -6,7 +6,7 @@ Import topography
 Topography can be imported through six different file formats:
 Use the main project menu: **Import** |rarr| **Topo**
 
-.. figure:: ../../../images/importTopo.png
+.. figure:: ../../../../images/importTopo.png
     :align: left
     :width: 300
 
