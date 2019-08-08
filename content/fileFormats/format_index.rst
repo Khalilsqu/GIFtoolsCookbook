@@ -13,7 +13,9 @@ Data
     magfile
     gravfile
     ggfile
+    dcip2dLocsfile
     dcip2dObsfile
+    dcip3dLocsfile
     dcip3dObsfile
     collarfile
     surveyfile
