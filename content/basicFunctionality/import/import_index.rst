@@ -10,7 +10,7 @@ GIFtools is capable of importing data, meshes, physical property models, cell we
     .. toctree::
         :maxdepth: 1
 
-        Import Data <data>
+        Import Data <data_index>
         Import Mesh <mesh>
         Import Model <model>
         Import Weights <weights>
