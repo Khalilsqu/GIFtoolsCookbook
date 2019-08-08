@@ -35,76 +35,80 @@ complete.
 Import magnetic data
 --------------------
 
+Magnetic data can be loaded from three main file types:
 Use the main project menu: **Import** |rarr| **Data** |rarr| **Magnetics**
 
 .. figure:: ../../../images/loadMagGen.png
-    :align: center
-    :width: 400
+    :align: left
+    :width: 300
 
 
 **File formats:**
-
-Magnetic data can be loaded from three main file types:
 
     - :ref:`GIF format <magfile>`
     - :ref:`XYZ format <XYZfile>`
     - :ref:`CSV format <CSVfile>`
 
+|
+|
 
 .. _importGravData:
 
 Import gravity data
 -------------------
 
+Gravity data can be imported in from three main file types:
 Use the main project menu: **Import** |rarr| **Data** |rarr| **Gravity**
 
 .. figure:: ../../../images/loadGravGen.png
-    :align: center
-    :width: 400
+    :align: left
+    :width: 300
 
 
 **File formats:**
 
-Gravity data can be imported in from three main file types:
-
     - :ref:`GIF format <gravfile>`
     - :ref:`XYZ format <XYZfile>`
     - :ref:`CSV format <CSVfile>`
+
+|
+|
 
 .. _importGGData:
 
 Import gravity gradiometry data
 -------------------------------
 
+Gravity gradiometry data can be imported in from three main file types:
 Use the main project menu: **Import** |rarr| **Data** |rarr| **Gravity gradient (GG)**
 
 .. figure:: ../../../images/importgg.png
-    :align: center
-    :width: 400
+    :align: left
+    :width: 300
 
 
 **File formats:**
 
-Gravity gradiometry data can be imported in from three main file types:
-
     - :ref:`GIF format <ggfile>`
     - :ref:`XYZ format <XYZfile>`
     - :ref:`CSV format <CSVfile>`
+
+|
+|
 
 .. _importTopo:
 
 Import topography
 -----------------
 
+Topography can be imported through six different file formats:
 Use the main project menu: **Import** |rarr| **Topo**
 
 .. figure:: ../../../images/importTopo.png
-    :align: center
-    :width: 400
+    :align: left
+    :width: 300
 
 **File formats:**
-
-Topography can be imported through six different file formats:
 
     - :ref:`3D GIF format <topoGIF3Dfile>`
     - :ref:`2D GIF format <topoGIF2Dfile>`
@@ -113,32 +117,39 @@ Topography can be imported through six different file formats:
     - Canadian Digital Elevation Data (CDED)
     - USGS 1-degree
 
+|
+|
+
 .. _importSurface:
 
 Import a surface
 ----------------
 
+General surface object can be imported through three different file formats:
 Use the main project menu: **Import** |rarr| **Surface**
 
 .. figure:: ../../../images/importSurface.png
-    :align: center
-    :width: 400
+    :align: left
+    :width: 300
 
 **File formats:**
-
-Topography from surface can be imported through three different file formats:
 
     - :ref:`GIF format <topoGIF3Dfile>` (Same as topography)
     - :ref:`XYZ format <XYZfile>`
     - :ref:`CSV format <CSVfile>`
 
+|
+|
 
 .. _importBoreholeData:
 
 Import borehole data
 --------------------
 
-Importing borehole data requires two or three files (survey optional and assumes vertical boreholes if not given) that will be asked for in a separate dialog. To get to the import dialog, use the main project menu: **Import** |rarr| **Borehole Data**
+Importing borehole data requires two or three files (survey optional and
+assumes vertical boreholes if not given) that will be asked for in a separate
+dialog. To get to the import dialog, use the main project menu: **Import**
+|rarr| **Borehole Data**
 
 .. figure:: ../../../images/importBoreholeData.png
     :align: center
@@ -264,47 +275,49 @@ Import DC/IP data
 Import DC/IP 2D data
 ^^^^^^^^^^^^^^^^^^^^
 
-Use the main project menu: **Import** |rarr| **DC/IP** |rarr| **2D**
-
-.. figure:: ../../../images/importDCIP2Ddata.png
-    :align: center
-    :width: 400
-
+DC and IP data used by the `DCIP2D inversion <https://dcip2d.readthedocs.io/en/latest/#dcip2d-package>`_ routine can be imported
+through six different file formats: Use the main project menu: **Import**
+|rarr| **DC/IP** |rarr| **2D**
 
 **Note**: Importation from a CSV/XYZ file is found under **Import** |rarr| **DC/IP** and is independent of dimension in the menu
 
-**File formats:**
+.. figure:: ../../../images/importDCIP2Ddata.png
+    :align: left
+    :width: 300
 
-DC/IP 2D data can be imported via:
+
+**File formats:**
 
     - :ref:`2D GIF file <dcip2dObsfile>`
     - :ref:`XYZ file <XYZfile>`
     - :ref:`CSV file <CSVfile>`
 
+|
+|
 
 .. _importDCIP3Ddata:
 
 Import DC/IP 3D data
 --------------------
 
-Use the main project menu: **Import** |rarr| **DC/IP** |rarr| **3D**
-
-.. figure:: ../../../images/importDCIP3Ddata.png
-    :align: center
-    :width: 400
+DC and IP data used by the `DCIP3D inversion <https://dcip3d.readthedocs.io/en/latest/#dcip3d-package>`_ routine can be imported using the main project menu: **Import** |rarr| **DC/IP** |rarr| **3D**
 
 **Note**: Importation from a CSV/XYZ file is found under **Import** |rarr| **DC/IP** and is independent of dimension in the menu
 
 
-**File formats:**
+.. figure:: ../../../images/importDCIP3Ddata.png
+    :align: left
+    :width: 300
 
-DC/IP 3D data can be imported via:
+**File formats:**
 
     - :ref:`3D GIF <dcip3dfile>`
     - :ref:`DCIPF3D <dcip3dfile>`
     - :ref:`XYZ file <XYZfile>`
     - :ref:`CSV file <CSVfile>`
 
+|
+|
 
 .. _importFemData:
 
@@ -316,31 +329,37 @@ menu:
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM**
 
-.. figure:: ../../../images/importFEMdata.png
-    :align: center
-    :scale: 60%
-
 There are four types of FEM data that can be loaded from files:
+
+.. figure:: ../../../images/importFEMdata.png
+    :align: left
+    :width: 300
+
+**File formats:**
 
     - :ref:`GIF EM1DFM format <importEM1DFMdata>`
     - :ref:`GIF E3Dv1 format <importE3Dv1data>`
     - :ref:`GIF E3Dv2 format <importE3Dv1data>`
     - :ref:`XYZ format <importXYZemData>`
 
+|
+|
 
 .. _importEM1DFMdata:
 
 EM1DFM format
 ^^^^^^^^^^^^^
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
-
 Loads a data file for the :ref:`EM1DFM inversion
 <invEditOptions_em1dfm>` and forward modeling codes. The data position is set
 relative to the transmitter as specified by the `EM1DFM file format`_.
 The function returns a :ref:`FEM1Dsounding <objectEMdtype_EM1Dsounding>` object.
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+
 The following parameters are set for the user:
 
+**Properties:**
 
     - **Transmitters:**
         - **Dipole moment:** `mom_t <https://em1dfm.readthedocs.io/en/latest/content/files/supporting.html#obsg>`_
@@ -363,10 +382,11 @@ The following parameters are set for the user:
 E3Dv1 format
 ^^^^^^^^^^^^
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D format**
-
 Loads data files formated for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
 The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
+
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D format**
 
 .. note:: The :ref:`FEMdata <objectEMdtype_EMdata>` object assumes that the
     provided field data have been measured along the Cartesian axes or that the
@@ -380,15 +400,16 @@ The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object where only t
 E3Dv2 format
 ^^^^^^^^^^^^
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3Dv2 format**
-
-.. figure:: ../../../images/importFEM_E3Dv2.png
-    :align: center
-    :scale: 60%
-
 Loads data used by the latest `E3Dv2 inversion code
 <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
 The function returns a :ref:`FEM3Dsounding <objectEMdtype_EM3Dsounding>` object.
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3Dv2 format**
+
+.. figure:: ../../../images/importFEM_E3Dv2.png
+    :align: left
+    :width: 300
+
 The receivers and transmitters are defined by their respective input files.
 
     - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
@@ -405,33 +426,40 @@ Import TEM data
 ---------------
 
 To import time-domain electromagnetic (TEM) data, use the main project menu:
+There are four types of TEM data that can be loaded from files:
 
 **Import** |rarr| **Data** |rarr| **Time-domain EM**
 
 .. figure:: ../../../images/importTEMdata/importTEMdata.png
-    :align: center
-    :scale: 75%
+    :align: left
+    :width: 300
 
 
-There are four types of TEM data that can be loaded from files:
+**File formats:**
 
     - :ref:`GIF EM1DTM format <importEM1DTMdata>`
     - :ref:`GIF H3DTD | TDoctree v1 format <importTDoctreeV1data>`
     - :ref:`GIF TDoctree v2 format <importTDoctreeV2data>`
     - :ref:`XYZ format <importXYZemData>`
 
+|
+|
+
 .. _importEM1DTMdata:
 
 EM1DTM format
 ^^^^^^^^^^^^^
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
-
 Loads a data file for the :ref:`EM1DTM inversion
 <invEditOptions_em1dtm>` and forward modeling codes. The data position is set
 relative to the transmitter as specified by the `EM1DTM file format`_.
 The function returns a :ref:`TEM1Dsounding <objectEMdtype_EM1Dsounding>` object.
+
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF EM1D format**
+
 The following parameters are set for the user:
+
+**Properties:**
 
     - **Transmitters:**
         - **Dipole moment:** Set by argument
@@ -454,10 +482,11 @@ The following parameters are set for the user:
 H3DTD | TDoctree v1 format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF H3DTD | TDoctree v1 format**
-
 Loads data files formated for the original `H3DTD data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
 The function returns a :ref:`TEMdata <objectEMdtype_EMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
+
+**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF H3DTD | TDoctree v1 format**
+
 
 .. note:: The :ref:`TEMdata <objectEMdtype_EMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary receivers orientation (in-line), consider making use of the :ref:`TEM3Dsounding <objectEMdtype_EM3Dsounding>` class.
 
@@ -467,15 +496,16 @@ The function returns a :ref:`TEMdata <objectEMdtype_EMdata>` object where only t
 TDoctree v2 format
 ^^^^^^^^^^^^^^^^^^
 
-**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF TDoctree v2 format**
-
-.. figure:: ../../../images/importFEM_E3Dv2.png
-    :align: center
-    :scale: 60%
-
 Loads data used by the latest `TDoctree v2 inversion code
 <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
 The function returns a :ref:`TEM3Dsounding <objectEMdtype_EM3Dsounding>` object.
+
+**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF TDoctree v2 format**
+
+.. figure:: ../../../images/importFEM_E3Dv2.png
+    :align: left
+    :width: 300
+
 The receivers and transmitters are defined by their respective input files.
 
     - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
@@ -522,7 +552,15 @@ This step is used to define any remaining data columns. This might include orien
 Import natural-source EM data
 -----------------------------
 
-There are a few file options to import magnetotelluric (MT: impedance or apparent resistivity and phase) or Z-axis Tipper EM (ZTEM) data. They include:
+There are a few file options to import magnetotelluric (MT: impedance or apparent resistivity and phase) or Z-axis Tipper EM (ZTEM) data:
+
+**Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr|
+
+.. figure:: ../../../images/importMTGif.png
+    :align: left
+    :width: 400
+
+**File formats:**
 
     - :ref:`MTZ3D <importNSEMData_mtz3d>` formatted data
     - :ref:`E3DMT version 1 <importNSEMData_e3dmt1>` formatted data
@@ -530,6 +568,9 @@ There are a few file options to import magnetotelluric (MT: impedance or apparen
     - :ref:`EDI <importNSEMData_edi>` formatted MT data
     - :ref:`ASCII <importNSEMData_ascii>` formatted ZTEM data
 
+
+|
+|
 
 MT or ZTEM data: GIF format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -539,7 +580,7 @@ To load MT data that are in a GIF-formatted structure, the menu structure is:
 **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **MT / ZTEM: GIF format** |rarr| **"Data type"**
 
 .. figure:: ../../../images/importMTGif.png
-    :align: center
+    :align: left
     :width: 400
 
 .. _importNSEMData_mtz3d:
