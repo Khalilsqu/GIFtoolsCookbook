@@ -5,12 +5,19 @@
 Import weights
 ==============
 
-**TODO:** Introduction and image
+Under **Import** |rarr| **Weights**, the user can import cell and face weights used to control the inversion.
+See the :ref:`Fundamentals of inversion <Fundamentals_WeightingMatrix>` for more details about the role of weighting matrices.
+
+.. figure:: ../../../images/importMesh.png
+    :align: center
+    :width: 400
 
 .. _importAllWeights:
 
 Import full weights file
 ------------------------
+
+
 
 **Import** |rarr| **Weights** |rarr| **Full weight file**
 

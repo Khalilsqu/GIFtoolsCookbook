@@ -39,6 +39,7 @@ The :math:`\mathbf{W_d}` matrix is used for two reasons. 1) If the observed data
 ..    \phi_m(\mathbf{m}) = \alpha_s \int (w_s(\mathbf{r})(m(\mathbf{r})-m_0)^2 \delta v) + \alpha_x \int w_x(\mathbf{r})\left\( \frac{\delta(m(\mathbf{r})-m_0)}{\delta x}\right\)^2 \delta v + \alpha_z \int w_z(\mathbf{r})\left\( \frac{\delta(m(\mathbf{r})-m_0)}{\delta z}\right\)^2 \delta v + \alpha_z \int w_z(\mathbf{r})\left\( \frac{\delta(m(\mathbf{r})-m_0)}{\delta x}\right\)^2 \delta v
 
 
+.. _modelObjectiveFunction:
 
 **Model Objective Function/Regularization:**
 
