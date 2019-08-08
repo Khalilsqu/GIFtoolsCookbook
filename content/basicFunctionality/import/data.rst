@@ -332,14 +332,14 @@ menu:
 There are four types of FEM data that can be loaded from files:
 
 .. figure:: ../../../images/importFEMdata.png
-    :align: left
-    :width: 300
+    :align: center
+    :width: 400
 
 **File formats:**
 
     - :ref:`GIF EM1DFM format <importEM1DFMdata>`
-    - :ref:`GIF E3Dv1 format <importE3Dv1data>`
-    - :ref:`GIF E3Dv2 format <importE3Dv1data>`
+    - :ref:`GIF E3D format <importE3Dv1data>`
+    - :ref:`GIF E3D v2 format <importE3Dv1data>`
     - :ref:`XYZ format <importXYZemData>`
 
 |
@@ -379,12 +379,11 @@ The following parameters are set for the user:
 
 .. _importE3Dv1data:
 
-E3Dv1 format
-^^^^^^^^^^^^
+E3D format
+^^^^^^^^^^
 
-Loads data files formated for the original `E3Dv1 data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
-The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
-
+Loads data files formated for the original `E3D data file format <https://e3d.readthedocs.io/en/e3d/content/files/obsFile.html>`_ .
+The function returns an :ref:`FEMdata <objectEMdtype_EMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D format**
 
@@ -397,20 +396,20 @@ The function returns a :ref:`FEMdata <objectEMdtype_EMdata>` object where only t
 
 .. _importE3Dv2data:
 
-E3Dv2 format
-^^^^^^^^^^^^
+E3D v2 format
+^^^^^^^^^^^^^
 
-Loads data used by the latest `E3Dv2 inversion code
-<https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
-The function returns a :ref:`FEM3Dsounding <objectEMdtype_EM3Dsounding>` object.
+Loads data specifically formatted for the `E3D v2 <https://e3d.readthedocs.io/en/e3d_v2/content/files/obsFile.html>`_
+and `E3D v2 tiled <https://e3d.readthedocs.io/en/e3d_v2_tiled/content/files/obsFile.html>`_ codes.
+The function returns an :ref:`FEM3Dsounding <objectEMdtype_EM3Dsounding>` object.
 
-**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3Dv2 format**
+**Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D v2 format**
 
 .. figure:: ../../../images/importFEM_E3Dv2.png
-    :align: left
-    :width: 300
+    :align: center
+    :width: 400
 
-The receivers and transmitters are defined by their respective input files.
+The receivers and transmitters are defined by their respective input files. As a result, you will need 4 files when importing E3D v2 data:
 
     - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
     - `Frequency file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/freqFile.html#frequencies-file>`_
@@ -431,14 +430,14 @@ There are four types of TEM data that can be loaded from files:
 **Import** |rarr| **Data** |rarr| **Time-domain EM**
 
 .. figure:: ../../../images/importTEMdata/importTEMdata.png
-    :align: left
-    :width: 300
+    :align: center
+    :width: 400
 
 
 **File formats:**
 
     - :ref:`GIF EM1DTM format <importEM1DTMdata>`
-    - :ref:`GIF H3DTD | TDoctree v1 format <importTDoctreeV1data>`
+    - :ref:`GIF H3DTD | TDoctree format <importTDoctreeV1data>`
     - :ref:`GIF TDoctree v2 format <importTDoctreeV2data>`
     - :ref:`XYZ format <importXYZemData>`
 
@@ -479,13 +478,13 @@ The following parameters are set for the user:
 
 .. _importTDoctreeV1data:
 
-H3DTD | TDoctree v1 format
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+H3DTD | TDoctree format
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Loads data files formated for the original `H3DTD data file format <https://e3d.readthedocs.io/en/e3dinv/content/files/obsFile.html#observations-file>`_ .
+Loads data files formated for the H3DTD, `TDoctree <https://tdoctree.readthedocs.io/en/tdoctree/content/files/obsFile.html>`_ and `TDoctree tiled <https://tdoctree.readthedocs.io/en/tdoctree_tiled/content/files/obsFile.html>`_ codes.
 The function returns a :ref:`TEMdata <objectEMdtype_EMdata>` object where only the transmitter geometry is defined. The receivers are defined as point measurements that samples the fields (E, H) along the Cartesian axes.
 
-**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF H3DTD | TDoctree v1 format**
+**Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF H3DTD | TDoctree format**
 
 
 .. note:: The :ref:`TEMdata <objectEMdtype_EMdata>` object assumes that the provided field data have been measured along the Cartesian axes or that the user has rotated the fields in pre-processing. For more general cases with arbitrary receivers orientation (in-line), consider making use of the :ref:`TEM3Dsounding <objectEMdtype_EM3Dsounding>` class.
@@ -496,22 +495,21 @@ The function returns a :ref:`TEMdata <objectEMdtype_EMdata>` object where only t
 TDoctree v2 format
 ^^^^^^^^^^^^^^^^^^
 
-Loads data used by the latest `TDoctree v2 inversion code
-<https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/index.html#e3d-version-2-tiled-package>`_.
+Loads data specifically formatted for the `TDoctree v2 <https://tdoctree.readthedocs.io/en/tdoctree_v2/content/files/obsFile.html>`_ code.
 The function returns a :ref:`TEM3Dsounding <objectEMdtype_EM3Dsounding>` object.
 
 **Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF TDoctree v2 format**
 
-.. figure:: ../../../images/importFEM_E3Dv2.png
-    :align: left
-    :width: 300
+.. figure:: ../../../images/importTEMdata/importTEMdata_v2.png
+    :align: center
+    :width: 400
 
-The receivers and transmitters are defined by their respective input files.
+The receivers and transmitters are defined by their respective input files. As a result, you will need 4 files when importing TDoctree v2 data:
 
-    - `Data file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/obsFile.html#observations-file>`_
-    - `Frequency file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/freqFile.html#frequencies-file>`_
-    - `Receiver file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
-    - `Transmitter file <https://e3d.readthedocs.io/en/e3dinv_ver2_tiled/content/files/receiverFile.html#transmitter-and-receiver-files>`_
+    - `Data file <https://tdoctree.readthedocs.io/en/tdoctree_v2/content/files/obsFile.html>`_
+    - `Time channels file <https://tdoctree.readthedocs.io/en/tdoctree_v2/content/files/timeFile.html>`_
+    - `Receiver file <https://tdoctree.readthedocs.io/en/tdoctree_v2/content/files/receiverFile.html>`_
+    - `Transmitter file <https://tdoctree.readthedocs.io/en/tdoctree_v2/content/files/receiverFile.html>`_
 
 .. note:: Both the transmitters and receivers geometry are defined in 3D. The relative offsets can be calculated using the :ref:`Calculate Transmitter/Receiver separation <calculateTxRxSeperation>` function.
 
@@ -549,22 +547,22 @@ This step is used to define any remaining data columns. This might include orien
 
 .. _importNSEMData:
 
-Import natural-source EM data
------------------------------
+Import MT and/or ZTEM data
+--------------------------
 
 There are a few file options to import magnetotelluric (MT: impedance or apparent resistivity and phase) or Z-axis Tipper EM (ZTEM) data:
 
-**Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr|
+**Import** |rarr| **Data** |rarr| **Natural-source EM**
 
 .. figure:: ../../../images/importMTGif.png
-    :align: left
+    :align: center
     :width: 400
 
 **File formats:**
 
     - :ref:`MTZ3D <importNSEMData_mtz3d>` formatted data
-    - :ref:`E3DMT version 1 <importNSEMData_e3dmt1>` formatted data
-    - :ref:`E3DMT version 2 <importNSEMData_e3dmt2>` formatted data
+    - :ref:`E3DMT <importNSEMData_e3dmt1>` formatted data
+    - :ref:`E3DMT v2 <importNSEMData_e3dmt2>` formatted data
     - :ref:`EDI <importNSEMData_edi>` formatted MT data
     - :ref:`ASCII <importNSEMData_ascii>` formatted ZTEM data
 
@@ -572,42 +570,32 @@ There are a few file options to import magnetotelluric (MT: impedance or apparen
 |
 |
 
-MT or ZTEM data: GIF format
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To load MT data that are in a GIF-formatted structure, the menu structure is:
-
-**Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **MT / ZTEM: GIF format** |rarr| **"Data type"**
-
-.. figure:: ../../../images/importMTGif.png
-    :align: left
-    :width: 400
-
 .. _importNSEMData_mtz3d:
 
-MTZ3D data
-~~~~~~~~~~
+MTZ3D format
+^^^^^^^^^^^^
 
-.. raw:: html
-    :file: ../../../underconstruction.html
+To load impedance tensor MT, apparent resistivity MT **or** ZTEM data that are formatted for the `MTZ3D <https://mtz3d.readthedocs.io/en/latest/content/files/obsFile.html>`_ code, the menu structure is:
+
+**Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **GIF MTZ3D format**
 
 
 .. _importNSEMData_e3dmt1:
 
-E3DMT version 1 data
-~~~~~~~~~~~~~~~~~~~~
 
-`Observed/locations <https://e3dmt.readthedocs.io/en/manual_ver1/content/files/obsFile.html>`__ data and `predicted <https://e3dmt.readthedocs.io/en/manual_ver1/content/files/preFile.html>`__ data can be loaded from:
+E3DMT format
+~~~~~~~~~~~~
 
-    - **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **MT / ZTEM: GIF format** |rarr| **E3DMT Obeserved/Locations Data (ver 1)**
-    - **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **MT / ZTEM: GIF format** |rarr| **E3DMT Predicted Data (ver 1)**
+To load impedance tensor MT **and/or** ZTEM data that are formatted for the `E3DMT <https://e3dmt.readthedocs.io/en/e3dmt/content/files/obsFile.html>`_ code, the menu structure is:
 
-Some things to note about loading E3DMT version 1 observed/locations data:
+**Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **GIF E3DMT format**
+
+Some things to note about loading E3DMT observed/locations data:
 
     - If MT and ZTEM are contained within the same file, GIFtools will parse into an IMPdata object and a ZTEMdata object
     - Although it is good practice, the locations for each frequency do not need to be the same. Frequency-location pairs without data are given a value of NaN.
 
-Some things to note about loading E3DMT version 1 predicted data:
+Some things to note about loading E3DMT predicted data:
 
     - The user must specify the ZTEM and or IMP data object(s) associated with the predicted data in the screen shown below. E3DMT version 1 does not support apparent resistiviy and phase data.
     - Let us assume multiple data objects were used to create the observations/locations file for the forward modeling/inversion. When loading the predicted data, the user must select the data objects in the same order they used to create the observations/locations file.
@@ -622,14 +610,18 @@ Some things to note about loading E3DMT version 1 predicted data:
 E3DMT version 2 data
 ~~~~~~~~~~~~~~~~~~~~
 
-`Observed/locations <https://e3dmt.readthedocs.io/en/manual_ver2/content/files/obsFile.html>`__ data and `predicted <https://e3dmt.readthedocs.io/en/manual_ver2/content/files/preFile.html>`__ data can be loaded from:
+To load impedance tensor MT **and/or** ZTEM data that are formatted for the `E3DMT v2 <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/files/obsFile.html>`_ code, the menu structure is:
 
-    - **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **MT / ZTEM: GIF format** |rarr| **E3DMT Obeserved/Locations Data (ver 2)**
-    - **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **MT / ZTEM: GIF format** |rarr| **E3DMT Predicted Data (ver 2)**
+**Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **GIF E3DMT v2 format**
+
+The receivers frequencies are defined by their respective input files. As a result, you will need 3 files when importing TDoctree v2 data:
+
+    - `Data file <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/files/obsFile.html>`_
+    - `Frequencies file <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/files/freqFile.html>`_
+    - `Receivers file <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/files/receiverFile.html>`_
 
 .. note:: **About loading E3DMT version 2 observed/locations data**
 
-    - The user selects the `Observations <https://e3dmt.readthedocs.io/en/manual_ver2/content/files/obsFile.html>`__ / `survey index file <https://e3dmt.readthedocs.io/en/manual_ver2/content/files/indexFile.html>`__ from the first pop-up window, the `receivers file <https://e3dmt.readthedocs.io/en/manual_ver2/content/files/receiverFile.html>`__ from the second pop-up window, and the `frequencies file <https://e3dmt.readthedocs.io/en/manual_ver2/content/files/freqFile.html>`__ form the third pup-up window.
     - Although it is good practice, the locations for each frequency do not need to match. Frequency-location pairs without data are given a value of NaN.
     - The IDs for the receivers do not need to be in any particular order but they do need to be unique.
     - If the respective IDs for Hx and Hy receivers are all the same (e.g. a base station for ZTEM data), the resulting ZTEM data object will still have a datatype of *MTH*.
@@ -637,7 +629,7 @@ E3DMT version 2 data
 
 .. note:: **About loading E3DMT version 2 predicted data**
 
-    - The user must select the associated ZTEM or IMP data object when loading predicted data. E3DMT version 2 does not support apparent resistiviy and phase data.
+    - The user must select the associated ZTEM or IMP data object when loading predicted data. E3DMT version 2 does not support apparent resistivity and phase data.
 
 .. _importNSEMData_edi:
 
