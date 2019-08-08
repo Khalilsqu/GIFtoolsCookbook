@@ -23,6 +23,7 @@ Use the main project menu: **Import** |rarr| **Mesh** |rarr| **1D**
     :align: center
     :width: 400
 
+Refer to :ref:`mesh1Dfile` for file format.
 
 .. _importMesh2D:
 

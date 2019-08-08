@@ -40,6 +40,7 @@ Meshes
 .. toctree::
     :maxdepth: 1
 
+    mesh1Dfile
     mesh2Dfile
     mesh3Dfile
     meshOctreefile
@@ -49,8 +50,9 @@ Models
 .. toctree::
     :maxdepth: 1
 
-    modelfile
+    model1Dfile
     model2Dfile
+    modelfile
     modelVectorfile
     modelNormfile
     geodeffile

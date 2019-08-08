@@ -267,13 +267,10 @@ Property data is imported via the following file formats:
 
 .. _importDCIPdata:
 
-Import DC/IP data
------------------
+Import 2D DC/IP data
+--------------------
 
 .. _importDCIP2Ddata:
-
-Import DC/IP 2D data
-^^^^^^^^^^^^^^^^^^^^
 
 DC and IP data used by the `DCIP2D inversion <https://dcip2d.readthedocs.io/en/latest/#dcip2d-package>`_ routine can be imported
 through six different file formats: Use the main project menu: **Import**
@@ -288,7 +285,8 @@ through six different file formats: Use the main project menu: **Import**
 
 **File formats:**
 
-    - :ref:`2D GIF file <dcip2dObsfile>`
+    - :ref:`2D GIF location file <dcip2dLocsfile>`
+    - :ref:`2D GIF data file <dcip2dObsfile>`
     - :ref:`XYZ file <XYZfile>`
     - :ref:`CSV file <CSVfile>`
 
@@ -311,8 +309,9 @@ DC and IP data used by the `DCIP3D inversion <https://dcip3d.readthedocs.io/en/l
 
 **File formats:**
 
-    - :ref:`3D GIF <dcip3dfile>`
-    - :ref:`DCIPF3D <dcip3dfile>`
+    - :ref:`3D GIF location file <dcip3dLocsfile>`
+    - :ref:`3D GIF observed data file <dcip3dfile>`
+    - :ref:`DCIPF3D predicted data file <dcip3dfile>`
     - :ref:`XYZ file <XYZfile>`
     - :ref:`CSV file <CSVfile>`
 
