@@ -14,7 +14,7 @@ through six different file formats: Use the main project menu: **Import**
 **Note**: Importation from a CSV/XYZ file is found under **Import** |rarr| **DC/IP** and is independent of dimension in the menu
 
 .. figure:: ../../../images/importDCIP2Ddata.png
-    :align: left
+    :align: center
     :width: 300
 
 
@@ -37,7 +37,7 @@ DC and IP data used by the `DCIP3D inversion <https://dcip3d.readthedocs.io/en/l
 
 
 .. figure:: ../../../../images/importDCIP3Ddata.png
-    :align: left
+    :align: center
     :width: 300
 
 **File formats:**
@@ -52,7 +52,7 @@ import 3D TDIP data
 ^^^^^^^^^^^^^^^^^^^
 
 .. figure:: ../../../../images/importTDIPdata.png
-    :align: left
+    :align: center
     :width: 600
 
 It is possible to import IP data with several times windows from a CSV or XYZ file (this is not supported by any DCIP GIF format).
@@ -68,6 +68,6 @@ In the window that pops up, set the time of each time windows (can also be loade
 
 Add and select a data type. Clic on specify type and assign the header for each corresponding column (can also be loaded from a text file with one header per line)
 
-**Step 4: add miscellaneous data**
+**Step 3: add miscellaneous data**
 
 This step is used to define any remaining data columns. This might include intensity of the sources etc.
