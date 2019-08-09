@@ -1,5 +1,7 @@
 .. _importMagData:
 
+.. include:: <isonum.txt>
+
 Import magnetic data
 --------------------
 
