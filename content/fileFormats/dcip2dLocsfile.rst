@@ -1,7 +1,7 @@
-.. _dcip2dlocations:
+.. _dcip2dLocsfile:
 
-Electrodes file
-===============
+DC/IP 2D Locations file
+=======================
 
 This file contains the electrode locations for **DCIPF2D**. The electrodes file
 follows the same formats at the *Observations* files, but without data and standard

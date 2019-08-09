@@ -28,7 +28,7 @@ through six different file formats: Use the main project menu: **Import**
 
 .. _importDCIP3Ddata:
 
-Import DC/IP 3D data
+Import 3D DC/IP data
 --------------------
 
 DC and IP data used by the `DCIP3D inversion <https://dcip3d.readthedocs.io/en/latest/#dcip3d-package>`_ routine can be imported using the main project menu: **Import** |rarr| **DC/IP** |rarr| **3D**
