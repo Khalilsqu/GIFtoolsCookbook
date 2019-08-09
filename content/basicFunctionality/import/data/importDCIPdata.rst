@@ -13,7 +13,7 @@ through six different file formats: Use the main project menu: **Import**
 
 **Note**: Importation from a CSV/XYZ file is found under **Import** |rarr| **DC/IP** and is independent of dimension in the menu
 
-.. figure:: ../../../images/importDCIP2Ddata.png
+.. figure:: ../../../../images/importDCIP2Ddata.png
     :align: center
     :width: 300
 
