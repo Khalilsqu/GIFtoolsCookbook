@@ -24,7 +24,8 @@ GIFtools under: **Import** |rarr| **Data**
     data/importSurface
     data/importBorehole
     data/importProp
-    data/importDCIPdata
+    data/import2dDCIPdata
+    data/import3dDCIPdata
     data/importFemData
     data/importTemData
     data/importNSEMData
