@@ -15,7 +15,7 @@ through six different file formats: Use the main project menu: **Import**
 
 .. figure:: ../../../../images/importDCIP2Ddata.png
     :align: center
-    :width: 300
+    :width: 600
 
 
 **File formats:**
@@ -38,7 +38,7 @@ DC and IP data used by the `DCIP3D inversion <https://dcip3d.readthedocs.io/en/l
 
 .. figure:: ../../../../images/importDCIP3Ddata.png
     :align: center
-    :width: 300
+    :width: 600
 
 **File formats:**
 
