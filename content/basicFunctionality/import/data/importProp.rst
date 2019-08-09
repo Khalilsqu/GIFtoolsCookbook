@@ -1,5 +1,7 @@
 .. _importProp:
 
+.. include:: <isonum.txt>
+
 Import miscellaneous property data
 ----------------------------------
 

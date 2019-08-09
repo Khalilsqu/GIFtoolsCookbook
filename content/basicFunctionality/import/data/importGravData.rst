@@ -1,5 +1,7 @@
 .. _importGravData:
 
+.. include:: <isonum.txt>
+
 Import gravity data
 -------------------
 

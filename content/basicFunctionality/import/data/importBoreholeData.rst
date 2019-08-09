@@ -1,5 +1,7 @@
 .. _importBoreholeData:
 
+.. include:: <isonum.txt>
+
 Import borehole data
 --------------------
 

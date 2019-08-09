@@ -1,5 +1,7 @@
 .. _importGGData:
 
+.. include:: <isonum.txt>
+
 Import gravity gradiometry data
 -------------------------------
 
