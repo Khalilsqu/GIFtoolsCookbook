@@ -9,7 +9,7 @@ This type of data covers the range of anything someone would want to bring in th
 
 Use the main project menu: **Import** |rarr|  **Miscellaneous property data**
 
-.. figure:: ../../../images/importPropData.png
+.. figure:: ../../../../images/importPropData.png
     :align: center
     :width: 400
 

@@ -10,13 +10,13 @@ assumes vertical boreholes if not given) that will be asked for in a separate
 dialog. To get to the import dialog, use the main project menu: **Import**
 |rarr| **Borehole Data**
 
-.. figure:: ../../../images/importBoreholeData.png
+.. figure:: ../../../../images/importBoreholeData.png
     :align: center
     :figwidth: 100%
 
 This brings up the following import dialog:
 
-.. figure:: ../../../images/importBHdata/import.png
+.. figure:: ../../../../images/importBHdata/import.png
     :align: center
     :figwidth: 75%
 
@@ -24,7 +24,7 @@ From the browse buttons in Step 1, select the :ref:`collar file <bhCollarfile>`,
 
 For the example files we are using, our import dialog now looks like the following:
 
-.. figure:: ../../../images/importBHdata/import2.png
+.. figure:: ../../../../images/importBHdata/import2.png
     :align: center
     :figwidth: 75%
 
@@ -38,19 +38,19 @@ Step provides two options on how the borehole data are discretized: either the f
 
 For discrete data, select the "Discrete" radio button. The import dialog will look like:
 
-.. figure:: ../../../images/importBHdata/import3.png
+.. figure:: ../../../../images/importBHdata/import3.png
     :align: center
     :figwidth: 75%
 
 Click OK to import the borehole data. You will notice that a grayed-out BOREdata item has been added to the GIFtools project tree. And the following dialog appears:
 
-.. figure:: ../../../images/importBHdata/headers.png
+.. figure:: ../../../../images/importBHdata/headers.png
     :align: center
     :figwidth: 75%
 
 For the collar, survey, and property files, select the appropriate headers from the drop-down menus for each item. The options will match the headers given in the respective files. Once done, the dialog looks like the following:
 
-.. figure:: ../../../images/importBHdata/headers2.png
+.. figure:: ../../../../images/importBHdata/headers2.png
     :align: center
     :figwidth: 75%
 
@@ -58,7 +58,7 @@ Again, because the borehole data in this case are data points are discrete locat
 
 The info panel will show the origin of the property data, a data summary, the set i/o headers, and the borehole IDs that were imported:
 
-.. figure:: ../../../images/importBHdata/tree.png
+.. figure:: ../../../../images/importBHdata/tree.png
     :align: center
     :figwidth: 100%
 
@@ -70,7 +70,7 @@ Now the borehole data can be visualized, discretized onto a mesh, and used withi
 
 Now, let's import borehole data that has measurement between two elevations (i.e., to and from). Repeat the steps above to import borehole data in GIFtools, up to Step 3. Because this borehole data has "To" and "From" columns, we now select the "Interpolate" radio button in Step 3 for the data discretization.
 
-.. figure:: ../../../images/importBHdata/import4.png
+.. figure:: ../../../../images/importBHdata/import4.png
     :align: center
     :figwidth: 75%
 
@@ -78,13 +78,13 @@ We have decided to interpolate these data every 10 m.
 
 Click OK to import the files and move onto the header dialog. The header dialog will appear just as before, except now the "Intervals" option is selected instead of "Depth". Select the appropriate headers for each item. Once done, our dialog looks like the following:
 
-.. figure:: ../../../images/importBHdata/headers3.png
+.. figure:: ../../../../images/importBHdata/headers3.png
     :align: center
     :figwidth: 75%
 
 Click OK to import and set the headers. Once imported, a BOREdata item has been added to the GIFtools project tree and the name of it is the same as the property file name. In this case, that is "Geology1". When the item is highlighted in the tree, the info panel will provide the same type of information as we saw earlier for the discrete example:
 
-.. figure:: ../../../images/importBHdata/tree2.png
+.. figure:: ../../../../images/importBHdata/tree2.png
     :align: center
     :figwidth: 100%
 
