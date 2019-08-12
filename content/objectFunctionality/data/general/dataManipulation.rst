@@ -133,24 +133,29 @@ Actions can be performed through the following pop-up window:
         :scale: 100%
 
 
-**Step 1:** For :math:`x` (selected column), :math:`c` (Value) and :math:`y` (new column), choose from the following set of mathematical operations.
-    - *Addition:* adds 'Value' to the selected column; e.g. :math:`y = x + c`
-    - *Subtraction:* subtracts 'Value' from the selected column; e.g. :math:`y = x - c`
-    - *Multiplication:* multiplies the selected column by 'Value'; e.g. :math:`y = x \times c`
-    - *Division:* divides the selected column by 'Value'; e.g. :math:`y = x / c`
-    - *Exponent:* computes each entry in the selected column to the power of 'Value'; e.g. :math:`y = x^c`
-    - *Min:* returns the smaller of the two values when comparing 'Value' to each entry in the selected column; e.g. :math:`y = \textrm{min}(x,c)`
-    - *Max:* returns the larger of the two values when comparing 'Value' to each entry in the selected column; e.g. :math:`y = \textrm{max}(x,c)`
-**Step 2: Set :math:`x`** Choose a 'Property' (data column) from the drop-down menu
-    - OPTIONAL: For :ref:`EMdata <objectEMdtype_FEMdata>` objects, operations can be applied on a single frequency or time channel.
+**Step 1:** For :math:`x` (Property), :math:`c` (Value or Property) and :math:`y` (new Property), choose from the following set of mathematical operations.
+    - *Addition:* adds ``Value`` to the selected ``Property``; e.g. :math:`y = x + c`
+    - *Subtraction:* subtracts ``Value`` from the selected ``Property``; e.g. :math:`y = x - c`
+    - *Multiplication:* multiplies the selected ``Property`` by ``Value``; e.g. :math:`y = x \times c`
+    - *Division:* divides the selected ``Property`` by ``Value``; e.g. :math:`y = x / c`
+    - *Power:* computes (elementwize) the power of ``Property`` by the ``Value``; e.g. :math:`y = x ^ c`
+    - *Exponential:* computes (elementwize) the power of `Value` by the ``Property``; e.g. :math:`y = c^x`
+    - *Logarithm:* computes the logarithm of ``Property`` with base `Value` (2, 10, e) ; e.g. :math:`y = log_c(x)`
+    - *Replace Min:* returns the smaller of the two values when comparing ``Value`` to each entry in the selected ``Property``; e.g. :math:`y = \textrm{min}(x,c)`
+    - *Replace Max:* returns the larger of the two values when comparing ``Value`` to each entry in the selected ``Property``; e.g. :math:`y = \textrm{max}(x,c)`
+    - *Absolute:* returns the absolute value of ``Property``; e.g. :math:`y = |x|`
+    - *Deg -> Rad:* returns ``Property`` in radian; e.g. :math:`y = x * \pi / 180`
+    - *Absolute:* returns ``Property`` in degree; e.g. :math:`y = x * 180 / \pi`
+**Step 2: Set :math:`x`** Choose a property ``Property`` from the drop-down menu
+    - OPTIONAL: For :ref:`EMdata <objectEMdtype_EMdata>` objects, operations can be applied on a single frequency or time channel.
 **Step 3: Set :math:`c`**
-    - OPTION 1: Chose a column from the object
-    - OPTION 2: Enter a number into the field for 'Value'
-**Step 4:** Determine if new column is created
-	- *Create is not selected:* The new column of data will replace the selected column of data
-	- *Create is selected:* A new column is created for the calculated data and a name must be provided
-
-
+    - OPTION 1: Chose a ``Property`` from the object
+    - OPTION 2: Enter a number into the field for ``Value``
+**Step 4:** Determine if new ``Property`` is created
+	- *Create is not selected:* The new ``Property`` of data will replace the selected ``Property`` of data
+	- *Create is selected:* A new ``Property`` is created for the calculated data and a name must be provided
+**Step 5 [OPTIONAL]:**  Apply and continue
+    - Allows the user to keep the ``Calculator`` window opened and proceed with more operations. Newly created ``Property`` are added to the drop-down menues.
 
 
 .. note:: Spatial (X,Y) :ref:`i/o Headers <objectSetioHeaders>` are not shown within the calculator. To apply the constant calculator to the x- or y-coordinates, remove them from the i/o header.
@@ -158,7 +163,7 @@ Actions can be performed through the following pop-up window:
 
 .. .. _objectColumnCalculator:
 
-.. Apply a column-to-column math operation to data
+.. Apply a ``Property``-to-column math operation to data
 .. -----------------------------------------------
 
 .. This functionality allows the user to perform basic math operations using two data columns. To access this functionality, click on the data item of interest and use the menu:
