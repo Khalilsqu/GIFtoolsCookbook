@@ -57,5 +57,6 @@ Models
     modelfile
     modelVectorfile
     modelNormfile
+    modelWeightsfile
     geodeffile
 
