@@ -9,7 +9,7 @@ There are a few file options to import magnetotelluric (MT: impedance or apparen
 
 **Import** |rarr| **Data** |rarr| **Natural-source EM**
 
-.. figure:: ../../../images/importMTGif.png
+.. figure:: ../../../../images/importMTGif.png
     :align: center
     :width: 400
 
@@ -56,7 +56,7 @@ Some things to note about loading E3DMT predicted data:
     - Let us assume multiple data objects were used to create the observations/locations file for the forward modeling/inversion. When loading the predicted data, the user must select the data objects in the same order they used to create the observations/locations file.
 
 
-.. figure:: ../../../images/importE3DMTpre1.png
+.. figure:: ../../../../images/importE3DMTpre1.png
     :align: center
     :width: 400
 
@@ -105,7 +105,7 @@ Once selected, the user must do the following:
     5) Select *OK*
 
 
-.. figure:: ../../../images/importEDI.png
+.. figure:: ../../../../images/importEDI.png
     :align: center
     :width: 400
 
@@ -128,7 +128,7 @@ To load ZTEM data that are in a CSV or XYZ ASCII format, the menu structure is:
 - XYZ format: **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **ZTEM general ASCII** |rarr| **XYZ**
 - CSV format: **Import** |rarr| **Data** |rarr| **Natural-source EM** |rarr| **ZTEM general ASCII** |rarr| **CSV file**
 
-.. figure:: ../../../images/importZTEMascii.png
+.. figure:: ../../../../images/importZTEMascii.png
     :align: center
     :width: 400
 

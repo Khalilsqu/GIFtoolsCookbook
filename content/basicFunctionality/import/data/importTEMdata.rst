@@ -10,7 +10,7 @@ There are four types of TEM data that can be loaded from files:
 
 **Import** |rarr| **Data** |rarr| **Time-domain EM**
 
-.. figure:: ../../../images/importTEMdata/importTEMdata.png
+.. figure:: ../../../../images/importTEMdata/importTEMdata.png
     :align: center
     :width: 400
 
@@ -81,7 +81,7 @@ The function returns a :ref:`TEM3Dsounding <objectEMdtype_EM3Dsounding>` object.
 
 **Import** |rarr| **Data** |rarr| **Time-domain EM** |rarr| **GIF TDoctree v2 format**
 
-.. figure:: ../../../images/importTEMdata/importTEMdata_v2.png
+.. figure:: ../../../../images/importTEMdata/importTEMdata_v2.png
     :align: center
     :width: 400
 

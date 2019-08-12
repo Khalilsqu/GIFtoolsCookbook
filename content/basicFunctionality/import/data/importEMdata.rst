@@ -9,9 +9,9 @@ Import EM data
 .. toctree::
     :maxdepth: 1
 
-    importFEMData
-    importTEMData
-    importNSEMData
+    importFEMdata
+    importTEMdata
+    importNSEMdata
 
 
 .. _importXYZemData:
@@ -21,7 +21,7 @@ Import XYZ EM data
 
 Both FEM and TEM data can loaded from a general column file that contains position and multiple data channels.
 
-.. figure:: ../../../images/importFEM_other.png
+.. figure:: ../../../../images/importFEM_other.png
     :align: center
     :width: 700
 

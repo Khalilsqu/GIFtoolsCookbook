@@ -12,7 +12,7 @@ menu:
 
 There are four types of FEM data that can be loaded from files:
 
-.. figure:: ../../../images/importFEMdata.png
+.. figure:: ../../../../images/importFEMdata.png
     :align: center
     :width: 400
 
@@ -86,7 +86,7 @@ The function returns an :ref:`FEM3Dsounding <objectEMdtype_EM3Dsounding>` object
 
 **Import** |rarr| **Data** |rarr| **Frequency-domain EM** |rarr| **GIF E3D v2 format**
 
-.. figure:: ../../../images/importFEM_E3Dv2.png
+.. figure:: ../../../../images/importFEM_E3Dv2.png
     :align: center
     :width: 400
 

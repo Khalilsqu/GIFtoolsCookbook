@@ -10,7 +10,7 @@ geophysical, geological and geographical data from a multitude of file
 formats. The following data types can be imported into
 GIFtools under: **Import** |rarr| **Data**
 
-.. figure:: ../../../../images/importData.png
+.. figure:: ../../../images/importData.png
     :align: left
     :width: 300
 
@@ -26,8 +26,6 @@ GIFtools under: **Import** |rarr| **Data**
     data/importProp
     data/importDCIPdata
     data/importEMdata
-
-    Site map <sitemap>
 
 :ref:`Object-dependent functionalities <objectFunctionality_index>` (or
 methods) can be accessed by clicking on the object after the import process is
