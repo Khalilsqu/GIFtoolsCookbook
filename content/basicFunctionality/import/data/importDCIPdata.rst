@@ -2,10 +2,17 @@
 
 .. include:: <isonum.txt>
 
-Import 2D DC/IP data
---------------------
+Import DC/IP data
+-----------------
+
+DC and IP data can be imported in from three main file types:
+Use the main project menu: **Import** |rarr| **Data** |rarr| **DC/IP**
+
 
 .. _importDCIP2Ddata:
+
+Import 2D DC/IP data
+^^^^^^^^^^^^^^^^^^^^
 
 DC and IP data used by the `DCIP2D inversion <https://dcip2d.readthedocs.io/en/latest/#dcip2d-package>`_ routine can be imported
 through six different file formats: Use the main project menu: **Import**
@@ -29,7 +36,7 @@ through six different file formats: Use the main project menu: **Import**
 .. _importDCIP3Ddata:
 
 Import 3D DC/IP data
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 DC and IP data used by the `DCIP3D inversion <https://dcip3d.readthedocs.io/en/latest/#dcip3d-package>`_ routine can be imported using the main project menu: **Import** |rarr| **DC/IP** |rarr| **3D**
 
