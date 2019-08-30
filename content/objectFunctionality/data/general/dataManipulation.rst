@@ -101,18 +101,13 @@ Any data column may have a polynomial trend calculated. For access to this featu
 
 **Data manipulation** |rarr| **Calculate** |rarr| **Polynomial trend**
 
-.. figure:: ../../../../images/dataCalculate.png
-    :align: center
-    :width: 400
-
-**NOTE 1:** For removal of the trend, see the :ref:`Calculator <objectCalculator>` for how to subtract one column from another within a data object.
-
-**NOTE 2:** The calculation of a polynomial trend can be accessed in the :ref:`data viewer <viewData>`. Data first need to be selected via the **View** |rarr| **Edit** |rarr| **Data selection** tab of the viwer control dialog. Then select its neighbouring tab: **View** |rarr| **Edit** |rarr| **Regional fit**. A new data column name is manditory as well as the degree of polynomial.
+The calculation of a polynomial trend can be accessed in the :ref:`data viewer <viewData>`. Data first need to be selected via the **View** |rarr| **Edit** |rarr| **Data selection** tab of the viwer control dialog. Then select its neighbouring tab: **View** |rarr| **Edit** |rarr| **Regional fit**. A new data column name is manditory as well as the degree of polynomial.
 
 .. figure:: ../../../../images/polyTrendFromViewer.png
     :align: center
     :width: 400
 
+.. note:: For removal of the trend, see the :ref:`Calculator <objectCalculator>` for how to subtract one column from another within a data object.
 
 
 .. _objectCalculator:
@@ -138,14 +133,14 @@ Actions can be performed through the following pop-up window:
     - *Subtraction:* subtracts ``Value`` from the selected ``Property``; e.g. :math:`y = x - c`
     - *Multiplication:* multiplies the selected ``Property`` by ``Value``; e.g. :math:`y = x \times c`
     - *Division:* divides the selected ``Property`` by ``Value``; e.g. :math:`y = x / c`
-    - *Power:* computes (elementwize) the power of ``Property`` by the ``Value``; e.g. :math:`y = x ^ c`
-    - *Exponential:* computes (elementwize) the power of `Value` by the ``Property``; e.g. :math:`y = c^x`
-    - *Logarithm:* computes the logarithm of ``Property`` with base `Value` (2, 10, e) ; e.g. :math:`y = log_c(x)`
+    - *Power:* computes the power (elementwize) of ``Property`` by the ``Value``; e.g. :math:`y = x ^ c`
+    - *Exponential:* computes the power (elementwize) of `Value` by the ``Property``; e.g. :math:`y = c^x`
+    - *Logarithm:* computes the logarithm of ``Property`` with base `Value` [:math:`2 | 10 | e`] ; e.g. :math:`y = log_c(x)`
     - *Replace Min:* returns the smaller of the two values when comparing ``Value`` to each entry in the selected ``Property``; e.g. :math:`y = \textrm{min}(x,c)`
     - *Replace Max:* returns the larger of the two values when comparing ``Value`` to each entry in the selected ``Property``; e.g. :math:`y = \textrm{max}(x,c)`
     - *Absolute:* returns the absolute value of ``Property``; e.g. :math:`y = |x|`
     - *Deg -> Rad:* returns ``Property`` in radian; e.g. :math:`y = x * \pi / 180`
-    - *Absolute:* returns ``Property`` in degree; e.g. :math:`y = x * 180 / \pi`
+    - *Rad -> Deg:* returns ``Property`` in degree; e.g. :math:`y = x * 180 / \pi`
 **Step 2: Set :math:`x`** Choose a property ``Property`` from the drop-down menu
     - OPTIONAL: For :ref:`EMdata <objectEMdtype_EMdata>` objects, operations can be applied on a single frequency or time channel.
 **Step 3: Set :math:`c`**
@@ -155,7 +150,7 @@ Actions can be performed through the following pop-up window:
 	- *Create is not selected:* The new ``Property`` of data will replace the selected ``Property`` of data
 	- *Create is selected:* A new ``Property`` is created for the calculated data and a name must be provided
 **Step 5 [OPTIONAL]:**  Apply and continue
-    - Allows the user to keep the ``Calculator`` window opened and proceed with more operations. Newly created ``Property`` are added to the drop-down menues.
+    - Allows the user to keep the ``Calculator`` window opened and proceed with more operations. Any new ``Property`` columns are added to the drop-down menues.
 
 
 .. note:: Spatial (X,Y) :ref:`i/o Headers <objectSetioHeaders>` are not shown within the calculator. To apply the constant calculator to the x- or y-coordinates, remove them from the i/o header.
@@ -241,6 +236,23 @@ direction (bearing) of survey. This function groups the survey observation stati
 **NOTE:** The assumption is made that survey points are provided in the same order as they were collected.
 
 
+.. _objectElevFromSurface:
+
+Calculate elevation from surface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This functionality allows the user to create an elevation (height of the data)
+column from a surface or topography object using a linear interpolation
+method. Elevations can be set at, above or below the surface by a specified
+amount. In addition, data columns (such as a flight altitude column) within
+the data object can be used to create the elevation values. This functionality
+is accessed through:
+
+**Data Manipulation** |rarr| **Coordinates** |rarr| **Calculate elevation from surface**
+
+
+
+
 Coordinates
 -----------
 
@@ -284,19 +296,12 @@ This functionality allows the user to change the Easting and Northing locations 
 Use look-up table
 ^^^^^^^^^^^^^^^^^
 
-.. raw:: html
-    :file: ../../../../underconstruction.html
 
+This functionality allows the user to convert locations of the data from
+`local` coordinates to Easting and Northing by using a `Survey` file. This
+operation is routinely performed after importing raw :ref:`DCIP2Ddata <importDCIP2Ddata>` objects.
 
-
-.. _objectElevFromSurface:
-
-Calculate elevation from surface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This functionality allows the user to create an elevation (height of the data) column from a surface or topography object. Elevations can be set at, above or below the surface by a specified amount. In addition, data columns (such as a flight altitude column) within the data object can be used to create the elevation values. This functionality is accessed through:
-
-**Data Manipulation** |rarr| **Coordinates** |rarr| **Calculate elevation from surface**
+**Data Manipulation** |rarr| **Coordinates** |rarr| **Look-up table**
 
 
 
