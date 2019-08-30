@@ -5,6 +5,10 @@
 Import EM data
 ^^^^^^^^^^^^^^
 
+Frequency-domain (FEM), Time-domain (TEM) and Natural Source (NSEM) electromagnetic data can be imported in from three main file types:
+
+**Import** |rarr| **Data** |rarr| **F|T|NS EM**
+
 
 .. toctree::
     :maxdepth: 1
@@ -19,7 +23,7 @@ Import EM data
 Import XYZ EM data
 ^^^^^^^^^^^^^^^^^^
 
-Both FEM and TEM data can loaded from a general column file that contains position and multiple data channels.
+Common to both FEM and TEM, data be can loaded from a general column file that contains position and multiple data channels.
 
 .. figure:: ../../../../images/importFEM_other.png
     :align: center
