@@ -1,4 +1,4 @@
-.. _AtoZNS_inversion:
+.. _AtoZNS_ztem_inversion:
 
 .. include:: <isonum.txt>
 
@@ -6,10 +6,8 @@
 Inverting MT Data
 =================
 
-Here, we invert synthetic impedance tensor data using E3DMT versions 1 and 2.
-The goal is to provide strategies for successful inversion and show that both codes can be used to recover TKC.
-When inverting impedances, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
-To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
+Here, we invert synthetic ZTEM data using E3DMT versions 1 and 2.
+The goal is to provide strategies for successful inversion and show that both codes can be used to recover the pipe.
 
 
 .. _AtoZNS_inversion_setup:
@@ -19,7 +17,7 @@ Setup for the Exercise
 
 **If you have completed the tutorial** :ref:`"Importing, Interpreting and Preparing NSEM Data"<AtoZNS_data>`:
 
-    - Open your preexisting GIFtools project
+    - Open your pre-existing GIFtools project
     - :ref:`Set the working directory <projSetWorkDir>` (if you would like to change it)
 
 **If you have NOT completed the previous tutorial and would like to start here, complete the following steps:**
@@ -27,73 +25,46 @@ Setup for the Exercise
     - Download the demo (**pending**)
     - Open GIFtools
     - :ref:`Set the working directory <projSetWorkDir>`
-    - :ref:`Import the observed data in E3DMT version 1 format: Assets\\MTdata.obs <importNSEMData_e3dmt1>` (Impedance tensor data in V/A)
-    - :ref:`Load OcTree mesh <importMeshOctree>`
-    - :ref:`Load active cells model <importActiveModel>`
+    - :ref:`Import the observed data in E3DMT version 1 format <importNSEMData_e3dmt1>`. The data file is *ZTEMdata_v1.obs* and is found in the *assets* sub-folder (ZTEM data are unitless)
+    - :ref:`Load OcTree mesh <importMeshOctree>`. Found in the folder *assets/octree_model_ztem*.
+    - :ref:`Load active cells model <importActiveModel>`. Found in the folder *assets/octree_model_ztem*.
+    - :ref:`Load true model <importModel>`. Found in the folder *assets/octree_model_ztem*.
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/data_impedance.png
+.. figure:: ../../../images/AtoZ_E3DMT/data_ztem.png
     :align: center
     :width: 700
 
-    Real (left) and imaginary (right) components of impedance tensor element :math:`Z_{xy}` at 5000 Hz in V/A. Data shows that :math:`Z_{xy}` lies in the lower-righthand quadrant of the complex plane. This is consistent with the desired format in GIFtools.
+    Z-axis tipper measurements at 60 Hz. It is important to note that the 'X' in TZXR data refers to the Northing direction! 'R' refers to real component and 'I' refers to imaginary component.
 
-
-.. figure:: ../../../images/AtoZ_E3DMT/data_appres.png
-    :align: center
-    :width: 700
-
-    Apparent resistivities for :math:`Z_{xy}` at frequencies 1000 Hz (left), 5000 Hz (middle) and 25000 Hz (right). Apparent resistivity data shows the DO-27 and DO-18 anomalies as conductors. Apparent resistivity data can be created from impedance data using GIFtools.
-
-
-
-.. important:: Data were generated using E3DMT version 1 and an interpolation of the best conductivity model for TKC. To keep things simple, the synthetic model was given a constant topography of 425 m. Uncertainties of 0.1 :math:`\pm` 10% were added to all impedance tensor measurements.
-
-
-Reducing Artifacts through Interface Weighting
-----------------------------------------------
-
-When inverting MT data, the E3DMT codes have a tendency to place conductive structures near receiver locations due to the sensitivity of the data to those cells. Here, we generate interface weights to counteract this problem. By forcing lateral smoothness within the top few layers of cells, we can limit the artifacts and force the inversion to place conductive structures at the appropriate depths.
-
-    - :ref:`Create and interface weights utility <createinterfWeights>`
-    - Use :ref:`edit options <utilEditOptions>` and set the following parameters:
-
-        - set the OcTree mesh
-        - set as *log model*
-        - set topography as the active cells model
-        - set 5 layers of surface weights with values 40, 20, 10, 5, and 2.5 in decreasing order
-        - Face value = 0.0002
-        - Face tolerance = 0.0002
-
-    - :ref:`Run the utility <utilRun>`
-    - :ref:`Load results <utilLoadResults>`
-
+.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, the synthetic model was given a constant topography of 400 m. Uncertainties of 0.001 :math:`\pm` 10% were added to all data.
 
 
 E3DMT Version 1
 ---------------
 
-Let us now invert the impedance tensor data using E3DMT version 1. 
+Let us now invert the ZTEM data using E3DMT version 1. 
 
     - :ref:`Create E3DMT ver 1 inversion object <createMTZTEMInv>`
     - :ref:`Use edit options <invEditOptions_e3dmt_ver1>` to set the inversion parameters
 
         - Basic Tab:
-            - Select the impedance data
+            - Select the ZTEM data
             - Set mesh
             - Set topography to active cells model
             - No background susceptibility
-            - 1D conductivity of 0.0001 S/m (which we inferred from apparent resistivity maps)
+            - 1D conductivity of 0.001 S/m
             - Use *Iterative* solver unless you have sufficient RAM to use *Direct* solver.
 
         - Model Options Tab:
+            - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 0.4*, *beta min = 1e-6* and *reduction factor = 0.2*
             - Set *Chi Factor* = 1.
-            - *alpha S* = 0.0001, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 10 (to emphasize some vertical smoothness)
-            - Use the weights object to add additional weights
+            - *alpha S* = 0.0004, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 4 (to balance regularization terms based on cell dimensions)
             - Set the *active cells topo* as the active model cells
-            - Set initial model as 0.0001 S/m
-            - Set upper bound as 1 S/m and lower bound as 0.000001 S/m
-            - Set reference model as 0.0001 S/m
+            - Set initial model as 0.001 S/m
+            - Set upper bound as 0.5 S/m and lower bound as 0.00001 S/m
+            - Set reference model as 0.001 S/m
+            - Set role in model objective function to *SMOOTH_MOD_DIF*
 
     - Click *Apply and write files*
     - :ref:`Run the inversion <invRun>`
@@ -131,37 +102,35 @@ The results of the inversion are shown below. The convergence curve indicated th
 E3DMT Version 2
 ---------------
 
-Let us now invert the impedance tensor data using E3DMT version 2. Unlike version 1, version 2 requires that user define the receiver which measure the fields.
+Let us now invert the ZTEM data using E3DMT version 2. Unlike version 1, version 2 requires that user define the receiver which measure the fields.
 
     - Click the impedance data object and :ref:`set receivers from locations <objectDataTypeMT_snid>`. Use the following values:
 
-        - Easting width = 1 m
-        - Northing width = 1 m
-        - Vertical width = 1 m
-        - Dipole length = 1 m
+        - Easting width = 2 m
+        - Northing width = 2 m
+        - Vertical width = 2 m
+
 
     - :ref:`Create E3DMT ver 2 inversion object <createMTZTEMInv>`
-    - :ref:`Use edit options <invEditOptions_e3dmt_ver2>` to set the inversion parameters
+    - :ref:`Use edit options <invEditOptions_e3dmt_ver1>` to set the inversion parameters
 
         - Basic Tab:
             - Select the impedance data
             - Set mesh
             - Set topography to active cells model
             - No background susceptibility
-            - 1D background conductivity of 0.0001 S/m (which we inferred from apparent resistivity maps).
+            - 1D conductivity of 0.001 S/m (which we inferred from apparent resistivity maps)
             - Use *Iterative* solver unless you have sufficient RAM to use *Direct* solver.
 
         - Model Options Tab:
+            - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 0.7*, *beta min = 1e-6* and *reduction factor = 0.2*
             - Set *Chi Factor* = 1.
-            - *alpha S* = 0.0001, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 10 (to emphasize some vertical smoothness
-            - Use the weights object to add additional weights
+            - *alpha S* = 0.0004, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 4 (to balance regularization terms based on cell dimensions)
             - Set the *active cells topo* as the active model cells
-            - Set initial model as 0.0001 S/m
-            - Set upper bound as 1 S/m and lower bound as 0.000001 S/m
-            - Set reference model as 0.0001 S/m
-
-        - Inversion Parameters Tab:
-            - Set *memory settings* as *write to file*
+            - Set initial model as 0.001 S/m
+            - Set upper bound as 0.5 S/m and lower bound as 0.00001 S/m
+            - Set reference model as 0.001 S/m
+            - Set role in model objective function to *SMOOTH_MOD_DIF*
 
     - Click *Apply and write files*
     - :ref:`Run the inversion <invRun>`

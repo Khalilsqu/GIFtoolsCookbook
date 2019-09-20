@@ -29,7 +29,7 @@ Import Files
 
 	- :ref:`Import impedance data from EDI files <importNSEMData_edi>`. EDI files are in the sub-folder *assets/MTdata_EDI*. Data are in standard EDI format (Northing-Easting-Down), which is also used by GIF codes.
 
-	- :ref:`Import ZTEM data from Geosoft XYZ <importXYZemData>`. The data file is in the sub-folder *assets/ZTEMdata.xyz*.
+	- :ref:`Import ZTEM data from Geosoft XYZ <importXYZemData>`. The data file is named *ZTEMdataXYZ.dat* and is in the sub-folder *assets* sub-folder.
 
 		- There are two frequencies (60 Hz and 360 Hz)
 		- There are 4 data groups (TZXR, TZXI, TZYR, TZYI)
@@ -82,7 +82,7 @@ Assigning uncertainties
 
 Assigning appropriate uncertainties to the data is necessary for running stable and successful inversions with GIFtools. For this exercise, we will apply simple uncertainties.
 
-	- Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For off-diagonal impedance tensor elements, apply uncertainties of of 0.005 V/A + 10 \%. For all diagonal impedance tensor elements, apply uncertainties of 0.005 V/A + 20 \%.
+	- Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For off-diagonal impedance tensor elements, apply uncertainties of of 0.005 V/A + 10%. For all diagonal impedance tensor elements, apply uncertainties of 0.005 V/A + 20%.
 	- Ensure that :ref:`IO headers are set <objectSetioHeaders>` for all uncertainties.
 
 .. important:: To demonstrate the E3DMT codes, we have chosen to apply simple uncertainties. In practice, we must ensure that we do not overfit certain frequencies and locations at the expense of others.
@@ -120,8 +120,8 @@ Creating an OcTree mesh
 ZTEM data
 ---------
 
-Interpretation
-^^^^^^^^^^^^^^
+Interpretation and Setting Base Station
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By examining the data, we can determine if they are in GIF format.
 
@@ -129,6 +129,11 @@ By examining the data, we can determine if they are in GIF format.
 
 		- The anomalous values in :math:`T_{zx}` lie to the North and South of the known conductor; whereas the anomalous values in :math:`T_{zy}` lie to the East and West of the known conductor. This is consistent with the data coordinates used by GIF.
 		- When comparing real and imaginary data, the sign of the anomalies of opposite, indicating a Fourier convention of :math:`e^{-i \omega t}`. This is consistent with GIF codes.
+
+	- Geosoft XYZ data files do not contain the base station location so we must define it. Thus:
+
+		- `Set base station <objectDataTypeZTEM_basestn>` at Easting = 556,600 m, Northing = 7,132,800 m and Elevation = 400 m.
+		- `Set ZTEM data type <objectDataTypeZTEM_datatype>` to *MTT*. If this is not done, horizontal fields are measured at the observation locations and not at the base station.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_ztem.png
@@ -143,7 +148,7 @@ Assigning uncertainties
 
 Assigning appropriate uncertainties to the data is necessary for running stable and successful inversions with GIFtools. For this exercise, we will apply simple uncertainties.
 
-	- Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For all data apply uncertainties of 0.001 V/A + 10 \%.
+	- Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For all data apply uncertainties of 0.001 V/A + 10%.
 	- Ensure that :ref:`IO headers are set <objectSetioHeaders>` for all uncertainties.
 
 .. important:: To demonstrate the E3DMT codes, we have chosen to apply simple uncertainties. In practice, we must ensure that we do not overfit certain frequencies and locations at the expense of others.
