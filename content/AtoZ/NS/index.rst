@@ -24,8 +24,8 @@ The full A to Z example is split into 3 parts:
     :maxdepth: 1
 
     Loading, interpreting and preparing data <data>
-    Inversion with E3DMT version 1 and 2 <inversion>
-    Joint MT and ZTEM inversion (PENDING) <joint>
+    MT inversion <mt_inversion>
+    ZTEM inversion <ztem_inversion>
 
 
 

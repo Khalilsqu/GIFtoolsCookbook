@@ -104,31 +104,35 @@ Let us now invert the impedance tensor data using E3DMT version 1.
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. The convergence curve indicated that the inversion reaches target misfit after 2 iterations. When comparing the true model and recovered model at iteration 2, we see that the inversion recovers the both the DO-27 and DO-18 kimberlite pipes. Surface weighting was able to limit near surface artifacts. However, the recovered model has a slightly lower conductivity than the true model. Given that the starting and reference models are a 0.0001 S/m halfspace, it is possible the uncertainties on the data are too large. When examining the normalized misfit, we see that locations over the pipes are not fit nearly as well as the background. Essentially, we are overfitting the background at the expense of the pipes. Although it is not shown here, we are not over-fitting the data at certain frequencies at the expense of others.
+The results of the inversion are shown below. We are able to recover the thickness and conductivity of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m). Because we are not especially sensitive to the base of the pipe, it is difficult for the inversion to recover the base of th
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inversion1_convergence.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v1_iter04.png
     :align: center
     :width: 700
 
-    Convergence curve shows that inversion reaches target misfit.
+    Recovered model at iteration 3. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inversion1.png
+.. figure:: ../../../images/AtoZ_E3DMT/true_model_mt.png
     :align: center
     :width: 700
 
-    True model (top) and recovered model at iteration 2 (bottom) at Easting = 557350 m.
+    True model. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inversion1_misfit.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v1_convergence.png
     :align: center
     :width: 700
 
-    Normalized misfit for the real component of :math:`Z{xy}` (left) and the imaginary component of :math:`Z{xy}` (right) at 5000 Hz.
+    Convergence curve shows that inversion reaches target misfit. The model norm is discontinuous because the reference modeled is updated at each iteration.
 
 
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v1_misfit.png
+    :align: center
+    :width: 700
 
+    Predicted data (left), observed data (centre) and normalized misfit (right) for the real component of :math:`Z_{xy}` at 60 Hz.
 
 
 E3DMT Version 2
@@ -180,8 +184,28 @@ The final model recovered using E3DMT version 2 is shown below. As we can see, t
 In this case, it is likely that the data uncertainties used to invert data with E3DMT version 2 were too high. The target misfit could be reached using a trade-off parameter (beta) that was larger than necessary and the data are being under-fit. The end result is a model that is overly smooth and has a maximum conductivity which is too low. The user could have run this inversion with a chi factor less than 1 to recover models which put increasing emphasis on fitting the data.
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inversion2.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v2_iter03.png
     :align: center
     :width: 700
 
-    True model (top), final recovered model using E3DMT version 1 and final recovered model using E3DMT version 2 (bottom) at Easting = 557350 m.
+    Recovered model at iteration 3. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
+
+
+.. figure:: ../../../images/AtoZ_E3DMT/true_model_mt.png
+    :align: center
+    :width: 700
+
+    True model. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
+
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v2_convergence.png
+    :align: center
+    :width: 700
+
+    Convergence curve shows that inversion reaches target misfit. The model norm is discontinuous because the reference modeled is updated at each iteration.
+
+
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v2_misfit.png
+    :align: center
+    :width: 700
+
+    Predicted data (left), observed data (centre) and normalized misfit (right) for the real component of :math:`Z_{xy}` at 60 Hz.
