@@ -14,7 +14,7 @@ To overcome this obstacle, we demonstrate a basic approach for limiting artifact
 ..important:: The MT data are in GIF format; see `GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data.
 
 
-.. _AtoZNS_inversion_setup:
+.. _AtoZNS_mt_inversion_setup:
 
 Setup for the Exercise
 ----------------------

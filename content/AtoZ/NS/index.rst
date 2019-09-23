@@ -13,12 +13,12 @@ The goal of this exercise is to recover a conductive kimberlite pipe which lies 
 
 Once finished, the user will be familiar with:
 
-	- The coordinate systems and Fourier convention generally used for MT and ZTEM data
-	- Basic interpretation of MT data through apparent resistivities
-	- Creating OcTree meshes based on survey geometry
-	- Practical strategies for inverting natural source data with the E3DMT codes
-	- Differences between E3DMT versions 1 and 2
-	- How to jointly invert MT and ZTEM data using GIFtools (PENDING)
+    - The coordinate systems and Fourier convention generally used for MT and ZTEM data
+    - Basic interpretation of MT data through apparent resistivities
+    - Creating OcTree meshes based on survey geometry
+    - Practical strategies for inverting natural source data with the E3DMT codes
+    - Differences between E3DMT versions 1 and 2
+    - How to jointly invert MT and ZTEM data using GIFtools (PENDING)
 
 The full A to Z example is split into 3 parts:
 
