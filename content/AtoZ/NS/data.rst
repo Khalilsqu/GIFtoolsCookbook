@@ -16,7 +16,7 @@ For this exercise, we:
 Setup for the Exercise
 ----------------------
 
-	- Download the demo (**pending**)
+	- `Download the demo <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/AtoZ_e3dmt_4Download.zip>`_
 	- Open GIFtools
 	- :ref:`Set the working directory <projSetWorkDir>`
 
@@ -27,19 +27,19 @@ Setup for the Exercise
 Import Files
 ------------
 
-	- :ref:`Import impedance data from EDI files <importNSEMData_edi>`. EDI files are in the sub-folder *assets/MTdata_EDI*. Data are in standard EDI format (Northing-Easting-Down), which is also used by GIF codes.
+	- :ref:`Import impedance data from EDI files <importNSEMData_edi>`. EDI files are in the folder *MTdata_EDI*. Data are in standard EDI format (Northing-Easting-Down), which is also used by GIF codes.
 
-	- :ref:`Import ZTEM data from Geosoft XYZ <importXYZemData>`. The data file is named *ZTEMdataXYZ.dat* and is in the sub-folder *assets* sub-folder.
+	- :ref:`Import ZTEM data from Geosoft XYZ <importXYZemData>`. The data file is named *ZTEMdataXYZ.dat*. Data are in the GIF data format (Northing-Easting-Down).
 
 		- There are two frequencies (60 Hz and 360 Hz)
 		- There are 4 data groups (TZXR, TZXI, TZYR, TZYI)
 
 	- Once loaded, make sure to :ref:`set IO headers <objectSetioHeaders>` for all MT and ZTEM data.
 
-	- *Pro tip:* To avoid confusion between location and data coordinate systems, use the :ref:`set data headers <objectDataHeaders>` tool to define location columns as *Easting, Northing* and *Elevation*.
+	- **Pro tip:** To avoid confusion between location and data coordinate systems, use the :ref:`set data headers <objectDataHeaders>` tool to define location columns as *Easting, Northing* and *Elevation*.
 
 
-.. note:: In this case, MT and ZTEM data are in a widely used coordinate system which matches that of the GIF codes. If a non-standard coordinate system is being used in the EDI files, it is imperative the user transform the data to GIF within GIFtools before inverting. This can be done by :ref:`changing data headers <objectDataHeaders>`, :ref:`multiplying certain columns by -1 <objectCalculator>` and/or :ref:`re-setting io Headers <objectSetioHeaders>`.
+.. important:: In this case, MT and ZTEM data are in a widely used coordinate system which matches that of the GIF codes; see `GIF data format conventions<sign_conv>`. If a non-standard coordinate system is being used in the EDI files, it is imperative the user transform the data to GIF within GIFtools before inverting. This can be done by :ref:`changing data headers <objectDataHeaders>`, :ref:`multiplying certain columns by -1 <objectCalculator>` and/or :ref:`re-setting io Headers <objectSetioHeaders>`.
 
 
 MT data
@@ -52,7 +52,7 @@ By examining the impedances, apparent resistivities and phases, we can determine
 
 	- Use VTK to image the off-axis impedance tensor elements :math:`Z_{xy}` and :math:`Z_{yx}`. Notice that:
 
-		- :math:`Z_{xy}` data are in the lower-righthand corner of the complex plane :math:`Z_{yx}` data are in the upper-lefthand corner of the complex plane
+		- :math:`Z_{xy}` data are in the lower-right-hand corner of the complex plane :math:`Z_{yx}` data are in the upper-left-hand corner of the complex plane
 		- This is consistent with data that is in :ref:`GIFtools format <sign_mt_conv>`
 
 	- :ref:`Convert impedances to apparent resistivity and phase <objectDataManipulationMT_IMP2APP>`
@@ -67,7 +67,7 @@ By examining the impedances, apparent resistivities and phases, we can determine
     :align: center
     :width: 700
 
-    Real (left) and imaginary (right) components of impedance tensor element :math:`Z_{xy}` at 60 Hz in V/A. Data shows that :math:`Z_{xy}` lies in the lower-righthand quadrant of the complext plane. This is consistent with the desired format in GIFtools.
+    Real (left) and imaginary (right) components of impedance tensor element :math:`Z_{xy}` at 60 Hz in V/A. Data shows that :math:`Z_{xy}` lies in the lower-righthand quadrant of the complex plane. This is consistent with the desired format in GIFtools.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_appres.png
@@ -90,8 +90,10 @@ Assigning appropriate uncertainties to the data is necessary for running stable 
 Creating an OcTree mesh
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+With OcTree utilities, we can create an OcTree mesh based on the survey geometry. Here we create an OcTree mesh from MT data.
+
 	- :ref:`Create an E3DMT mesh utility <createE3DMToctreeMesh>` and create a directory for any output files.
-	- Select the newly created object (E3DMT mesh utility) and :ref:`set data <utilSetData>` as the MTdata you loaded
+	- Select the newly created object (E3DMT mesh utility) and :ref:`set data <utilSetData>` as the MT data you loaded
 	- :ref:`Edit options <utilEditOptions_E3DMT>`. Use the following parameters:
 
 		- Background resistivity: 1,000 :math:`\Omega m`
@@ -155,6 +157,8 @@ Assigning appropriate uncertainties to the data is necessary for running stable 
 
 Creating an OcTree mesh
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+Here we generate an OcTree mesh from the ZTEM survey geometry.
 
 	- :ref:`Create an E3DMT mesh utility <createE3DMToctreeMesh>` and create a directory for any output files.
 	- Select the newly created object (E3DMT mesh utility) and :ref:`set data <utilSetData>` as the ZTEM data you loaded

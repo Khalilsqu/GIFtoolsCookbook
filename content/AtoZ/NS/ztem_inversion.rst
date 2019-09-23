@@ -3,12 +3,15 @@
 .. include:: <isonum.txt>
 
 
-Inverting MT Data
-=================
+Inverting ZTEM Data
+===================
 
 Here, we invert synthetic ZTEM data using E3DMT versions 1 and 2.
 The goal is to provide strategies for successful inversion and show that both codes can be used to recover the pipe.
+When inverting impedances, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
+To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
 
+..important:: The ZTEM data are in GIF format; see `GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data.
 
 .. _AtoZNS_inversion_setup:
 
@@ -22,13 +25,15 @@ Setup for the Exercise
 
 **If you have NOT completed the previous tutorial and would like to start here, complete the following steps:**
 
-    - Download the demo (**pending**)
+    - `Download the demo <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/AtoZ_e3dmt_4Download.zip>`_
     - Open GIFtools
     - :ref:`Set the working directory <projSetWorkDir>`
     - :ref:`Import the observed data in E3DMT version 1 format <importNSEMData_e3dmt1>`. The data file is *ZTEMdata_v1.obs* and is found in the *assets* sub-folder (ZTEM data are unitless)
     - :ref:`Load OcTree mesh <importMeshOctree>`. Found in the folder *assets/octree_model_ztem*.
     - :ref:`Load active cells model <importActiveModel>`. Found in the folder *assets/octree_model_ztem*.
     - :ref:`Load true model <importModel>`. Found in the folder *assets/octree_model_ztem*.
+
+**Pro tip:** To avoid confusion between location and data coordinate systems, use the :ref:`set data headers <objectDataHeaders>` tool to define location columns as *Easting, Northing* and *Elevation*.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_ztem.png
@@ -37,7 +42,7 @@ Setup for the Exercise
 
     Z-axis tipper measurements at 60 Hz. It is important to note that the 'X' in TZXR data refers to the Northing direction! 'R' refers to real component and 'I' refers to imaginary component.
 
-.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, the synthetic model was given a constant topography of 400 m. Uncertainties of 0.001 :math:`\pm` 10% were added to all data.
+.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, a constant topography of 400 m. Uncertainties of 0.001 :math:`\pm` 10% were added to all data.
 
 
 E3DMT Version 1
@@ -72,7 +77,10 @@ Let us now invert the ZTEM data using E3DMT version 1.
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. The convergence curve indicated that the inversion reaches target misfit after 2 iterations. When comparing the true model and recovered model at iteration 2, we see that the inversion recovers the both the DO-27 and DO-18 kimberlite pipes. Surface weighting was able to limit near surface artifacts. However, the recovered model has a slightly lower conductivity than the true model. Given that the starting and reference models are a 0.0001 S/m halfspace, it is possible the uncertainties on the data are too large. When examining the normalized misfit, we see that locations over the pipes are not fit nearly as well as the background. Essentially, we are overfitting the background at the expense of the pipes. Although it is not shown here, we are not over-fitting the data at certain frequencies at the expense of others.
+The results of the inversion are shown below. We are unable to recover the moderately conductive overburden as ZTEM data are not sensitive to layered structures. Despite only inverting data at 2 frequencies, we are generally able to recover the shape of the pipe and its depth below the surface. Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe.
+
+The inversion reaches target misfit after 5 iterations but the 4th iteration produced the best model. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly but underestimates its amplitude.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_ztem_v1_iter04.png
@@ -144,12 +152,10 @@ Let us now invert the ZTEM data using E3DMT version 2. Unlike version 1, version
     - :ref:`View convergence <convergence_curve>`
 
 
-The final model recovered using E3DMT version 2 is shown below. As we can see, the DO-27 and DO-18 kimerlite pipes are recovered. However when comparing the final recovered models from E3DMT versions 1 and 2, we notice they are slightly different. This can be explained by the following:
+The results of the inversion are shown below. We are unable to recover the moderately conductive overburden as ZTEM data are not sensitive to layered structures. Despite only inverting data at 2 frequencies, we are generally able to recover the shape of the pipe and its depth below the surface. Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe.
 
-    1. The measure of data misfit for both codes is different; see `E3DMT manual <https://e3dmt.readthedocs.io/en/manual_ver1/content/theory.html#data-misfit>`__ . Thus the optimization problem being solved at each beta and the target misfit are both different; which results in recovered models which are not identical.
-    2. Because receivers are explicitly defined in E3DMT version 2, there is a difference in how both codes compute predicted data from the solution of the fields on cell edges.
-
-In this case, it is likely that the data uncertainties used to invert data with E3DMT version 2 were too high. The target misfit could be reached using a trade-off parameter (beta) that was larger than necessary and the data are being under-fit. The end result is a model that is overly smooth and has a maximum conductivity which is too low. The user could have run this inversion with a chi factor less than 1 to recover models which put increasing emphasis on fitting the data.
+The inversion reaches target misfit after 7 iterations but the 4th iteration produced the best model. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly but underestimates its amplitude.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_ztem_v2_iter04.png

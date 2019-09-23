@@ -11,6 +11,8 @@ The goal is to provide strategies for successful inversion and show that both co
 When inverting impedances, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
 To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
 
+..important:: The MT data are in GIF format; see `GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data.
+
 
 .. _AtoZNS_inversion_setup:
 
@@ -24,13 +26,15 @@ Setup for the Exercise
 
 **If you have NOT completed the previous tutorial and would like to start here, complete the following steps:**
 
-    - Download the demo (**pending**)
+    - `Download the demo <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/AtoZ_e3dmt_4Download.zip>`_
     - Open GIFtools
     - :ref:`Set the working directory <projSetWorkDir>`
-    - :ref:`Import the observed data in E3DMT version 1 format <importNSEMData_e3dmt1>`. The data file is *MTdata_v1.obs* and is found in the *assets* sub-folder (Impedance tensor data in V/A)
+    - :ref:`Import the observed data in E3DMT version 1 format <importNSEMData_e3dmt1>`. The data file is *MTdata_v1.obs* (Impedance tensor data in V/A)
     - :ref:`Load OcTree mesh <importMeshOctree>`. Found in the folder *assets/octree_model_mt*.
     - :ref:`Load active cells model <importActiveModel>`. Found in the folder *assets/octree_model_mt*.
     - :ref:`Load true model <importModel>`. Found in the folder *assets/octree_model_mt*.
+
+**Pro tip:** To avoid confusion between location and data coordinate systems, use the :ref:`set data headers <objectDataHeaders>` tool to define location columns as *Easting, Northing* and *Elevation*.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_impedance.png
@@ -48,7 +52,7 @@ Setup for the Exercise
 
 
 
-.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, the synthetic model was given a constant topography of 400 m. Uncertainties of 0.005 :math:`\pm` 10% were added to all off-diagonal impedance tensor measurements. Uncertainties of 0.005 :math:`\pm` 20% were added to all diagonal impedance tensor measurements.
+.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, a constant topography of 400 m. Uncertainties of 0.005 :math:`\pm` 10% were added to all off-diagonal impedance tensor measurements. Uncertainties of 0.005 :math:`\pm` 20% were added to all diagonal impedance tensor measurements.
 
 
 Reducing Artifacts through Interface Weighting
@@ -76,7 +80,7 @@ E3DMT Version 1
 
 Let us now invert the impedance tensor data using E3DMT version 1. 
 
-    - :ref:`Create E3DMT ver 1 inversion object <createMTZTEMInv>`
+    - :ref:`Create E3DMT version 1 inversion object <createMTZTEMInv>`
     - :ref:`Use edit options <invEditOptions_e3dmt_ver1>` to set the inversion parameters
 
         - Basic Tab:
@@ -104,7 +108,10 @@ Let us now invert the impedance tensor data using E3DMT version 1.
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. We are able to recover the thickness and conductivity of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m). Because we are not especially sensitive to the base of the pipe, it is difficult for the inversion to recover the base of th
+The results of the inversion are shown below. We are able to recover the thickness and conductivity of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m). Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe.
+
+The inversion reaches target misfit after 4 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly overall; although some of the larger normalized misfits lie on top of the anomaly.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v1_iter04.png
@@ -148,7 +155,7 @@ Let us now invert the impedance tensor data using E3DMT version 2. Unlike versio
         - Dipole length = 10 m
 
 
-    - :ref:`Create E3DMT ver 2 inversion object <createMTZTEMInv>`
+    - :ref:`Create E3DMT version 2 inversion object <createMTZTEMInv>`
     - :ref:`Use edit options <invEditOptions_e3dmt_ver1>` to set the inversion parameters
 
         - Basic Tab:
@@ -176,12 +183,10 @@ Let us now invert the impedance tensor data using E3DMT version 2. Unlike versio
     - :ref:`View convergence <convergence_curve>`
 
 
-The final model recovered using E3DMT version 2 is shown below. As we can see, the DO-27 and DO-18 kimerlite pipes are recovered. However when comparing the final recovered models from E3DMT versions 1 and 2, we notice they are slightly different. This can be explained by the following:
+The results of the inversion are shown below. We are able to recover the thickness and conductivity of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m). Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe.
 
-    1. The measure of data misfit for both codes is different; see `E3DMT manual <https://e3dmt.readthedocs.io/en/manual_ver1/content/theory.html#data-misfit>`__ . Thus the optimization problem being solved at each beta and the target misfit are both different; which results in recovered models which are not identical.
-    2. Because receivers are explicitly defined in E3DMT version 2, there is a difference in how both codes compute predicted data from the solution of the fields on cell edges.
-
-In this case, it is likely that the data uncertainties used to invert data with E3DMT version 2 were too high. The target misfit could be reached using a trade-off parameter (beta) that was larger than necessary and the data are being under-fit. The end result is a model that is overly smooth and has a maximum conductivity which is too low. The user could have run this inversion with a chi factor less than 1 to recover models which put increasing emphasis on fitting the data.
+The inversion reaches target misfit after 4 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly overall; although some of the larger normalized misfits lie on top of the anomaly.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v2_iter03.png
