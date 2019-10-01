@@ -62,13 +62,13 @@ DCIP3D
 
 This functionality allows to forward DC data from a tensor mesh, a DC survey and a conductivity model. Topography can also be added. Many options are shared with the DCIP2D Forward described above.
 
-.. figure:: ../images/Edit_DC_options_ DC3Dforward.png
+.. figure:: ../../../../images/Edit_DC_options_DC3Dforward.png
     :align: center
     :width: 700
 
-    - **vector memory**: Specifies how solution vectors are to be stored in the computer’s memory. Use "store all" to store all vectors in memory.
+- **vector memory**: Specifies how solution vectors are to be stored in the computer’s memory. Use "store all" to store all vectors in memory.
 
-    - **Output Potential:**  If ticked, the potentials of every cell are written to the file potentials x.txt where x is the current electrode pair number. This file can be viewed in meshTools3D.
+- **Output Potential:**  If ticked, the potentials of every cell are written to the file potentials x.txt where x is the current electrode pair number. This file can be viewed in meshTools3D.
 
 
 .. _fwdEditOptions_dcipoctree:
@@ -76,6 +76,10 @@ This functionality allows to forward DC data from a tensor mesh, a DC survey and
 DCIP Octree
 ===========
 
+The GUI for forward modeling with the DCIP octree codes is similar to the Tensor Mesh ones.
 
+.. figure:: ../../../../images/Edit_DC_options_DCoctreeforward.png
+    :align: center
+    :width: 700
 
 
