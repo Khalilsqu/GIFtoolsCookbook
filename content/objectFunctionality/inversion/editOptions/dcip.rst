@@ -178,13 +178,57 @@ DCIP3D
 Functionality specific to the ``DCIPinversion`` object
 
 
-Create Files (make_wdat)
-------------------------
+Discrete topo/weights -> Create Files (make_wdat)
+-------------------------------------------------
+
+.. figure:: ../../../../images/Inputs_make_wdat.png
+    :align: center
+    :width: 350
+
+
+``MAKE_WDAT`` is a utility used to make a ``w.dat`` file that has smoothing in the x- and y-directions for the first few layers that underlie the topography surface. It suppresses the tendency of the algorithm to make highly variable structure in these top layers of the model (:ref:`link to the dcip3d manual <https://dcip3d.readthedocs.io/en/latest/content/runprog/weights.html>`).
+
+.. note::
+	We stress that the above weighting should be applied with care. A strong horizontal smoothing can often eliminate horizontal changes in the conductivity, even if the earth model truly had these. The inclusion, and details, of the surface weighting therefore involves subjective decision by the u er. Without weighting, the model at the surface can be quite rough (due to electrod effects). On the other hand, local geology is also sometimes quite rough and hence the tr e earth model should exhibit a large heterogeneity.
+
+
+mesh
+	The 3D mesh file used in the DC or IP inversion
+topo
+	A topography file that is in the general format. Use null to apply to the top layers of the mesh.
+
+Layer
+	Specify he number of layers to implement the weighting. The air layers will not be weighted and the remaining portion of the model will have a weight of 1.
+
+weights
+	Values of weights for the n layers specified on the previous line.
+
+
+The program ``MAKE_WDAT`` outputs two files:
+
+w.dat
+	A 3D weighting file to use in the inversion
+
+topo.idx (is ``Create File`` is selected)
+	The topography file in discrete format named from the last line in the input file. This file is not generated if the name line in the input file was null.
 
 .. _invDCIP3DInputOptions:
 
-Set for Inversion
------------------
+Discrete topo/weights -> Set for Inversion
+------------------------------------------
+
+.. figure:: ../../../../images/set_for_inversion.png
+    :align: center
+    :width: 350
+
+Set the weights created with ``make_wdat`` in the inversion.
+
+
+Discrete topo/weights -> create Sensitivity weights
+---------------------------------------------------
+
+Create a weighting files from a ``GIFmodel`` file (preferentially created from a ``sensitivity.txt`` file)
+
 
 .. _invEditOptions_dcipoctree:
 
