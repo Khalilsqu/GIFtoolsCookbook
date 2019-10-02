@@ -100,7 +100,7 @@ inversion through a starting and a reference model.
 To create a full 3D model from the merge 2D models created in :ref:`the merging step <AtoZDCIP_2DInversion_Merge>`, the steps are:
 
 - Right-click on the merged model
-- Select ``Edit -> Fill/Interpolate no-data-value`` (see :ref:`documentation <objectFunctionalityFillNDValue>` )
+- Select ``Edit -> Fill/Interpolate no-data-value`` (see :ref:`the documentation <objectFunctionalityFillNDValue>`)
 - Keep the default parameters and enter ``1e-8`` as ``no-data-value`` and choose the ``Log`` interpolation
 
 
