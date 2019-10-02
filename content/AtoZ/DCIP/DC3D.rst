@@ -97,11 +97,11 @@ Case 3: Inversion with 2D starting model
 In the third case, we will incorporate the stiched 2D model in the 3D
 inversion through a starting and a reference model.
 
-To create a full 3D model from the merge 2D models as done in `the merging step <AtoZDCIP_2DInversion_Merge>`, the steps are:
+To create a full 3D model from the merge 2D models created in :ref:`the merging step <AtoZDCIP_2DInversion_Merge>`, the steps are:
 
 - Right-click on the merged model
-- Select `Edit -> Fill/Interpolate no-data-value <objectFunctionalityFillNDValue>`
-- Keep the default parameters and enter `1e-8` as `no-data-value` and choose the `Log` interpolation
+- Select ``Edit -> Fill/Interpolate no-data-value`` (see :ref:`documentation <objectFunctionalityFillNDValue>` )
+- Keep the default parameters and enter ``1e-8`` as ``no-data-value`` and choose the ``Log`` interpolation
 
 
 Then you can use that model as starting and reference model:
