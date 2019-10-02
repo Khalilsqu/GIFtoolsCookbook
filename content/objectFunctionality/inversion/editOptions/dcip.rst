@@ -260,5 +260,5 @@ Update reference model throughout
 SMOOTH_MOD | SMOOTH_MOD_DIF
         This option is used to define the reference model in and out of the derivative terms of the model objective function. The options are: SMOOTH_MOD_DIF (reference model is defined in the derivative terms of the model objective function) and SMOOTH_MOD (reference model is defined only the smallest model term of the objective function).
 
-..note::
+.. note::
 	more details in the `dcipOctree manual <https://dcipoctree.readthedocs.io/en/latest/content/runprog/dcinv.html>`_.
