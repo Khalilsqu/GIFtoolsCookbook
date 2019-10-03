@@ -132,7 +132,7 @@ Advanced (Parameter 2)
 
 **Weighting functions:** Here, the user may choose not to include additional model weights (**none**) or include face/model weights using a weights object or sensitivity-based weighting. (see section :ref:`Import sensitivity as weights <importSensWeights>`).
 	- **no weighting**: no weight is applied
-	- **Sensitivity weighting**: If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion.
+	- **Sensitivity weighting**: If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion (see :ref:`fundamentals section <sensW_for_dcip_demo>`).
 		- On cells center: the sensitivity weights are applied to the smallness term
 		- On faces: the sensitivity weights are applied on the gradient terms.
 		- threshold: apply a threshold to the sensitivity weights
