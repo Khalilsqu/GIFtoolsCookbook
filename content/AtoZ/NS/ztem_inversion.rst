@@ -11,7 +11,7 @@ The goal is to provide strategies for successful inversion and show that both co
 When inverting impedances, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
 To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
 
-..important:: The ZTEM data are in GIF format; see `GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data.
+..important:: The ZTEM data are in GIF format; see `GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data. To get addition background information on the coordinate systems used by the E3DMT codes, see the theory sections of the `version 1 <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#>`_ and `version 2 <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/theory.html#>`_ manuals.
 
 .. _AtoZNS_ztem_inversion_setup:
 

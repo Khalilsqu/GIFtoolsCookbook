@@ -39,7 +39,7 @@ Import Files
     - **Pro tip:** To avoid confusion between location and data coordinate systems, use the :ref:`set data headers <objectDataHeaders>` tool to define location columns as *Easting, Northing* and *Elevation*.
 
 
-.. important:: In this case, MT and ZTEM data are in a widely used coordinate system which matches that of the GIF codes; see `GIF data format conventions<sign_conv>`. If a non-standard coordinate system is being used in the EDI files, it is imperative the user transform the data to GIF within GIFtools before inverting. This can be done by :ref:`changing data headers <objectDataHeaders>`, :ref:`multiplying certain columns by -1 <objectCalculator>` and/or :ref:`re-setting io Headers <objectSetioHeaders>`.
+.. important:: In this case, MT and ZTEM data are in a widely used coordinate system which matches that of the GIF codes; see :ref:`GIF data format conventions <signConvention>`. If a non-standard coordinate system is being used in the EDI files, it is imperative the user transform the data to GIF within GIFtools before inverting. This can be done by :ref:`changing data headers <objectDataHeaders>`, :ref:`multiplying certain columns by -1 <objectCalculator>` and/or :ref:`re-setting io Headers <objectSetioHeaders>`. To get addition background information on the coordinate systems used by the E3DMT codes, see the theory sections of the `version 1 <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#>`_ and `version 2 <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/theory.html#>`_ manuals.
 
 
 MT data
@@ -50,24 +50,24 @@ Interpretation through apparent resistivity
 
 By examining the impedances, apparent resistivities and phases, we can determine if the units of the data are correct and whether the data are in GIF format.
 
-    - Use VTK to image the off-axis impedance tensor elements :math:`Z_{xy}` and :math:`Z_{yx}`. Notice that:
+    - Use VTK to image the off-axis impedance tensor elements :math:`Z_{xy}` and :math:`Z_{yx}`. Notice that when looking at the background response:
 
         - :math:`Z_{xy}` data are in the lower-right-hand corner of the complex plane :math:`Z_{yx}` data are in the upper-left-hand corner of the complex plane
         - This is consistent with data that is in :ref:`GIFtools format <sign_mt_conv>`
 
     - :ref:`Convert impedances to apparent resistivity and phase <objectDataManipulationMT_IMP2APP>`
 
-    - Use VTK to image the apparent resistivities derived from the off-axis impedance tensor elements (image on log-scale). Notice that:
+    - Use VTK to image the apparent resistivities derived from the off-axis impedance tensor elements (image on log-scale). When looking at :math:`Z_{xy}` and :math:`Z_{yx}` for all frequencies we found that:
 
-        - The near surface resistivity of the background (:math:`\sim 200 \; \Omega m`) is less than the resistivity of the background at depth (:math:`\sim 1000 \; \Omega m`).
-        - The MT anomaly is caused by a conductor (:math:`\rho_a \sim 10^2 \, \Omega m`) and that conductor is likely does not extend to the surface.
+        - the near surface resistivity of the background (:math:`\sim 200 \; \Omega m`) is less than the resistivity of the background at depth (:math:`\sim 1000 \; \Omega m`).
+        - the MT anomaly is caused by a conductor (:math:`\rho_a \sim 10^2 \, \Omega m`) and that the conductor does not extend to the surface.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_impedance.png
     :align: center
     :width: 700
 
-    Real (left) and imaginary (right) components of impedance tensor element :math:`Z_{xy}` at 60 Hz in V/A. Data shows that :math:`Z_{xy}` lies in the lower-righthand quadrant of the complex plane. This is consistent with the desired format in GIFtools.
+    Real (left) and imaginary (right) components of impedance tensor elements :math:`Z_{xy}` and :math:`Z_{yx}` at 60 Hz in V/A.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_appres.png
@@ -82,7 +82,7 @@ Assigning uncertainties
 
 Assigning appropriate uncertainties to the data is necessary for running stable and successful inversions with GIFtools. For this exercise, we will apply simple uncertainties.
 
-    - Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For off-diagonal impedance tensor elements, apply uncertainties of of 0.005 V/A + 10%. For all diagonal impedance tensor elements, apply uncertainties of 0.005 V/A + 20%.
+    - Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For all data apply uncertainties of 0.0025 V/A + 5%.
     - Ensure that :ref:`IO headers are set <objectSetioHeaders>` for all uncertainties.
 
 .. important:: To demonstrate the E3DMT codes, we have chosen to apply simple uncertainties. In practice, we must ensure that we do not overfit certain frequencies and locations at the expense of others.
@@ -129,13 +129,13 @@ By examining the data, we can determine if they are in GIF format.
 
     - Use VTK to image the ZTEM data. Notice that over a compact body:
 
-        - The anomalous values in :math:`T_{zx}` lie to the North and South of the known conductor; whereas the anomalous values in :math:`T_{zy}` lie to the East and West of the known conductor. This is consistent with the data coordinates used by GIF.
+        - The anomalous values in :math:`T_{zx}` lie to the North and South of the pipe; whereas the anomalous values in :math:`T_{zy}` lie to the East and West of the pipe. For a base station which lies away from any lateral conductivity changes, this is consistent with the GIF codes.
         - When comparing real and imaginary data, the sign of the anomalies of opposite, indicating a Fourier convention of :math:`e^{-i \omega t}`. This is consistent with GIF codes.
 
     - Geosoft XYZ data files do not contain the base station location so we must define it. Thus:
 
-        - `Set base station <objectDataTypeZTEM_basestn>` at Easting = 556,600 m, Northing = 7,132,800 m and Elevation = 400 m.
-        - `Set ZTEM data type <objectDataTypeZTEM_datatype>` to *MTT*. If this is not done, horizontal fields are measured at the observation locations and not at the base station.
+        - :ref:`Set base station <objectDataTypeZTEM_basestn>` at Easting = 556,600 m, Northing = 7,132,800 m and Elevation = 400 m.
+        - :ref:`Set ZTEM data type <objectDataTypeZTEM_datatype>` to *MTT*. If this is not done, horizontal fields are measured at the observation locations and not at the base station.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_ztem.png
@@ -150,8 +150,21 @@ Assigning uncertainties
 
 Assigning appropriate uncertainties to the data is necessary for running stable and successful inversions with GIFtools. For this exercise, we will apply simple uncertainties.
 
-    - Use :ref:`assign simple uncertainties <objectAssignUncert>` to generate uncertainties for the data. For all data apply uncertainties of 0.001 V/A + 10%.
+    - Use :ref:`assign simple uncertainties <objectAssignUncert>` assign uncertainties to the data. Assign a floor equal to 5% the maximum value in amplitude for each component and for each frequency. The frequencies we chose are tabulated below.
     - Ensure that :ref:`IO headers are set <objectSetioHeaders>` for all uncertainties.
+
+
++---------------+--------------------------+---------------------------+
+| **Component** | :math:`\epsilon` at 60 Hz| :math:`\epsilon` at 360 Hz|
++===============+==========================+===========================+
+| TZXR          | 0.0025                   | 0.0038                    |
++---------------+--------------------------+---------------------------+
+| TZXI          | 0.001                    | 0.0006                    |
++---------------+--------------------------+---------------------------+
+| TZYR          | 0.0037                   | 0.0049                    |
++---------------+--------------------------+---------------------------+
+| TZYI          | 0.0015                   | 0.0012                    |
++---------------+--------------------------+---------------------------+
 
 .. important:: To demonstrate the E3DMT codes, we have chosen to apply simple uncertainties. In practice, we must ensure that we do not overfit certain frequencies and locations at the expense of others.
 

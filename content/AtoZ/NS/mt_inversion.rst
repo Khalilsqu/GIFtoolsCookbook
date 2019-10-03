@@ -11,7 +11,7 @@ The goal is to provide strategies for successful inversion and show that both co
 When inverting impedances, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
 To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
 
-..important:: The MT data are in GIF format; see `GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data.
+.. important:: The MT data are in GIF format; see :ref:`GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention however is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data. To get addition background information on the coordinate systems used by the E3DMT codes, see the theory sections of the `version 1 <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#>`_ and `version 2 <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/theory.html#>`_ manuals.
 
 
 .. _AtoZNS_mt_inversion_setup:
@@ -52,7 +52,7 @@ Setup for the Exercise
 
 
 
-.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, a constant topography of 400 m. Uncertainties of 0.005 :math:`\pm` 10% were added to all off-diagonal impedance tensor measurements. Uncertainties of 0.005 :math:`\pm` 20% were added to all diagonal impedance tensor measurements.
+.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. To keep things simple, a constant topography of 400 m. Uncertainties of 0.0025 :math:`\pm` 5% were added to all impedance tensor measurements.
 
 
 Reducing Artifacts through Interface Weighting
@@ -66,7 +66,7 @@ When inverting MT data, the E3DMT codes have a tendency to place conductive stru
         - set the OcTree mesh
         - set as *log model*
         - set topography as the active cells model
-        - set 4 layers of surface weights with values 20, 10, 5, and 2.5 in decreasing order
+        - set 3 layers of surface weights with values 10, 5, and 2.5 in decreasing order
         - Face value = 0.01
         - Face tolerance = 0.01
 
@@ -92,13 +92,12 @@ Let us now invert the impedance tensor data using E3DMT version 1.
             - Use *Iterative* solver unless you have sufficient RAM to use *Direct* solver.
 
         - Model Options Tab:
-            - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 0.7*, *beta min = 1e-6* and *reduction factor = 0.2*
-            - Set *Chi Factor* = 1.
-            - *alpha S* = 0.0004, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 4 (to balance regularization terms based on cell dimensions)
+            - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 1*, *beta min = 1e-8* and *reduction factor = 0.25*
+            - Set *Chi Factor* = 0.8 since E3DMT version 1 uses a non-standard measure of data misfit; `see manual <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#data-misfit>`
+            - *alpha S* = 1e-10, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 2.56 (to recover smoothest model and gradient terms based on cell dimensions)
             - Use the weights object to add additional weights
             - Set the *active cells topo* as the active model cells
             - Set initial model as 0.001 S/m
-            - Set upper bound as 0.5 S/m and lower bound as 0.00001 S/m
             - Set reference model as 0.001 S/m
             - Set role in model objective function to *SMOOTH_MOD_DIF*
 
@@ -108,13 +107,13 @@ Let us now invert the impedance tensor data using E3DMT version 1.
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. We are able to recover the thickness and conductivity of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m). Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe.
+The results of the inversion are shown below. We are able to recover conductive pipe and estimate the thickness of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m) and the pipe's general shape.
 
-The inversion reaches target misfit after 4 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
-The recovered model is able to reproduce the observed anomaly overall; although some of the larger normalized misfits lie on top of the anomaly.
+The inversion reaches target misfit after 3 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly quite well. And misfit map indicated we are fitting each component of the data evenly.
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v1_iter04.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v1_iter03.png
     :align: center
     :width: 700
 
@@ -167,13 +166,12 @@ Let us now invert the impedance tensor data using E3DMT version 2. Unlike versio
             - Use *Iterative* solver unless you have sufficient RAM to use *Direct* solver.
 
         - Model Options Tab:
-            - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 0.7*, *beta min = 1e-6* and *reduction factor = 0.2*
-            - Set *Chi Factor* = 1.
-            - *alpha S* = 0.0004, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 4 (to balance regularization terms based on cell dimensions)
+            - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 1*, *beta min = 1e-8* and *reduction factor = 0.25*
+            - Set *Chi Factor* = 1
+            - *alpha S* = 1e-10, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 2.56 (to recover smoothest model and gradient terms based on cell dimensions)
             - Use the weights object to add additional weights
             - Set the *active cells topo* as the active model cells
             - Set initial model as 0.001 S/m
-            - Set upper bound as 0.5 S/m and lower bound as 0.00001 S/m
             - Set reference model as 0.001 S/m
             - Set role in model objective function to *SMOOTH_MOD_DIF*
 
@@ -183,10 +181,10 @@ Let us now invert the impedance tensor data using E3DMT version 2. Unlike versio
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. We are able to recover the thickness and conductivity of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m). Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe.
+The results of the inversion are shown below. We are able to recover conductive pipe and estimate the thickness of the conductive overburden (:math:`\sigma \approx 0.005` S/m). We are also able to recover the approximate depth to the pipe (~100 m) and the pipe's general shape.
 
-The inversion reaches target misfit after 4 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
-The recovered model is able to reproduce the observed anomaly overall; although some of the larger normalized misfits lie on top of the anomaly.
+The inversion reaches target misfit after 3 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly quite well. And misfit map indicated we are fitting each component of the data evenly.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_mt_v2_iter03.png
