@@ -5,8 +5,9 @@
 Create Model
 ============
 
-.. raw:: html
-    :file: ../../../underconstruction.html
+.. figure:: ../../../images/createModelOptions.png
+    :align: center
+    :width: 400
 
 .. toctree::
     :maxdepth: 1
