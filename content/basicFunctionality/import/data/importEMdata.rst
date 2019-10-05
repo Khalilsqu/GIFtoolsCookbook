@@ -23,7 +23,7 @@ Frequency-domain (FEM), Time-domain (TEM) and Natural Source (NSEM) electromagne
 Import XYZ EM data
 ^^^^^^^^^^^^^^^^^^
 
-Common to both FEM and TEM, data be can loaded from a general column file that contains position and multiple data channels.
+Common to FEM, TEM and ZTEM, data be can loaded from a general column file that contains position and multiple data channels.
 
 .. figure:: ../../../../images/importFEM_other.png
     :align: center
