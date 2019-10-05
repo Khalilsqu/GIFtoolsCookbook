@@ -1,4 +1,4 @@
-.. _model2Dfile:
+.. _model1Dfile:
 
 1D Model file
 =============
