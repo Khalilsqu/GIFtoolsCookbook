@@ -46,7 +46,7 @@ Setup for the Exercise
     :align: center
     :width: 700
 
-    Apparent resistivities for :math:`Z_{xy}` at frequencies 60 Hz (left), 360 Hz (middle) and 1500 Hz (right). Apparent resistivity data shows the anomaly as being cause by a conductor.
+    Impedence data converted to apparent resistivities for :math:`Z_{xy}` at frequencies 60 Hz (left), 360 Hz (middle) and 1500 Hz (right). Apparent resistivity data shows the anomaly as being cause by a conductor.
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_ztem.png
     :align: center
@@ -88,10 +88,10 @@ Let us now invert the MT and ZTEM data using E3DMT version 1.
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. We are unable to recover the moderately conductive overburden as ZTEM data are not sensitive to layered structures. Despite only inverting data at 2 frequencies, we are generally able to recover the shape of the pipe. Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe. The maximum conductivity of the recovered structure is notably higher than the true conductivity of the pipe.
+The results of the inversion are shown below. We are able to recover the moderately conductive overburden from MT information as well as the conductive pipe from both the MT and ZTEM. The maximum conductivity of the recovered structure is notably higher than the true conductivity of the pipe.
 
-The inversion reaches target misfit after 4 iterations. The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
-The recovered model is able to reproduce the observed anomaly but underestimates its amplitude.
+The inversion reaches target misfit after 4 iterations but we have chosen the model recovered at iteration 3 (chi factor = 0.58). The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly but underestimates its amplitude. Misfit maps show that we are fitting both datasets relatively evenly.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_joint_v1_iter03.png
@@ -169,9 +169,10 @@ Let us now invert the ZTEM data using E3DMT version 2. Unlike version 1, version
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. We are unable to recover the moderately conductive overburden as ZTEM data are not sensitive to layered structures. Despite only inverting data at 2 frequencies, we are generally able to recover the shape of the pipe. Because we are not especially sensitive, it is difficult for the inversion to recover the base of the pipe. The maximum conductivity of the recovered structure is notably higher than the true conductivity of the pipe.
+The results of the inversion are shown below. We are able to recover the moderately conductive overburden from MT information as well as the conductive pipe from both the MT and ZTEM. The maximum conductivity of the recovered structure is notably higher than the true conductivity of the pipe.
 
-The inversion reaches target misfit after 4 iterations, but we have chosen to show the model at iteration 3 (chi factor of 1.005). The model norm is discontinuous because the current model is set to be the reference model for the next beta value. The recovered model is able to reproduce the observed anomaly but underestimates its amplitude.
+The inversion reaches target misfit after 6 iterations but we have chosen the model recovered at iteration 3 (chi factor = 1.06). The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
+The recovered model is able to reproduce the observed anomaly but underestimates its amplitude. Misfit maps show that we are fitting both datasets relatively evenly.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_joint_v2_iter03.png
