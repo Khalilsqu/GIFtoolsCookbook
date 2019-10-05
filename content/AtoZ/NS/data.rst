@@ -10,7 +10,7 @@ For this exercise, we:
 
     - Import impedance tensor data in EMAP standard format from a set of EDI files
     - Import ZTEM data from a Geosoft XYZ formatted file
-    - Convert impedances tensor data to apparent resistivities for interpretation
+    - Convert impedance tensor data to apparent resistivities for interpretation
     - Apply uncertainties to impedance tensor and ZTEM data
 
 Setup for the Exercise
@@ -27,9 +27,9 @@ Setup for the Exercise
 Import Files
 ------------
 
-    - :ref:`Import impedance data from EDI files <importNSEMData_edi>`. EDI files are in the folder *MTdata_EDI*. Data are in standard EDI format (Northing-Easting-Down), which is also used by GIF codes.
+    - :ref:`Import MT data from EDI files <importNSEMData_edi>`. EDI files are in the folder *assets/MTdata_EDI*. Data are in standard EDI format (Northing-Easting-Down), which is also used by GIF codes.
 
-    - :ref:`Import ZTEM data from Geosoft XYZ <importXYZemData>`. The data file is named *ZTEMdataXYZ.dat*. Data are in the GIF data format (Northing-Easting-Down).
+    - :ref:`Import ZTEM data from Geosoft XYZ <importXYZemData>`. The data file is named *ZTEMdata_XYZ.dat* and is in the *assets* folder. Data are in the GIF data format (Northing-Easting-Down).
 
         - There are two frequencies (60 Hz and 360 Hz)
         - There are 4 data groups (TZXR, TZXI, TZYR, TZYI)
@@ -114,6 +114,8 @@ With OcTree utilities, we can create an OcTree mesh based on the survey geometry
     OcTree mesh. 103,391 total cells.
 
 
+.. note:: To generate the OcTree mesh with E3DMT version 2 utilities, we would need to first :ref:`define receivers from data locations <objectDataTypeMT_snid>`.
+
 .. important:: For this example, mesh parameters were set such that we had flat topography which did not intersect any padding cells. In practice, we must ensure the topography is sufficiently discretized. Otherwise, source terms computed in the code are not accurate. This will lead to artifacts in the inversion even if the padding distance is sufficient. A good way check is to look at the active cells model.
 
 .. important:: By choosing flat topography, we have ensure all measurements are exactly on the surface of the discretized topography. If topography is used, the data locations must be projected onto the discretized topography. Failure to do so may result in electric field measurements being collected in the air.
@@ -127,7 +129,7 @@ Interpretation and Setting Base Station
 
 By examining the data, we can determine if they are in GIF format.
 
-    - Use VTK to image the ZTEM data. Notice that over a compact body:
+    - Use VTK to image the ZTEM data. Notice that proximal to a compact body:
 
         - The anomalous values in :math:`T_{zx}` lie to the North and South of the pipe; whereas the anomalous values in :math:`T_{zy}` lie to the East and West of the pipe. For a base station which lies away from any lateral conductivity changes, this is consistent with the GIF codes.
         - When comparing real and imaginary data, the sign of the anomalies of opposite, indicating a Fourier convention of :math:`e^{-i \omega t}`. This is consistent with GIF codes.
@@ -151,7 +153,7 @@ Assigning uncertainties
 
 Assigning appropriate uncertainties to the data is necessary for running stable and successful inversions with GIFtools. For this exercise, we will apply simple uncertainties.
 
-    - Use :ref:`assign simple uncertainties <objectAssignUncert>` assign uncertainties to the data. Assign a floor equal to 5% the maximum value in amplitude for each component and for each frequency. The frequencies we chose are tabulated below.
+    - Use the :ref:`GUI <objectAssignUncertGUI>` to assign uncertainties to each component and frequency of the data seperately. Assign a floor equal to 5% the maximum value in amplitude for each component and for each frequency. The uncertainties we chose are tabulated below.
     - Ensure that :ref:`IO headers are set <objectSetioHeaders>` for all uncertainties.
 
 
@@ -197,5 +199,8 @@ Here we generate an OcTree mesh from the ZTEM survey geometry.
 
 
 .. important:: For this example, mesh parameters were set such that we had flat topography which did not intersect any padding cells. In practice, we must ensure the topography is sufficiently discretized. Otherwise, source terms computed in the code are not accurate. This will lead to artifacts in the inversion even if the padding distance is sufficient. A good way check is to look at the active cells model.
+
+
+.. note:: To generate the OcTree mesh with E3DMT version 2 utilities, we would need to first :ref:`define receivers from data locations <objectDataTypeMT_snid>`.
 
 

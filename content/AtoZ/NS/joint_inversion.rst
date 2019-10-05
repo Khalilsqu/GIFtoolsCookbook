@@ -7,7 +7,6 @@ Joint MT/ZTEM Inversion
 =======================
 
 Here, we jointly invert synthetic MT and ZTEM data using E3DMT versions 1 and 2.
-The goal is to provide strategies for successful inversion and show that both codes can be used to recover the pipe.
 When inverting impedances and Tipper data, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
 To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
 
@@ -76,7 +75,7 @@ Let us now invert the MT and ZTEM data using E3DMT version 1.
         - Model Options Tab:
             - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 0.8*, *beta min = 1e-8* and *reduction factor = 0.25*
             - Set *Chi Factor* = 0.5 since E3DMT version 1 uses a non-standard measure of data misfit; `see manual <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#data-misfit>`__
-            - *alpha S* = 1e-10, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 2.56 (to recover smoothest model and gradient terms based on cell dimensions)
+            - *alpha S* = 1e-10, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 2.56 (to recover smoothest model and balance gradient terms based on cell dimensions)
             - Set the *active cells topo* as the active model cells
             - Set initial model as 0.001 S/m
             - Set reference model as 0.001 S/m
@@ -157,7 +156,7 @@ Let us now invert the ZTEM data using E3DMT version 2. Unlike version 1, version
         - Model Options Tab:
             - Set *Beta cooling schedule* to 'custom by clicking button'. Use *beta max = 0.8*, *beta min = 1e-8* and *reduction factor = 0.25*
             - Set *Chi Factor* = 1
-            - *alpha S* = 1e-10, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 2.56 (to recover smoothest model and gradient terms based on cell dimensions)
+            - *alpha S* = 1e-10, *alpha E* = 1, *alpha N* = 1 and *alpha Z* = 2.56 (to recover smoothest model and balance gradient terms based on cell dimensions)
             - Set the *active cells topo* as the active model cells
             - Set initial model as 0.001 S/m
             - Set reference model as 0.001 S/m
@@ -169,7 +168,7 @@ Let us now invert the ZTEM data using E3DMT version 2. Unlike version 1, version
     - :ref:`View convergence <convergence_curve>`
 
 
-The results of the inversion are shown below. We are able to recover the moderately conductive overburden from MT information as well as the conductive pipe from both the MT and ZTEM. The maximum conductivity of the recovered structure is notably higher than the true conductivity of the pipe.
+The results of the inversion are shown below. We are able to recover the moderately conductive overburden from MT information as well as the conductive pipe from both the MT and ZTEM. The maximum conductivity of the recovered structure is notably higher than the true conductivity of the pipe. Despite inverting for the smoothest model, the inversion need to place more sparse structures nearer to the Earth's surface to fit both the MT and ZTEM data. It is possible that our mesh is too coarse to recover a smooth model that explains both datasets.
 
 The inversion reaches target misfit after 6 iterations but we have chosen the model recovered at iteration 3 (chi factor = 1.06). The model norm is discontinuous because the current model is set to be the reference model for the next beta value.
 The recovered model is able to reproduce the observed anomaly but underestimates its amplitude. Misfit maps show that we are fitting both datasets relatively evenly.

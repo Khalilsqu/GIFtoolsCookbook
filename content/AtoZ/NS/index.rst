@@ -18,9 +18,9 @@ Once finished, the user will be familiar with:
     - Creating OcTree meshes based on survey geometry
     - Practical strategies for inverting natural source data with the E3DMT codes
     - Differences between E3DMT versions 1 and 2
-    - How to jointly invert MT and ZTEM data using GIFtools (PENDING)
+    - How to jointly invert MT and ZTEM data using GIFtools
 
-The full A to Z example is split into 3 parts:
+The full A to Z example is split into 4 parts:
 
 .. toctree::
     :maxdepth: 1
