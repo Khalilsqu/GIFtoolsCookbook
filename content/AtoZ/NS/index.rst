@@ -28,6 +28,7 @@ The full A to Z example is split into 3 parts:
     Loading, interpreting and preparing data <data>
     MT inversion <mt_inversion>
     ZTEM inversion <ztem_inversion>
+    Joint MT/ZTEM inversion <joint_inversion>
 
 
 

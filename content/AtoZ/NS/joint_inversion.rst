@@ -1,19 +1,19 @@
-.. _AtoZNS_ztem_inversion:
+.. _AtoZNS_e3dmt_joint_inversion:
 
 .. include:: <isonum.txt>
 
 
-Inverting ZTEM Data
-===================
+Joint MT/ZTEM Inversion
+=======================
 
-Here, we invert synthetic ZTEM data using E3DMT versions 1 and 2.
+Here, we jointly invert synthetic MT and ZTEM data using E3DMT versions 1 and 2.
 The goal is to provide strategies for successful inversion and show that both codes can be used to recover the pipe.
-When Tipper data, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
+When inverting impedances and Tipper data, the E3DMT codes have a tendency to place conductive artifacts proximal to the receivers.
 To overcome this obstacle, we demonstrate a basic approach for limiting artifacts through the use of interface weights.
 
-.. important:: The ZTEM data are in GIF format; see :ref:`GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data. To get addition background information on the coordinate systems used by the E3DMT codes, see the theory sections of the `version 1 <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#>`_ and `version 2 <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/theory.html#>`_ manuals.
+.. important:: The MT and ZTEM data are in GIF format; see :ref:`GIF data conventions page <signConvention>`. This means the locations are Easting-Northing-Elevation. The data convention is defined X = Northing, Y = Easting and Z = Down. Failure to recognize this will cause incorrect interpretation of the data. To get addition background information on the coordinate systems used by the E3DMT codes, see the theory sections of the `version 1 <https://e3dmt.readthedocs.io/en/e3dmt/content/theory.html#>`_ and `version 2 <https://e3dmt.readthedocs.io/en/e3dmt_v2/content/theory.html#>`_ manuals.
 
-.. _AtoZNS_ztem_inversion_setup:
+.. _AtoZNS_e3dmt_joint_inversionsetup:
 
 Setup for the Exercise
 ----------------------
@@ -28,13 +28,25 @@ Setup for the Exercise
     - `Download the demo <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/AtoZ_e3dmt_4Download.zip>`_
     - Open GIFtools
     - :ref:`Set the working directory <projSetWorkDir>`
-    - :ref:`Import the observed data in E3DMT version 1 format <importNSEMData_e3dmt1>`. The data file is *ZTEMdata_v1.obs* and is found in the *assets* sub-folder (ZTEM data are unitless)
-    - :ref:`Load OcTree mesh <importMeshOctree>`. Found in the folder *assets/octree_model_ztem*.
-    - :ref:`Load active cells model <importActiveModel>`. Found in the folder *assets/octree_model_ztem*.
-    - :ref:`Load true model <importModel>`. Found in the folder *assets/octree_model_ztem*.
+    - :ref:`Import the observed data in E3DMT version 1 format <importNSEMData_e3dmt1>`. The MT data file (*MTdata_v1.obs*) and the ZTEM data file (*ZTEMdata_v1.obs*) are found in the *assets* sub-folder. MT data are in units V/A and ZTEM data are unitless.
+    - :ref:`Load OcTree mesh <importMeshOctree>`. Load the one found in the folder *assets/octree_model_ztem*.
+    - :ref:`Load active cells model <importActiveModel>`. Load the one found in the folder *assets/octree_model_ztem*.
+    - :ref:`Load true model <importModel>`. Load the one found in the folder *assets/octree_model_ztem*.
 
 **Pro tip:** To avoid confusion between location and data coordinate systems, use the :ref:`set data headers <objectDataHeaders>` tool to define location columns as *Easting, Northing* and *Elevation*.
 
+.. figure:: ../../../images/AtoZ_E3DMT/data_impedance.png
+    :align: center
+    :width: 700
+
+    Real (left) and imaginary (right) components of impedance tensor element :math:`Z_{xy}` at 60 Hz in V/A. Data shows that :math:`Z_{xy}` lies in the lower-righthand quadrant of the complext plane. This is consistent with the desired format in GIFtools.
+
+
+.. figure:: ../../../images/AtoZ_E3DMT/data_appres.png
+    :align: center
+    :width: 700
+
+    Apparent resistivities for :math:`Z_{xy}` at frequencies 60 Hz (left), 360 Hz (middle) and 1500 Hz (right). Apparent resistivity data shows the anomaly as being cause by a conductor.
 
 .. figure:: ../../../images/AtoZ_E3DMT/data_ztem.png
     :align: center
@@ -42,19 +54,19 @@ Setup for the Exercise
 
     Z-axis tipper measurements at 60 Hz. It is important to note that the 'X' in TZXR data refers to the Northing direction! 'R' refers to real component and 'I' refers to imaginary component.
 
-.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. A table containing the uncertainties added to the data can be found :ref:`here <AtoZNS_data_ztem_unc>` .
+.. important:: Data were generated using E3DMT version 2 and a block model approximating TKC. Uncertainties of 0.0025 :math:`\pm` 5% were added to all impedance tensor measurements. A table containing the uncertainties added to the ZTEM data can be found :ref:`here <AtoZNS_data_ztem_unc>` .
 
 
 E3DMT Version 1
 ---------------
 
-Let us now invert the ZTEM data using E3DMT version 1. 
+Let us now invert the MT and ZTEM data using E3DMT version 1. 
 
     - :ref:`Create E3DMT ver 1 inversion object <createMTZTEMInv>`
     - :ref:`Use edit options <invEditOptions_e3dmt_ver1>` to set the inversion parameters
 
         - Basic Tab:
-            - Select the ZTEM data
+            - Hold *ctrl* and select the MT and ZTEM data
             - Set mesh
             - Set topography to active cells model
             - No background susceptibility
@@ -128,7 +140,7 @@ Let us now invert the ZTEM data using E3DMT version 2. Unlike version 1, version
     - :ref:`Use edit options <invEditOptions_e3dmt_ver1>` to set the inversion parameters
 
         - Basic Tab:
-            - Select the impedance data
+            - Hold *ctrl* and select the MT and ZTEM data
             - Set mesh
             - Set topography to active cells model
             - No background susceptibility
