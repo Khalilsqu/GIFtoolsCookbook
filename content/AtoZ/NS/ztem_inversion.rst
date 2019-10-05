@@ -159,7 +159,7 @@ The inversion reaches target misfit after 4 iterations, but we have chosen to sh
     :align: center
     :width: 700
 
-    Recovered model at iteration 4. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
+    Recovered model at iteration 3. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/true_model_ztem.png

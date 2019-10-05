@@ -94,14 +94,14 @@ The inversion reaches target misfit after 4 iterations. The model norm is discon
 The recovered model is able to reproduce the observed anomaly but underestimates its amplitude.
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inv_ztem_v1_iter04.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_joint_v1_iter03.png
     :align: center
     :width: 700
 
-    Recovered model at iteration 4. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
+    Recovered model at iteration 3. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/true_model_ztem.png
+.. figure:: ../../../images/AtoZ_E3DMT/true_model_joint.png
     :align: center
     :width: 700
 
@@ -112,6 +112,13 @@ The recovered model is able to reproduce the observed anomaly but underestimates
     :width: 700
 
     Convergence curve shows that inversion reaches target misfit. The model norm is discontinuous because the reference modeled is updated at each iteration.
+
+
+.. figure:: ../../../images/AtoZ_E3DMT/inv_joint_mt_v1_misfit.png
+    :align: center
+    :width: 700
+
+    Predicted data (left), observed data (centre) and normalized misfit (right) for the real component of :math:`Z_{xy}` at 60 Hz.
 
 
 .. figure:: ../../../images/AtoZ_E3DMT/inv_ztem_v1_misfit.png
@@ -167,14 +174,14 @@ The results of the inversion are shown below. We are unable to recover the moder
 The inversion reaches target misfit after 4 iterations, but we have chosen to show the model at iteration 3 (chi factor of 1.005). The model norm is discontinuous because the current model is set to be the reference model for the next beta value. The recovered model is able to reproduce the observed anomaly but underestimates its amplitude.
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inv_ztem_v2_iter03.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_joint_v2_iter03.png
     :align: center
     :width: 700
 
-    Recovered model at iteration 4. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
+    Recovered model at iteration 3. EW cross-section (left), NS cross-section (centre), horizontal slice (right).
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/true_model_ztem.png
+.. figure:: ../../../images/AtoZ_E3DMT/true_model_joint.png
     :align: center
     :width: 700
 
@@ -187,8 +194,17 @@ The inversion reaches target misfit after 4 iterations, but we have chosen to sh
     Convergence curve shows that inversion reaches target misfit. The model norm is discontinuous because the reference modeled is updated at each iteration.
 
 
-.. figure:: ../../../images/AtoZ_E3DMT/inv_ztem_v2_misfit.png
+.. figure:: ../../../images/AtoZ_E3DMT/inv_joint_mt_v2_misfit.png
+    :align: center
+    :width: 700
+
+    Predicted data (left), observed data (centre) and normalized misfit (right) for the real component of :math:`Z_{xy}` at 60 Hz.
+
+
+.. figure:: ../../../images/AtoZ_E3DMT/inv_joint_ztem_v2_misfit.png
     :align: center
     :width: 700
 
     Predicted data (left), observed data (centre) and normalized misfit (right) for the real component of :math:`T_{zx}` at 60 Hz.
+
+
