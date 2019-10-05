@@ -132,7 +132,7 @@ Advanced (Parameter 2)
 
 **Weighting functions:** Here, the user may choose not to include additional model weights (**none**) or include face/model weights using a weights object or sensitivity-based weighting. (see section :ref:`Import sensitivity as weights <importSensWeights>`).
 	- **no weighting**: no weight is applied
-	- **Sensitivity weighting**: If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion.
+	- **Sensitivity weighting**: If this latest option is chosen, the program will be called a first time to compute the sensitivity matrix. GIFtools will then automatically load the sensitivity, compute the weight and launch the full inversion (see :ref:`fundamentals section <sensW_for_dcip_demo>`).
 		- On cells center: the sensitivity weights are applied to the smallness term
 		- On faces: the sensitivity weights are applied on the gradient terms.
 		- threshold: apply a threshold to the sensitivity weights
@@ -178,13 +178,57 @@ DCIP3D
 Functionality specific to the ``DCIPinversion`` object
 
 
-Create Files (make_wdat)
-------------------------
+Discrete topo/weights -> Create Files (make_wdat)
+-------------------------------------------------
+
+.. figure:: ../../../../images/Inputs_make_wdat.png
+    :align: center
+    :width: 350
+
+
+``MAKE_WDAT`` is a utility used to make a ``w.dat`` file that has smoothing in the x- and y-directions for the first few layers that underlie the topography surface. It suppresses the tendency of the algorithm to make highly variable structure in these top layers of the model (`link to the dcip3d manual <https://dcip3d.readthedocs.io/en/latest/content/runprog/weights.html>`__ ).
+
+.. note::
+	We stress that the above weighting should be applied with care. A strong horizontal smoothing can often eliminate horizontal changes in the conductivity, even if the earth model truly had these. The inclusion, and details, of the surface weighting therefore involves subjective decision by the u er. Without weighting, the model at the surface can be quite rough (due to electrod effects). On the other hand, local geology is also sometimes quite rough and hence the tr e earth model should exhibit a large heterogeneity.
+
+
+mesh
+	The 3D mesh file used in the DC or IP inversion
+topo
+	A topography file that is in the general format. Use null to apply to the top layers of the mesh.
+
+Layer
+	Specify he number of layers to implement the weighting. The air layers will not be weighted and the remaining portion of the model will have a weight of 1.
+
+weights
+	Values of weights for the n layers specified on the previous line.
+
+
+The program ``MAKE_WDAT`` outputs two files:
+
+w.dat
+	A 3D weighting file to use in the inversion
+
+topo.idx (is ``Create File`` is selected)
+	The topography file in discrete format named from the last line in the input file. This file is not generated if the name line in the input file was null.
 
 .. _invDCIP3DInputOptions:
 
-Set for Inversion
------------------
+Discrete topo/weights -> Set for Inversion
+------------------------------------------
+
+.. figure:: ../../../../images/set_for_inversion.png
+    :align: center
+    :width: 350
+
+Set the weights created with ``make_wdat`` in the inversion.
+
+
+Discrete topo/weights -> create Sensitivity weights
+---------------------------------------------------
+
+Create a weighting files from a ``GIFmodel`` file (preferentially created from a ``sensitivity.txt`` file)
+
 
 .. _invEditOptions_dcipoctree:
 
@@ -198,3 +242,23 @@ DCIP Octree
     Basic (left), model options (middle) and advanced parameters  (right) tabs.
 
 
+tol_nl mindm iter_per_beta
+        The first parameter tol_nl defines a tolerance for the relative gradient at each :math:`\beta` step: tol_nl math:`= ||g|| / ||g_o||`, where :math:`g` is the current gradient and :math:`g_o` is the gradient at the start of the current :math:`\beta` step iteration. If the relative gradient is less than tol_nl, then the code exits the current :math:`\beta` iteration and decreases :math:`\beta` by the beta_factor.
+
+        mindm defines the smallest allowable model perturbation (if the model perturbation :math:`\Delta m` recovered as a result of IPCH iteration is smaller than mindm, then the current :math:`\beta` iteration is terminated and :math:`\beta` is reduced by beta_factor before the next beta step.
+
+        iter_per_beta sets the maximum number of times that the model can be updated within a given beta iteration.
+
+tol_ipcg max_iter_ipcg
+        tol_ipcg is the tolerance to which the IPCG iteration needs to solve the model perturbation. This defines how well the system :math:`J^T J + \beta W_m^T W_m` is solved.
+
+        max_iter_ipcg defines the maximum number of IPCG iterations allowed per :math:`\beta` step to solve for the model perturbation.
+
+Update reference model throughout
+        This parameter provides the optional capability to change the reference model at each beta step. If the option is selected, then the reference model is updated every time the regularization parameter changes and is set to the last recovered model from the previous iteration. This may result in quicker convergence. If the option is not used, then the same reference model, as originally defined in line 4 is used throughout the inversion.
+
+SMOOTH_MOD | SMOOTH_MOD_DIF
+        This option is used to define the reference model in and out of the derivative terms of the model objective function. The options are: SMOOTH_MOD_DIF (reference model is defined in the derivative terms of the model objective function) and SMOOTH_MOD (reference model is defined only the smallest model term of the objective function).
+
+.. note::
+	more details in the `dcipOctree manual <https://dcipoctree.readthedocs.io/en/latest/content/runprog/dcinv.html>`_.

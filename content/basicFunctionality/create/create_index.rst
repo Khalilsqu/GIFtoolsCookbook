@@ -15,6 +15,7 @@ Create allows the user to generate objects which are used to carry out a wide va
         Inversion <inv/inv_index>
         Processing <processing/esProcessing>
         Fortran utility program <fortran/fortran_index>
+        Creating a Tensor Mesh <create_mesh>
         Create Survey <survey/survey_index>
         Model Builder <ModelBuilder/ModelBuilder_index>
 

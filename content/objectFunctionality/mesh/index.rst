@@ -6,7 +6,7 @@ Mesh
 .. toctree::
     :maxdepth: 1
 
-    addPaddingCells
+    modifying
     createModel
     createWeights
     shiftCoordinates
