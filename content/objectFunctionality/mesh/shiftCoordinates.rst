@@ -5,5 +5,10 @@
 Shift Mesh Coordinates
 ======================
 
- .. raw:: html
-    :file: ../../../underconstruction.html
+This tool allows you to translate the coordinates of a mesh using the
+``current`` and ``shifted`` Easting and Northing coordinates.
+
+
+.. figure:: ../../../images/meshShiftCoordinates.png
+    :align: center
+    :width: 600
