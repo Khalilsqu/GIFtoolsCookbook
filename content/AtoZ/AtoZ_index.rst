@@ -24,8 +24,8 @@ Tutorials are organized by geophysical method:
 
         Gravity: Forward modeling and constrained inversion <gravity/index>
         Magnetics: Dealing with remanence <magnetic/index>
-        EM1DFM: 1D and laterally constrained 3D inversion <em1dfm/index>
-        EM1DTM: Laterally constrained 3D inversion using SimPEG <em1dtm/index>
+        EM1DFM: 1D and laterally constrained inversion <em1dfm/index>
+        TEM: From 1D to 3D inversion using Python <em1dtm/index>
         DCIP: Simulate and Invert in 2D and 3D <DCIP/index>
         MT/ZTEM: Dealing with natural source EM <NS/index>
 
