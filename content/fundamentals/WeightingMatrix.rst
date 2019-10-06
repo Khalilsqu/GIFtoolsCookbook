@@ -49,3 +49,38 @@ See for examples the :ref:`Gravity inversion<AtoZGrav_Inversion>` or :ref:`Magne
     :align: right
     :figwidth: 0%
 
+
+.. _sensW_for_dcip_demo:
+
+Sensitivity weighting for DCIP inversion
+----------------------------------------
+
+A recent advancement in inversion is the use of the sensitivity matrix as weighting.
+
+.. math::
+    \mathbf{w_s} = \mathbf{J}_{approx} / max(\mathbf{J}_{approx}) + \delta
+
+.. math::
+    \mathbf{w_x} = \mathbf{A}_c^{f_x}\mathbf{w_s}
+
+.. math::
+    \mathbf{w_y} = \mathbf{A}_c^{f_y}\mathbf{w_s}
+
+.. math::
+    \mathbf{w_z} = \mathbf{A}_c^{f_z}\mathbf{w_s}
+
+where :math:`\mathbf{w_s}`, :math:`\mathbf{w_s}`, :math:`\mathbf{w_s}` and
+:math:`\mathbf{w_s}` are the cell-center and cell-face weights,
+:math:`\mathbf{J}_{approx}` are the values from the ``sensitivity.txt`` file,
+values from :math:`\delta` is a user-defined threhold parameter ([DEFAULT=1e-2]) and :math:`\mathbf{A}_c^{f_x}, \mathbf{A}_c^{f_y},
+\mathbf{A}_c^{f_z}` are averaging operators taking the cell-center values to the respective faces. Those weighting can then be applied to all or parts of the regularization term. Their effects are illustrated on the figures below (Linear and Log Scale conductivities).
+
+.. figure::
+    ../../images/DCIP_SensW_demo.png
+    :align: left
+    :figwidth: 45%
+
+.. figure::
+    ../../images/DCIP_SensW_demo_LogScale.png
+    :align: right
+    :figwidth: 45%

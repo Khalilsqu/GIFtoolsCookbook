@@ -14,9 +14,9 @@ Set ZTEM Data Type
 
 For the E3DMT version 1 code, there are several inversion options for inverting ZTEM data:
 
-	- MTT: A fix base station is used to measure Hx and Hy, while Hz is measured at each data locations
-	- MTE: Same as above, however the values for Hx and Hy are computed from the starting model
-	- MTH: No base station. Hx, Hy and Hz are all measured at every data location
+    - MTT: A fix base station is used to measure Hx and Hy, while Hz is measured at each data locations
+    - MTE: Same as above, however the values for Hx and Hy are computed from the starting model
+    - MTH: No base station. Hx, Hy and Hz are all measured at every data location
 
 This functionality can be accessed via:
 
@@ -24,8 +24,8 @@ This functionality can be accessed via:
 
 Some things to note about this functionality
 
-	- If the user chooses type *MTT* or *MTE*, they will need to :ref:`set/reset base station <objectDataTypeZTEM_basestn>` and set the io Header for the BASEID column to use the E3DMT version 1 code.
-	- As of right now, the E3DMT version 2 code only supports *MTH*. In the future, this may change.
+    - If the user chooses type *MTT* or *MTE*, they will need to :ref:`set/reset base station <objectDataTypeZTEM_basestn>` and set the io Header for the BASEID column to use the E3DMT version 1 code.
+    - As of right now, the E3DMT version 2 code only supports *MTH*. In the future, this may change.
 
 
 
@@ -51,8 +51,8 @@ In the pop-up window shown below, the user specifies the following:
 
 Some things to note about this functionality:
 
-	- By using this functionality, you will replace any pre-existing base stations and replace the base station index (BASEID) column
-	- A base station can be set and used within the framework of the E3DMT version 2 code.
+    - By using this functionality, you will replace any pre-existing base stations and replace the base station index (BASEID) column
+    - A base station can be set and used within the framework of the E3DMT version 2 code.
 
 
 .. _objectDataTypeZTEM_snid:

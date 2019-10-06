@@ -6,7 +6,7 @@
 ..     :file: ../../../underconstruction.html
 
 
-Laterally Constrained 3D Inversion
+Laterally Constrained 1D Inversion
 ==================================
 
 Here, time-domain data are inverted using the laterally constrained 3D

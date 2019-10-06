@@ -210,7 +210,7 @@ Here, we compare the observed data to the predicted data from our forward model.
 
     - :ref:`Load predicted data <fwdLoadResults>`
     - Using :ref:`add data from another object <objectCombineData>`, add the observed data to the predicted gravity data
-    - Using :ref:`column calculator <objectColumnCalculator>`, subtract the predicted data from the observed data
+    - Using :ref:`Calculator <objectCalculator>`, subtract the predicted data from the observed data
     - :ref:`View the data <viewData>` (observed, predicted and difference) from the final data object you created
 
 .. figure:: images/CompareData.png

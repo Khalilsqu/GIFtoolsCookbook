@@ -19,7 +19,7 @@ Select the object and the menu **Data manipulation** |rarr| **Edit field params*
     :width: 400
 
 
- 
+
 .. _objectRemoveIGRF:
 
 Remove the IGRF from magnetic data
@@ -33,7 +33,7 @@ To remove the IGRF value from a magnetic data set, the i/o header for the data m
     :align: center
     :width: 400
 
-**NOTE 1:** A separate way of removing the IGRF would be through the :ref:`Constant calculator <objectConstantCalculator>`. 
+**NOTE 1:** A separate way of removing the IGRF would be through the :ref:`Calculator <objectCalculator>`.
 
 
 .. _objectMagDataElevation:

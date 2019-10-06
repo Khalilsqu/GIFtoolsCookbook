@@ -5,5 +5,7 @@
 Delete
 ======
 
+Delete objects within GIFtools:
 
+**Edit** |rarr| **Delete**
 

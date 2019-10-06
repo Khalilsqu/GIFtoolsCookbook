@@ -84,6 +84,7 @@ object to speedup the process.
 - Run all
 - Upon completion, load all results ``First to targets``
 
+.. _AtoZDCIP_2DInversion_Merge:
 
 Merge and interpolate models
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,6 +93,12 @@ While we can view each inversion result on their respective 2D mesh, in this
 section we will bring together the 2D models into our 3D mesh for later use.
 
 - :ref:`Merge results <batchInversionMerge>` using the DCSurveyFull ``lineID`` property as reference
+    - Right-click on the ` ``BatchInversion``
+    - Click :ref:`Merge all <batchInversionMerge>`
+    - Select the 3D original mesh
+    - Select the ``DC3Ddata`` object generated in the ``DC3DForward``
+    - Check that ``line IDs`` are correct
+    - Click ``OK`` to proceed
 
 .. figure:: ./../../../images/AtoZ_DCIP/AtoZ_DC_inv2D.png
     :align: center

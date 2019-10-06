@@ -13,13 +13,13 @@ Loading the data and simple processing
     - :ref:`Import data from EDI files <importNSEMData_edi>`: The raw EDI data files contain a combination of impedance, apparent resistivity, phase, ZTEM and other data which can all be loaded. The resulting data object can be an *IMPdata* or *APPdata* object.
 
     - :ref:`Create different data type (optional) <objectCreateDiffData>`: Let us assume the EDI files contain impedance, apparent resistivity, phase and ZTEM data and that an *IMPdata* (impedance data) object was created upon loading. This functionality can be used to create a *ZTEMdata* or *IMPdata* object if those data are found in the *IMPdata* object.
-    
+
     - **Correct units:** GIFtools makes assumptions regarding the units of data within EDI files and converts data to standard units used by GIFtools. See :ref:`data units in EDI files <importNSEMData_edi>` and :ref:`GIF data units<sign_units>`.
-    
-    - **Correct imaginary and/or phase data:** If the time-dependence (:math:`\pm i\omega t`) differs between the data being loaded and the code being used, then imaginary data and phases must be multiplied by -1 using the :ref:`constant calculator<objectConstantCalculator>`. The details of this step are explained further for :ref:`MT data<sign_mt_conv>` and :ref:`ZTEM data<sign_ztem_conv>`. 
-    
+
+    - **Correct imaginary and/or phase data:** If the time-dependence (:math:`\pm i\omega t`) differs between the data being loaded and the code being used, then imaginary data and phases must be multiplied by -1 using the :ref:`calculator <objectCalculator>`. The details of this step are explained further for :ref:`MT data<sign_mt_conv>` and :ref:`ZTEM data<sign_ztem_conv>`.
+
     - :ref:`Set IO headers <objectSetioHeaders>`
-    
+
     - :ref:`Assign uncertainties <objectAssignUncert>`
 
 

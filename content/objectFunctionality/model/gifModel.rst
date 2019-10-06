@@ -107,7 +107,6 @@ The following fields are then filled in:
 	- **Tolerance:** The extent at which physical property values may differ from *old value* and be replace by *new value*
 
 
-<<<<<<< HEAD
 .. _objectFunctionalityFillNDValue:
 
 Fill No-Data-Values (2D Interpolation)
