@@ -105,9 +105,9 @@ Before inverting the data, we must assign uncertainties. The role of uncertainti
 
     - Use :ref:`assign frequency-dependent uncertainties<objectAssignUncert>` to create data columns containing the data uncertainties. Use the following floor and percent values for both the real and imaginary data:
 
-        - 1000 Hz = 1 ppm floor + 0\%
-        - 5000 Hz = 2 ppm floor + 0\%
-        - 25000 Hz = 5 ppm floor + 0\%
+        - 1000 Hz = 2 ppm floor + 0\%
+        - 5000 Hz = 5 ppm floor + 0\%
+        - 25000 Hz = 15 ppm floor + 0\%
 
     - Set :ref:`i/o headers<objectSetioHeaders>` for all fields. Files used in the inversion cannot be written until this is performed.
 
