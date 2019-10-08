@@ -11,7 +11,7 @@ visualized and used as weights in subsequent inversions.
 
 .. figure:: ../../../images/createInversionWorkflowDOI.png
     :align: center
-    :width: 400
+    :width: 425
 
 **Create** |rarr| **Workflow** |rarr| **DOI calculation**
 
@@ -28,33 +28,40 @@ The calculation requires two models and their respective reference values.
     :align: center
     :figwidth: 40%
 
-OPTION 1: Cell-by-cell
-----------------------
 
-The first method looks at the deviation of models normalized by the difference
-in reference value on a cell-by-cell basis:
+- **model 1 (& 2)**: inverted models with two different reference models
+- **reference 1 (& 2)**: reference models used in the inversion
+- **method**
+    - option 1: Cell-by-cell. The first method looks at the deviation of models normalized by the difference in reference value on a cell-by-cell basis:
 
-.. math::
+    .. math::
 
-	R(x,y) = \frac{m_1(x,z) - m_2(x,z)}{m_1^{ref}-m_2^{ref}}
+	   R(x,y) = \frac{m_1(x,z) - m_2(x,z)}{m_1^{ref}-m_2^{ref}}
 
-where :math:`m_1` and :math:`m_2` are the two chosen models and
-:math:`m^{ref}_1` and :math:`m^{ref}_2` their respective background reference
-models. Model parameters with large R values are assign high credibility.
+    where :math:`m_1` and :math:`m_2` are the two chosen models and :math:`m^{ref}_1` and :math:`m^{ref}_2` their respective background referencemodels. Model parameters with large R values are assign high credibility.
 
-OPTION 2: Cross-correlation
----------------------------
+    - option 2: Cross-correlation: The second strategy measures the difference between two images over `n` cells in a rectangular window. The cross-correlation between the two models are calculated as
 
-The second strategy measures the difference between two images over `n` cells in a rectangular window.
-The cross-correlation between the two models are calculated as
+    .. math::
 
-.. math::
-
-	C = \frac{ \sum_i^N (m_{1_i}-\bar m_{1}) (m_{2_i}-\bar m_{2})}{\bigg( \sum_i^N (m_{1_i}-\bar m_{1})^2 \sum_i^N (m_{2_i}-\bar m_{2})^2\bigg)^{(1/2)}}
+	   C = \frac{ \sum_i^N (m_{1_i}-\bar m_{1}) (m_{2_i}-\bar m_{2})}{\bigg( \sum_i^N (m_{1_i}-\bar m_{1})^2 \sum_i^N (m_{2_i}-\bar m_{2})^2\bigg)^{(1/2)}}
 
 
-where :math:`\bar m` is the average of the model over the window.
-The DOI index is calculated by
+    where :math:`\bar m` is the average of the model over the window. The DOI index is calculated by
 
-.. math::
-	R = \frac{C-1}{2}
+    .. math::
+	   R = \frac{C-1}{2}
+
+- **threshold**: Threshold used on the DOI to cut the models.
+
+Output
+^^^^^^
+
+- **reference model 1 (& 2)**
+- **DOI**: Computed DOI
+- **DOI_Thresholded**: DOI model which has been thresholded at the surface to highlight the area of interest.
+- **DOI_Masked_model1 (&2)**: Model masked based on the thresholded DOI.
+
+
+
+ADD IMAGE
