@@ -29,8 +29,10 @@ The calculation requires two models and their respective reference values.
     :figwidth: 40%
 
 
-- **model 1 (& 2)**: inverted models with two different reference models
-- **reference 1 (& 2)**: reference models used in the inversion
+- **model 1 (& 2)**
+    inverted models with two different reference models
+- **reference 1 (& 2)**
+    reference models used in the inversion
 - **method**
     - option 1: Cell-by-cell. The first method looks at the deviation of models normalized by the difference in reference value on a cell-by-cell basis:
 
@@ -52,16 +54,25 @@ The calculation requires two models and their respective reference values.
     .. math::
 	   R = \frac{C-1}{2}
 
-- **threshold**: Threshold used on the DOI to cut the models.
+- **threshold**
+    Threshold used on the DOI to cut the models.
 
 Output
 ^^^^^^
 
 - **reference model 1 (& 2)**
-- **DOI**: Computed DOI
-- **DOI_Thresholded**: DOI model which has been thresholded at the surface to highlight the area of interest.
-- **DOI_Masked_model1 (&2)**: Model masked based on the thresholded DOI.
+    reference models used for the computation
+
+- **DOI**:
+    Computed DOI
+
+- **DOI_Thresholded**
+    DOI model which has been thresholded (with the input `thresold`) at the surface to highlight the area of interest (see figure below for an example).
+
+- **DOI_Masked_model1 (&2)**
+    Model masked based on the thresholded DOI.
 
 
-
-ADD IMAGE
+.. figure:: ../../../images/Workflows/DOI_thresholded_explanation.png
+    :align: center
+    :figwidth: 100%
