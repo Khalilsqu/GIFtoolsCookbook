@@ -18,7 +18,8 @@ split into two parts:
        :maxdepth: 1
 
        Importing raw time-domain data <assignUncertainties>
-       Laterally Constrained 3D Inversion <lateralInversion>
+       Laterally Constrained 1D Inversion <lateralInversion>
+       Mesh validation for TDoctree inversion <meshValidation3D>
 
 .. figure:: ../../../images/AtoZ_tem1d/logo-empymod-plain.png
     :align: right

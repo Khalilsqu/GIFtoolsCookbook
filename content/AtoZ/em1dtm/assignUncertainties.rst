@@ -117,10 +117,7 @@ response spans multiple orders of magnitudes of all time channels, and the
 errors on the data may vary as such, distinct floor and percent uncertainties
 will be computed for each time channel.
 
-    - :ref:`Create a Time-dependent uncertainty file<recipe_data_createUncertFile>`
-        - Use the 25th percentile value from the data statistics to assign your floor values.
-        - Alternatively, use the provided file ``Uncertainties.data``
-    - :ref:`Assign uncertainties from file <objectAssignUncertFile>`
+    - :ref:`Assign uncertainties from file <objectAssignUncertFile>` ``Uncertainties.data``
     - You can review the uncertainty with the :ref:`GUI <objectAssignUncertGUI>` to verify your work.
 
 .. figure:: ./../../../images/AtoZ_tem1d/AssignedUncertainties.png
