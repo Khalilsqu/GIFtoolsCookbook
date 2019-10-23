@@ -40,10 +40,13 @@ To forward model or invert ZTEM data using the MTZ3D or E3DMT version 1 codes, t
 
 In the pop-up window shown below, the user specifies the following:
 
-    - **Easting:** the Easting coordinate location of the base station
-    - **Northing:** the Northing coordinate location of the base station
-    - **Vertical:** the elevation coordinate location of the base station
-    - **ID header:** the name of the data header given to the BASEID column
+    - **Hx, Hy receiver width:** Sets the dimensions of loop receivers measuring the horizontal H-field
+    - **Hz receiver length:** Sets the dimensions of loop receivers measuring the vertical H-field
+    - **Hx, Hy Number of Segments:** Number of segments used to define receiver loops measuring Hx and Hy. If 4 is entered, the loops are square and *Hx, Hy receiver width* is the side length of each loop. If a number larger than 4 is entered, the loops are circular and *Hx, Hy receiver width* is the diameter.
+    - **Hz Number of Segments:** Number of segments used to define receiver loops measuring Hz. If 4 is entered, the loop is square and *Hz receiver width* is the side length of the loop. If a number larger than 4 is entered, the loop is circular and *Hz receiver width* is the diameter.
+    - **Orientation from Northing:** This value is the angle, in degrees, from geographic North. It is positive in the clockwise direction. If in standard orientation (:math:`Z_{xy} = E_x/H_y` with X = Northing, Y = Easting and Z = down), then use a value of 0. If the receivers are rotated relative to geographic North, you can model this with E3DMT v2.
+    - **Stn ID column name:** the name of the data header given to the SNID column
+
 
 .. figure:: ../../../../images/object/data/nsem/setBaseStn.png
     :align: center
@@ -51,7 +54,8 @@ In the pop-up window shown below, the user specifies the following:
 
 Some things to note about this functionality:
 
-    - By using this functionality, you will replace any pre-existing base stations and replace the base station index (BASEID) column
+    - By using this functionality, you will replace any pre-existing base stations and replace the base station index (BASEID) column.
+    - This functionality works for ZTEM simulations with and without base stations.
     - A base station can be set and used within the framework of the E3DMT version 2 code.
 
 
