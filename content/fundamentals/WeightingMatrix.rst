@@ -73,7 +73,7 @@ where :math:`\mathbf{w_s}`, :math:`\mathbf{w_s}`, :math:`\mathbf{w_s}` and
 :math:`\mathbf{w_s}` are the cell-center and cell-face weights,
 :math:`\mathbf{J}_{approx}` are the values from the ``sensitivity.txt`` file,
 values from :math:`\delta` is a user-defined threhold parameter ([DEFAULT=1e-2]) and :math:`\mathbf{A}_c^{f_x}, \mathbf{A}_c^{f_y},
-\mathbf{A}_c^{f_z}` are averaging operators taking the cell-center values to the respective faces. Those weighting can then be applied to all or parts of the regularization term. Their effects are illustrated on the figures below (Linear and Log Scale conductivities).
+\mathbf{A}_c^{f_z}` are averaging operators taking the cell-center values to the respective faces. Those weighting can then be applied to all or parts of the regularization term. Their effects are illustrated on the figures below (Linear and Log Scale conductivities). The files to reproduce those figures can be found `here <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/DCIP_Fundamentals_SensWProject.zip>`_
 
 .. figure::
     ../../images/DCIP_SensW_demo.png
@@ -81,6 +81,6 @@ values from :math:`\delta` is a user-defined threhold parameter ([DEFAULT=1e-2])
     :figwidth: 45%
 
 .. figure::
-    ../../images/DCIP_SensW_demo_LogScale.png
+    ../../images/dcip_SensW_demo_LogScale.png
     :align: right
     :figwidth: 45%
