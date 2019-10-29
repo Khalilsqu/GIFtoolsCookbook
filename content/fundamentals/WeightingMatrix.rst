@@ -81,6 +81,6 @@ values from :math:`\delta` is a user-defined threhold parameter ([DEFAULT=1e-2])
     :figwidth: 45%
 
 .. figure::
-    ../../images/dcip_SensW_demo_LogScale.png
+    ../../images/dcip_sensW_demo_LogScale.png
     :align: right
     :figwidth: 45%
