@@ -17,6 +17,7 @@ Setup for the Exercise
 ----------------------
 
     - `Download the demo <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/AtoZ_e3dmt_4Download.zip>`_
+    - `Inversion results <https://github.com/ubcgif/GIFtoolsCookbook/raw/master/assets/e3dmt_inv_results.zip>`_
     - Open GIFtools
     - :ref:`Set the working directory <projSetWorkDir>`
 
