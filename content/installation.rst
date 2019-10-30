@@ -1,6 +1,8 @@
 .. _installation:
 
 
+.. warning:: The GIFtools cookbook provides supporting documentation for **proprietary software** developed by the UBC Geophysical Inversion Facility. Currently, GIFtools software is **only accessible** by the consortium of companies which funded the GIFtools project. Plans to commercialize this software is underway.
+
 Installation
 ============
 
