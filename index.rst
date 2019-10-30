@@ -3,6 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
+.. warning:: The GIFtools cookbook provides supporting documentation for **proprietary software** developed by the UBC Geophysical Inversion Facility. Currently, GIFtools software is **only accessible** by the consortium of companies which funded the GIFtools project. Plans to commercialize this software is underway.
+
+
+
 .. figure:: /images/Cookbook_Landing.png
    :align: center
    :scale: 90%
