@@ -105,7 +105,7 @@ Once selected, the user must do the following:
     5) Select *OK*
 
 
-.. figure:: ../../../../images/importEDI.png
+.. figure:: ../../../../images/importMTedi.png
     :align: center
     :width: 400
 
