@@ -101,7 +101,7 @@ Once selected, the user must do the following:
     1) Use *Browse* to find the EDI file(s) which they would like to important data from
     2) Select *Load* to temporarily load all the data
     3) Select the properties (data columns) which they would like in their final data object (IMPdata or APPdata)
-    4) Choose whether or not the data must be transferred from Northing-Easting-Down to Easting-Northing-Up (GIF)
+    4) Choose whether or not the data must be transferred from X = Easting and Y = Northing to X = Northing and Y = Easting. The latter is used by GIF with Z defined as +ve downward.
     5) Select *OK*
 
 
