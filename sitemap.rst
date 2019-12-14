@@ -16,5 +16,6 @@ GIFtools Site map
     content/signConvention
     content/recipes/recipe_index
     content/AtoZ/AtoZ_index
+    content/comprehensive_workflow/index
     content/videoTutorials
 

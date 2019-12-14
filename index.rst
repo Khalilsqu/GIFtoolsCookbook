@@ -29,7 +29,7 @@ Welcome to the GIFtools cookbook! Below you will find the Quick-start guide
     content/fileFormats/format_index
 
 The following items are training resources for practitioners - from short
-recipes to extended walk-through tutorials (A to Z)
+recipes to extended walk-through tutorials (A to Z) to comprehensive workflows.
 
 .. toctree::
     :maxdepth: 1
@@ -38,6 +38,7 @@ recipes to extended walk-through tutorials (A to Z)
     content/signConvention
     content/recipes/recipe_index
     content/AtoZ/AtoZ_index
+    content/comprehensive_workflow/index
     content/videoTutorials
     Site map <sitemap>
 
