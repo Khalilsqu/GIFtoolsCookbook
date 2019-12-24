@@ -4,7 +4,7 @@
 Understanding ZTEM Anomalies
 ============================
 
-Here, we investigate the ZTEM anomalies produced by basic structures. Understanding these anomalies is crucial for understanding field collected data. Most importantly, the knowledge gained here can be used to determine the coordinate system and sign convention for field collected data, and the operations required to transform the raw data into UBC GIF format.
+In order to properly interpret ZTEM data, it is import to understand the shape and characteristics of ZTEM anomalies for basic structures. Here, we investigate the ZTEM anomalies produced by compact conductors and resistors. The knowledge gained here can be used to determine the coordinate system and sign convention for field collected data, and the operations required to transform the raw data into UBC GIF format.
 
 ZTEM data definition
 --------------------
@@ -31,6 +31,9 @@ where 1 and 2 refer to fields associated with plane waves polarized along two pe
     \begin{bmatrix} - H_y^{(1)} H_z^{(2)} + H_y^{(2)} H_z^{(1)} \\ H_x^{(1)} H_z^{(2)} - H_x^{(2)} H_z^{(1)} \end{bmatrix}
     
 
+.. _comprehensive_workflow_ztem_1_coordinates:
+
+
 ZTEM data and coordinate conventions
 ------------------------------------
 
@@ -45,11 +48,12 @@ ZTEM data are generally defined using a right-handed coordinate system. The ques
 **Most airborne systems** define their data in a coordinate system where:
 	
 	- X is the along-line direction or "flight line direction" (degrees counter-clockwise from Northing)
-	- Y is cross-line direction (90 degrees clockwise from along-line direction)
+	- Y is cross-line direction (90 degrees counter clockwise from along-line direction)
 	- Z is +ve upwards
 
 Below, we see the ZTEM anomalies for UBC-GIF modeled data and standard airborne data collected over the same compact conductor. The standard airborne data were collected along flight lines with a bearing of 45 degrees (from SW to NE). Thus the cross line direction is -45 degrees (SE to NW). Looking at these anomalies, we see that:
 
+	- The response near the edges of the conductor is large and the response directly over the conductor is relatively small; as ZTEM measurements are sensitive to lateral changes in conductivity and not the conductor itself.
 	- For UBC-GIF convention, the :math:`T_x` anomalies lie to the North and South of the conductor and :math:`T_y` anomalies lie to the East and West.
 	- For standard airborne data, the :math:`T_x` anomalies are oriented along the flight-direction (along-line) and :math:`T_y` anomalies are oriented in the cross-line direction.
 
@@ -58,15 +62,20 @@ Below, we see the ZTEM anomalies for UBC-GIF modeled data and standard airborne 
     :align: center
     :width: 700
 
-    ZTEM anomaly in UBC-GIF coordinates over a compact conductor at 30 Hz. From left to right: Rx[Tx], Im[Tx], Re[Ty] and Im[Ty].
+    ZTEM anomaly in UBC-GIF coordinates over a compact conductor at 30 Hz. From left to right: Re[Tx], Im[Tx], Re[Ty] and Im[Ty].
 
 
 .. figure:: images/conductor_anomaly_airborne_45.png
     :align: center
     :width: 700
 
-    ZTEM anomaly in airborne data coordinate system at 30 Hz. Flight lines were at 45 degree (SW to NE) From left to right: Rx[Tx], Im[Tx], Re[Ty] and Im[Ty].
+    ZTEM anomaly in airborne data coordinate system at 30 Hz. Flight lines were at 45 degree (SW to NE) From left to right: Re[Tx], Im[Tx], Re[Ty] and Im[Ty].
 
+
+.. note:: The process of transforming data from the field coordinate system to UBC-GIF is discussed further down on the page.
+
+
+.. _comprehensive_workflow_ztem_1_conductor:
 
 Anomaly over a compact conductor
 --------------------------------
@@ -95,7 +104,7 @@ Let us work in the UBC-GIF ZTEM data convention; X is Northing, Y is Easting and
     ZTEM anomaly over a compact conductor at 720 Hz. From left to right: Rx[Tx], Im[Tx], Re[Ty] and Im[Ty].
 
 
-
+.. _comprehensive_workflow_ztem_1_resistor:
 
 Anomaly over a compact resistor
 -------------------------------
@@ -124,7 +133,7 @@ Let us work again in the UBC-GIF ZTEM data convention; X is Northing, Y is Easti
     ZTEM anomaly over a compact resistor at 720 Hz. From left to right: Rx[Tx], Im[Tx], Re[Ty] and Im[Ty].
 
 
-
+.. _comprehensive_workflow_ztem_1_transformation:
 
 Transforming data into UBC-GIF convention
 -----------------------------------------
@@ -138,7 +147,15 @@ Let :math:`\theta` be the flight direction (counter-clockwise degrees from North
 	\begin{bmatrix} cos \theta & -sin\theta \\ sin\theta & cos\theta \end{bmatrix}
 	\begin{bmatrix} T_{x'} \\ T_{y'} \end{bmatrix}
 
-where a rotation matrix is applied to rotate from flight orientation to Northing (if necessary). The diagonal matrix transforms the cross-line direction from being 90 CCW relative to along-line direction, to being 90 CW relative to along-line direction (if necessary). The negative sign out front transform the coordinate system from being z +ve upwards to z +ve downwards (if necessary). This transformation has been built into GIFtools.
+The operations being performed can be summarized as follows:
+
+	- The rotation matrix is applied to rotate from flight orientation to Northing (if necessary).
+	- The diagonal matrix transforms the cross-line direction from being 90 degrees counter clockwise relative to along-line direction, to being 90 degrees clockwise relative to along-line direction (if necessary).
+	- The negative sign out front transform the coordinate system from being z +ve upwards to z +ve downwards (if necessary).
+
+
+.. note:: This transformation has been built into GIFtools. We will demonstrate this in the workflow.
+
 
 Example
 ^^^^^^^

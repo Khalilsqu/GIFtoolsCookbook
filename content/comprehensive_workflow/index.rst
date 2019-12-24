@@ -13,13 +13,14 @@ Here we focus on:
   - Strategies for assigning uncertainties
   - Detailed strategies for mesh design
   - Inversion
+  - Assessment of inversion results
 
 
 
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 0
 
     ZTEM: From XYZ data to inversion <ztem/index>
 
