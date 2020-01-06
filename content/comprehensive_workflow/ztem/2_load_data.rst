@@ -53,7 +53,7 @@ Some things to consider when examining your dataset may include:
     - If the data values collected along different flight line directions do not match up at the same locations.
     - If the shape of the Tzx anomaly over a known conductor or resistor lines up with the flight direction. Recall the :ref:`anomaly over a compact conductor <comprehensive_workflow_ztem_1_conductor>` .
 
-The real and imaginary components of the raw Tipper data provided are plotted below. Below, we see that data collected South-North and data collected East-West are very different at similar locations. This indicates the data coordinates are dependent on flight direction.
+The real and imaginary components of the raw Tipper data provided are plotted below. Below, we see that data collected Southwest to Northeast and data collected Northeast to Southwest are very different at similar locations. This indicates the data coordinates are dependent on flight direction.
 
 
 .. figure:: images/ZTEM_raw_data.png
@@ -75,23 +75,22 @@ Below, we see the convention for data collection provided by the contractor. Fly
 Transformation to UBC GIF Coordinates
 -------------------------------------
 
-According to the contractor information, we must apply the following transformations to the ZTEM data:
+According to the contractor information, we must apply the following transformations to the ZTEM data provided:
 
     - Data collected along Southwest to Northeast must be rotated counter clockwise by 45 degrees. And data collected along Southwest to Northeast must be rotated counter clockwise by 135 degrees.
     - We must transform from the cross-line direction to being 90 degrees clockwise from the along-line direction instead of 90 degrees counter clockwise.
     - We must transform from z +ve upward to z +ve downward.
 
-To accomplish this:
+To apply this transformation, we use the following utility:
 
-    - :ref:`ZTEM data transformation <importTopo>`. The data file is named *ZTEMtopo.xyz* and is in the *assets* folder.
+    - :ref:`ZTEM data transformation <objectDataManipulationZTEM_transform>`. The XYZ file has a column which provides the along-line direction for each datum.
 
-
-
+Tipper data after applying the transformation is shown below. X and Y are now the Northing and Easting directions, respectively, and Z is positive downward. This is the UBC-GIF convention. The data map indicates a possible conductor in the region near (273000, 6245000).
 
 
 .. figure:: images/ZTEM_rotated_data.png
     :align: center
     :width: 700
 
-    ZTEM data (TZXR, TZXI, TZYR and TZYI) at 90 Hz represented in UBC-GIF coordinates. Figure shows that all data are in the same coordinate system.
+    ZTEM data (TZXR, TZXI, TZYR and TZYI) at 180 Hz represented in UBC-GIF coordinates. Figure shows that all data are in the same coordinate system.
 

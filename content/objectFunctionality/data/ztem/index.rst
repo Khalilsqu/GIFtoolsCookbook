@@ -24,6 +24,7 @@ ZTEM data can are contained within a Z-axis Tipper EM data object (ZTEMdata). Th
         :maxdepth: 2
 
         dataType
+        dataManipulation
 
 
 
