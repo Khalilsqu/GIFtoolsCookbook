@@ -60,8 +60,8 @@ When setting the cooling schedule for the field dataset, the strategy was pretty
 
     - **beta max = 1**. The model recovered at the first iteration should clearly underfit the data. However if *beta max* is too large, you will have multiple iterations where the model doesn't budge because no emphasis is being put on fitting the data.
     - **beta min = 1e-6**. This can be set quite low. But it is good for the inversion to terminate within a reasonable number of beta iterations if target misfit is not reached.
-    - **reduction factor = 0.25:** Generally we choose a value between 0.1 and 0.9. If the reduction factor is too large, the inversion will run for a long time since the reduction in beta at each iteration is small. If the reduction factor is too small, we do not get much detail regarding the convergence of the inversion.
-    - **chi factor = 0.5** If we have over-estimated the uncertainties, the inversion will terminate before recovering a model that sufficiently explains the data. By setting the chi factor to less than one, we can more easily interpret the Tikhonov curve. We can also assess whether we have over-estimated or under-estimated the uncertainties. 
+    - **reduction factor = 0.25:** Generally we choose a value between 0.1 and 0.9. If the reduction factor is too large, the code will run for a long time since the reduction in beta at each iteration is small. If the reduction factor is too small, we do not get much detail regarding the convergence of the inversion.
+    - **chi factor = 0.5** If we have over-estimated the uncertainties, the inversion will terminate before recovering a model that sufficiently explains the data. By setting the chi factor to less than one, we can more easily interpret the Tikhonov curve. We can also assess whether we have over-estimated or under-estimated the uncertainties. If the inversion appears to be converging, you can always terminate the code.
 
 
 
